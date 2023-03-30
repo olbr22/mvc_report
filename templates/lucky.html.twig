@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Redovisning{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                Bilderna är hämtade med hjälp av <a href="https://thecatapi.com/">The Cat API</a>.
+            </div>
+        </div>
+        <div class="hero-image" style="background-image: url({{ cat }})";>
+        </div>
+    </div>
+
+{% endblock %}

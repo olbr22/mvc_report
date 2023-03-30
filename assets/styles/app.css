@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Shrikhand', cursive;
+}
+
+p {
+    font-family: 'Adamina', serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* presentation.html.twig */
+
+.presentation-image {
+    max-width: 300px;
+}
+
+.hero-image {
+    background-color: #cccccc;
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

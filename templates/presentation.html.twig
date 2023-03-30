@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Om mig{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">Om mig</h1>
+        <div class="row my-5">
+            <div class="col-sm">
+                <p>Hej! Mitt namn är {{ name }}. Jag är 30 år gammal och bor i Göteborg med min man och en liten hund. Jag ser fram emot att lära mig nya tekniker som våra lärare noggrant har valt ut i den här kursen.</p>
+            </div>
+            <div class="col-sm">
+                <div class="presentation-image">
+                    <img src="{{ asset('img/lucy_olga_alex.jpg') }}" alt="Picture of me and my family.">
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

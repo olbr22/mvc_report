@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ path('presentation')}}" style="font-family: 'Shrikhand', cursive;">OLBR22</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('presentation')}}">Hem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('about') }}">Om</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('report') }}">Redovisning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('quote') }}">Dagens citat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('lucky') }}">Lyckokatt</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block body %}{% endblock %}
+        <footer class="container-fluid">
+            <p class="text-center">&copy; Webbplatsen har utvecklats i utbildningssyfte för mvc-kursen. {{ "now"|date("Y") }}</p>
+        </footer>
+    </body>
+</html>
