@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MyController extends AbstractController
+class Kmom01Controller extends AbstractController
 {
     #[Route("/", name: "presentation")]
     public function presentation(): Response
@@ -36,7 +36,7 @@ class MyController extends AbstractController
     #[Route("/lucky", name: "lucky")]
     public function lucky(): Response
     {
-        $url = 'https://api.thecatapi.com/v1/images/search'; // Get random image of a cat
+        $url = 'https://api.thecatapi.com/v1/images/search'; // Get random image of a cat from this API
         $response = file_get_contents($url); // Send a GET request to the API and get the response
 
         if ($response) {
