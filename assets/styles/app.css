@@ -22,6 +22,28 @@ img {
     object-fit: cover;
 }
 
+/* Style main */
+
+.main-content {
+    min-height: 100vh;
+}
+
+/* Style footer */
+footer {
+    padding: 2rem 2rem 1rem 2rem;
+    background-color: #cccccc;
+}
+
+.footer {
+    max-width: 100%;
+    text-align: center;
+}
+
+footer .icon-bar {
+    margin-top: 1rem;
+}
+
+
 /* presentation.html.twig */
 
 .presentation-image {

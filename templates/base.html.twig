@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+
         <link rel="icon" href="{{ asset('favicon.ico') }}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -13,6 +15,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <link rel="stylesheet" href="{{ asset('vendor/components/font-awesome/css/all.min.css') }}" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,9 +43,18 @@
                 </ul>
             </div>
         </nav>
-        {% block body %}{% endblock %}
-        <footer class="container-fluid">
-            <p class="text-center">&copy; Webbplatsen har utvecklats i utbildningssyfte för mvc-kursen. {{ "now"|date("Y") }}</p>
+        <main class="main-content">
+            {% block body %}{% endblock %}
+        </main>
+        <footer class="container-fluid mt-auto">
+            <div class="footer">
+                <p class="text-center mb-auto">&copy; Webbplatsen har utvecklats i utbildningssyfte för mvc-kursen. {{ "now"|date("Y") }}</p>
+                <div class="icon-bar">
+                <a href="https://github.com/olbr22/mvc_report" target="_blank">
+                    <i class="fa-brands fa-square-github" style="font-size: 2rem; color: black;" title="GitHub olbr22"></i>
+                </a>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
