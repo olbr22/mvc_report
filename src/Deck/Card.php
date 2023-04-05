@@ -27,5 +27,4 @@ class Card
     {
         return $this->rank . " of " . $this->suit;
     }
-
 }
