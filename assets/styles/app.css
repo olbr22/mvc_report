@@ -19,7 +19,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 /* Style main */
@@ -57,4 +57,12 @@ footer .icon-bar {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.playing-card {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 61px;
+    height: 81px;
+    margin: 0.2rem;
 }

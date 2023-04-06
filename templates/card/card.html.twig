@@ -8,11 +8,14 @@
         <h1 class="display-4">Card</h1>
         <div class="row my-5">
             <div class="col-sm">
-                <p>A card {{ card }}.</p>
-                <p>Deck {{ deck }}.</p>
-                <p>Number of cards in the deck {{ num_cards }}.</p>
+                <p>A card {{ card }}</p>
+                <p>Number of cards: {{ num_cards }}</p>
+                {% for card in deck %}
+                    {% set left = card.getLeftOffset() %}
+                    {% set top = card.getTopOffset() %}
+                    <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">
+                {% endfor %}
             </div>
         </div>
     </div>
-
 {% endblock %}

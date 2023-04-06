@@ -25,6 +25,6 @@ class Card
 
     public function getCardName()
     {
-        return $this->rank . " of " . $this->suit;
+        return "[ " . $this->rank . " of " . $this->suit . " ]";
     }
 }
