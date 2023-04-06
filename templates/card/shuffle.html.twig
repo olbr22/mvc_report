@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Kort &amp; kortlek{% endblock %}
+{% block title %}Blanda kortlek{% endblock %}
 
 {% block body %}
 
@@ -18,6 +18,9 @@
                     </a>
                     <a href="{{ path('deck_shuffle') }}" class="list-group-item list-group-item-action" aria-current="true">
                     Blanda kortlek
+                    </a>
+                    <a href="{{ path('draw_card') }}" class="list-group-item list-group-item-action" aria-current="true">
+                    Dra kort
                     </a>
                 </div>
             </div>

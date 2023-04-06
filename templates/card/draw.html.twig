@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Kort &amp; kortlek{% endblock %}
+{% block title %}Dra kort{% endblock %}
 
 {% block body %}
 
@@ -25,9 +25,8 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <p>A card {{ card }}</p>
-                <p>Number of cards: {{ num_cards }}</p>
-                {% for card in deck %}
+                <p>Antal kort: {{ num_cards }}</p>
+                {% for card in hand %}
                     {% set left = card.getLeftOffset() %}
                     {% set top = card.getTopOffset() %}
                     <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">

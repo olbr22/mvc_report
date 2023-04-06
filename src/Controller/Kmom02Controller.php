@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Deck\Card;
 use App\Deck\CardGraphic;
+use App\Deck\CardHand;
 use App\Deck\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,5 +71,28 @@ class Kmom02Controller extends AbstractController
         ];
 
         return $this->render('card/shuffle.html.twig', $data);
+    }
+
+    #[Route("/card/deck/draw", name: "draw_card")]
+    public function draw_card(): Response
+    {
+        // create a deck of cards
+        $my_deck = new DeckOfCards();
+        $my_deck->createDeck();
+        // shuffle the deck
+        $my_deck->shuffle();
+        // create a hand
+        $my_hand = new CardHand();
+        $deck = $my_deck->getDeck();
+        // draw a card from the deck
+        $my_hand->draw($deck, 52);
+        $num_cards = count($deck);
+
+        $data = [
+            'hand' => $my_hand->getHand(),
+            'num_cards' => $num_cards,
+        ];
+
+        return $this->render('card/draw.html.twig', $data);
     }
 }
