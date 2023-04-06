@@ -7,23 +7,19 @@ class CardGraphic extends Card
 
     private $left_offset;
     private $top_offset;
-    private $col;
-    private $row;
 
     public function __construct($rank, $suit, $col, $row)
     {
         parent::__construct($rank, $suit);
-        $this->col = $col;
-        $this->row = $row;
-        $this->getOffset();
+        $this->getOffset($col, $row);
     }
 
-    function getOffset()
+    function getOffset($col, $row)
     {
         $card_width = 61.6;
         $card_height = 81;
-        $this->left_offset = $card_width * $this->col;
-        $this->top_offset = $card_height * $this->row;
+        $this->left_offset = $card_width * $col;
+        $this->top_offset = $card_height * $row;
     }
 
     function getLeftOffset()
@@ -38,6 +34,6 @@ class CardGraphic extends Card
 
     public function getCardName()
     {
-        return "[{$this->getRank()}{$this->SUITS[$this->getSuit()]}]";
+        return "{$this->getRank()}{$this->getSuit()}";
     }
 }
