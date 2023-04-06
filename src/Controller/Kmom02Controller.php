@@ -54,4 +54,21 @@ class Kmom02Controller extends AbstractController
 
         return $this->render('card/deck.html.twig', $data);
     }
+
+    #[Route("/card/deck/shuffle", name: "deck_shuffle")]
+    public function deck_shuffle(): Response
+    {
+        // create a deck of cards
+        $my_deck = new DeckOfCards();
+        $my_deck->createDeck();
+        // shuffle the deck
+        $my_deck->shuffle();
+
+        $data = [
+            'deck' => $my_deck->getDeck(),
+            'num_cards' => $my_deck->getNumCards(),
+        ];
+
+        return $this->render('card/shuffle.html.twig', $data);
+    }
 }
