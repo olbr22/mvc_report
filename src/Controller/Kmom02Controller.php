@@ -23,7 +23,6 @@ class Kmom02Controller extends AbstractController
         $my_deck->createDeck();
         $my_deck->getDeck();
         $my_deck->shuffle();
-        // $length = $my_deck->getNumCards();
 
         $data = [
             'card' => $a_card->getCardName(),
@@ -39,5 +38,20 @@ class Kmom02Controller extends AbstractController
         ];
 
         return $this->render('card/card.html.twig', $data);
+    }
+
+    #[Route("/card/deck", name: "card_deck")]
+    public function deck(): Response
+    {
+        // create a deck of cards
+        $my_deck = new DeckOfCards();
+        $my_deck->createDeck();
+
+        $data = [
+            'deck' => $my_deck->getDeck(),
+            'num_cards' => $my_deck->getNumCards(),
+        ];
+
+        return $this->render('card/deck.html.twig', $data);
     }
 }

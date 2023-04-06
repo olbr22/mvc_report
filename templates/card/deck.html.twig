@@ -19,8 +19,7 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <p>A card {{ card }}</p>
-                <p>Number of cards: {{ num_cards }}</p>
+                <p>Antal kort: {{ num_cards }}</p>
                 {% for card in deck %}
                     {% set left = card.getLeftOffset() %}
                     {% set top = card.getTopOffset() %}
