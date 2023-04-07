@@ -25,8 +25,10 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <p>Antal kort: {{ num_cards }}</p>
-                {% for card in deck %}
+                <p>Antal kort: {{ deck.getNumCards() }}</p>
+                {# shuffle the deck #}
+                {{ deck.shuffle() }}
+                {% for card in deck.getDeck() %}
                     {% set left = card.getLeftOffset() %}
                     {% set top = card.getTopOffset() %}
                     <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">

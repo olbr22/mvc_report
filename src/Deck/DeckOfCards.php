@@ -28,7 +28,16 @@ class DeckOfCards
         12 => "king",
     ];
 
-    private $deck = [];
+    private $deck;
+
+    public function __construct($cards = [])
+    {
+        if ($cards) {
+            $this->deck = $cards;
+        } else {
+            $this->createDeck();
+        }
+    }
 
     public function add(Card $card)
     {
@@ -52,6 +61,11 @@ class DeckOfCards
     public function getNumCards()
     {
         return count($this->deck);
+    }
+
+    public function popCard()
+    {
+        return array_pop($this->deck);
     }
 
     public function shuffle()

@@ -11,86 +11,69 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Kmom02Controller extends AbstractController
 {
     #[Route("/card", name: "card")]
-    public function card(): Response
+    public function card(
+        SessionInterface $session
+    ): Response
     {
-        // create a Card
-        $a_card = new Card("ace", "spades");
-        $a_graphic_card = new CardGraphic("hearts", "2", 3, 1);
-        $my_deck = new DeckOfCards();
-        $my_deck->createDeck();
-        $my_deck->getDeck();
-        $my_deck->shuffle();
+        // create a deck of cards
+        $session->set("deck", new DeckOfCards());
+        // create a hand
+        $session->set("hand", new CardHand());
 
         $data = [
-            'card' => $a_card->getCardName(),
-            // 'left' => $a_graphic_card->getLeftOffset(),
-            // 'top' => $a_graphic_card->getTopOffset(),
-            // 'deck' => var_dump($my_deck->getDeck()),
-            'deck' => $my_deck->getDeck(),
-            // 'shuffled_deck' => $my_deck->getDeckString(),
-            'num_cards' => $my_deck->getNumCards(),
-            // 'top' => "-162px",
-            // 'left' => "-736.8px",
-            // 'array' => $my_deck->getDeck()
+            'deck' => $session->get("deck"),
         ];
 
         return $this->render('card/card.html.twig', $data);
     }
 
     #[Route("/card/deck", name: "card_deck")]
-    public function deck(): Response
+    public function deck(
+        SessionInterface $session
+    ): Response
     {
-        // create a deck of cards
-        $my_deck = new DeckOfCards();
-        $my_deck->createDeck();
 
         $data = [
-            'deck' => $my_deck->getDeck(),
-            'num_cards' => $my_deck->getNumCards(),
+            'deck' => $session->get("deck"),
         ];
 
         return $this->render('card/deck.html.twig', $data);
     }
 
     #[Route("/card/deck/shuffle", name: "deck_shuffle")]
-    public function deck_shuffle(): Response
+    public function deck_shuffle(
+        SessionInterface $session
+    ): Response
     {
-        // create a deck of cards
-        $my_deck = new DeckOfCards();
-        $my_deck->createDeck();
-        // shuffle the deck
-        $my_deck->shuffle();
 
         $data = [
-            'deck' => $my_deck->getDeck(),
-            'num_cards' => $my_deck->getNumCards(),
+            'deck' => $session->get("deck"),
         ];
 
         return $this->render('card/shuffle.html.twig', $data);
     }
 
     #[Route("/card/deck/draw", name: "draw_card")]
-    public function draw_card(): Response
+    public function draw_card(
+        SessionInterface $session
+    ): Response
     {
-        // create a deck of cards
-        $my_deck = new DeckOfCards();
-        $my_deck->createDeck();
-        // shuffle the deck
-        $my_deck->shuffle();
-        // create a hand
-        $my_hand = new CardHand();
-        $deck = $my_deck->getDeck();
+        
+        $hand = $session->get("hand");
+        $deck = $session->get("deck");
         // draw a card from the deck
-        $my_hand->draw($deck, 52);
-        $num_cards = count($deck);
+        $hand->draw($deck);
+        $deck_array = $deck->getDeck();
 
         $data = [
-            'hand' => $my_hand->getHand(),
-            'num_cards' => $num_cards,
+            'deck' => $session->get("deck"),
+            'hand' => $session->get("hand"),
         ];
 
         return $this->render('card/draw.html.twig', $data);

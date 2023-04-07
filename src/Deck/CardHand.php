@@ -11,7 +11,7 @@ class CardHand
     {
         for ($i = 0; $i < $num_cards; $i++)
         {
-            $this->hand[] = array_pop($deck);
+            $this->hand[] = $deck->popCard();
         }
     }
 
