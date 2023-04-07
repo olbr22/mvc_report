@@ -69,7 +69,6 @@ class Kmom02Controller extends AbstractController
         $deck = $session->get("deck");
         // draw a card from the deck
         $hand->draw($deck);
-        $deck_array = $deck->getDeck();
 
         $data = [
             'deck' => $session->get("deck"),
@@ -77,5 +76,34 @@ class Kmom02Controller extends AbstractController
         ];
 
         return $this->render('card/draw.html.twig', $data);
+    }
+
+    #[Route("/card/deck/draw/{num<\d+>}", name: "draw_card_num")]
+    public function draw_card_num(
+        SessionInterface $session,
+        int $num
+    ): Response
+    {
+        $session->set("hand", new CardHand());
+        $session->set("deck", new DeckOfCards());
+        $hand = $session->get("hand");
+        $deck = $session->get("deck");
+        // var_dump($deck);
+        // var_dump($hand);
+        // print_r($deck);
+
+        if ($num > $deck->getNumCards()) {
+            throw new \Exception("Det finns inte tillräckligt med kort i kortleken!");
+        }
+
+        // draw a card from the deck
+        $hand->draw($deck, $num);
+
+        $data = [
+            'deck' => $session->get("deck"),
+            'hand' => $session->get("hand"),
+        ];
+
+        return $this->render('card/draw_card_num.html.twig', $data);
     }
 }
