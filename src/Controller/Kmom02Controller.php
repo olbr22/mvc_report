@@ -17,30 +17,17 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class Kmom02Controller extends AbstractController
 {
     #[Route("/card", name: "card")]
-    public function card(
-        SessionInterface $session
-    ): Response
+    public function card(): Response
     {
-        // create a deck of cards
-        $session->set("deck", new DeckOfCards());
-        // create a hand
-        $session->set("hand", new CardHand());
-
-        $data = [
-            'deck' => $session->get("deck"),
-        ];
-
-        return $this->render('card/card.html.twig', $data);
+        return $this->render('card/card.html.twig');
     }
 
     #[Route("/card/deck", name: "card_deck")]
-    public function deck(
-        SessionInterface $session
-    ): Response
+    public function deck(): Response
     {
 
         $data = [
-            'deck' => $session->get("deck"),
+            'deck' => new DeckOfCards(),
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -51,6 +38,10 @@ class Kmom02Controller extends AbstractController
         SessionInterface $session
     ): Response
     {
+        // create a deck of cards
+        $session->set("deck", new DeckOfCards());
+        // create a hand
+        $session->set("hand", new CardHand());
 
         $data = [
             'deck' => $session->get("deck"),
@@ -84,16 +75,14 @@ class Kmom02Controller extends AbstractController
         int $num
     ): Response
     {
-        $session->set("hand", new CardHand());
-        $session->set("deck", new DeckOfCards());
         $hand = $session->get("hand");
         $deck = $session->get("deck");
         // var_dump($deck);
         // var_dump($hand);
         // print_r($deck);
 
-        if ($num > $deck->getNumCards()) {
-            throw new \Exception("Det finns inte tillräckligt med kort i kortleken!");
+        if ($deck->getNumCards() < $num) {
+            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}, du vill dra {$num}.");
         }
 
         // draw a card from the deck
