@@ -69,8 +69,8 @@ class Kmom02Controller extends AbstractController
         return $this->render('card/draw.html.twig', $data);
     }
 
-    #[Route("/card/deck/draw/{num<\d+>}", name: "draw_card_num")]
-    public function draw_card_num(
+    #[Route("/card/deck/draw/{num<\d+>}", name: "draw_num_cards")]
+    public function draw_num_cards(
         SessionInterface $session,
         int $num
     ): Response
@@ -93,6 +93,36 @@ class Kmom02Controller extends AbstractController
             'hand' => $session->get("hand"),
         ];
 
-        return $this->render('card/draw_card_num.html.twig', $data);
+        return $this->render('card/draw_num_cards.html.twig', $data);
+    }
+
+    #[Route("/card/deck/deal/{num_players<\d+>}/{num_cards<\d+>}", name: "deal")]
+    public function deal(
+        SessionInterface $session,
+        int $num_players,
+        int $num_cards
+    ): Response
+    {
+        $deck = $session->get("deck");
+
+        if (($num_players * $num_cards) > $deck->getNumCards()) {
+            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}.");
+        }
+
+        // create array with players/hand and give them x cards
+        $players = array();
+        for ($i = 1; $i <= $num_players; $i++) {
+            $players["player" . $i] = new CardHand();
+            $players["player" . $i]->draw($deck, $num_cards);
+        }
+
+        // var_dump($players);
+
+        $data = [
+            'deck' => $session->get("deck"),
+            'players' => $players,
+        ];
+
+        return $this->render('card/deal.html.twig', $data);
     }
 }

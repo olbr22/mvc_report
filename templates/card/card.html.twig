@@ -22,8 +22,11 @@
                     <a href="{{ path('draw_card') }}" class="list-group-item list-group-item-action" aria-current="true">
                     Dra kort
                     </a>
-                    <a href="{{ path('draw_card_num', {num: 0}) }}" class="list-group-item list-group-item-action" aria-current="true">
+                    <a href="{{ path('draw_num_cards', {num: 0}) }}" class="list-group-item list-group-item-action" aria-current="true">
                     Dra n kort
+                    </a>
+                    <a href="{{ path('deal', {num_players: 0, num_cards: 0}) }}" class="list-group-item list-group-item-action" aria-current="true">
+                    Dela ut kort
                     </a>
                 </div>
             </div>
