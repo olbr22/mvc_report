@@ -8,7 +8,6 @@ use App\Deck\CardHand;
 use App\Deck\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,8 +35,7 @@ class Kmom02Controller extends AbstractController
     #[Route("/card/deck/shuffle", name: "deck_shuffle")]
     public function deck_shuffle(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         // create a deck of cards
         $session->set("deck", new DeckOfCards());
         // create a hand
@@ -53,9 +51,8 @@ class Kmom02Controller extends AbstractController
     #[Route("/card/deck/draw", name: "draw_card")]
     public function draw_card(
         SessionInterface $session
-    ): Response
-    {
-        
+    ): Response {
+
         $hand = $session->get("hand");
         $deck = $session->get("deck");
         // draw a card from the deck
@@ -73,8 +70,7 @@ class Kmom02Controller extends AbstractController
     public function draw_num_cards(
         SessionInterface $session,
         int $num
-    ): Response
-    {
+    ): Response {
         $hand = $session->get("hand");
         $deck = $session->get("deck");
         // var_dump($deck);
@@ -86,7 +82,7 @@ class Kmom02Controller extends AbstractController
         }
 
         // draw a card from the deck
-        $hand->draw($deck, $num);
+        $hand->draw($deck);
 
         $data = [
             'deck' => $session->get("deck"),
@@ -101,8 +97,7 @@ class Kmom02Controller extends AbstractController
         SessionInterface $session,
         int $num_players,
         int $num_cards
-    ): Response
-    {
+    ): Response {
         $deck = $session->get("deck");
 
         if (($num_players * $num_cards) > $deck->getNumCards()) {

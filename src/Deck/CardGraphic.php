@@ -4,7 +4,6 @@ namespace App\Deck;
 
 class CardGraphic extends Card
 {
-
     private $left_offset;
     private $top_offset;
 
@@ -14,7 +13,7 @@ class CardGraphic extends Card
         $this->getOffset($col, $row);
     }
 
-    function getOffset($col, $row)
+    public function getOffset($col, $row)
     {
         $card_width = 61.6;
         $card_height = 81;
@@ -22,18 +21,18 @@ class CardGraphic extends Card
         $this->top_offset = $card_height * $row;
     }
 
-    function getLeftOffset()
+    public function getLeftOffset()
     {
         return $this->left_offset;
     }
 
-    function getTopOffset()
+    public function getTopOffset()
     {
         return $this->top_offset;
     }
 
     public function getCardName()
     {
-        return "{$this->getRank()}{$this->getSuit()}";
+        return "{$this->getRank()} {$this->getSuit()}";
     }
 }
