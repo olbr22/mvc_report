@@ -66,3 +66,11 @@ footer .icon-bar {
     height: 81px;
     margin: 0.2rem;
 }
+
+/* Style form JSON API kmom02 */
+.form-api {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: rgba(32, 178, 171, 0.196);
+}
