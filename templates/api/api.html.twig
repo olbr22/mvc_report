@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}JSON API{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">JSON API</h1>
+        <hr class="my-4">
+        <div class="row my-5">
+            <div class="col-sm-4">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('api') }}">JSON API</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('quote') }}">Dagens citat</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('lucky') }}">Lyckokatt</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('api_deck_create') }}">Deck</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('api_deck_shuffle_post') }}">Shuffle</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('api_deck_draw_get') }}">Draw</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('api_deck_draw_num_get', {num: 0}) }}">Draw number cards</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+            <h3>Styrknappar för router <code>api/deck/shuffle, api/deck/draw, api/deck/draw/:number</code></h3>
+                <form method="post" action="" class="form-api">
+                    <p>
+                        <input type="submit" name="shuffle" value="Shuffle" onClick=" this.form.action = '{{path('api_deck_shuffle_post')}}'; ">
+                        <input type="submit" name="draw" value="Draw" onClick=" this.form.action = '{{path('api_deck_draw')}}'; ">
+                        <br>
+                        <label for="number_cards">Enter how many cards to draw:</label>
+                        <input id="number_cards" type="number" name="number_cards" min="1" max="52" value="1">
+                        <br>
+                        <input type="submit" name="draw_num" value="Draw number cards" onClick=" this.form.action = '{{ path('api_deck_draw_num_post', { num: 0 }) }}'; ">
+                        {# <input type="submit" name="deal" value="Deal" onClick=" this.form.action = '{{path('api_deck_deal_post')}}'; "> #}
+                    </p>
+                </form>
+                <h3>1. Route <code>api/quote</code> a.k.a. <code>Dagens citat</code></h3>
+                <p>Routen <code>api/quote</code> eller <code>Dagens citat</code> ger ett JSON svar som innehåller dagens citat. Citaten växlas slumpmässigt mellan tre olika citat som jag hittade på nätet. JSON svaret innehåller även dagens datum och en tidsstämpel för när svaret genererades. Denna route ger alltså enbart ett JSON svar och inkluderar inte någon gemensam sidlayout som header, footer.</p>
+                <h3>2. Route <code>/lucky</code> a.k.a. <code>Lyckokatt</code></h3>
+                <p>Routen <code>/lucky</code> eller <code>Lyckokatt</code> visar up bilder på en katt/katter. Bilderna hämtas med hjälp av ett API The Cat API.</p>
+                <h3>3. Route <code>GET api/deck</code> a.k.a. <code>Deck</code></h3>
+                <p>Routen returnerar en JSON struktur med hela kortleken sorterad per färg och värde.</p>
+                <h3>4. Route <code>POST api/deck/shuffle</code> a.k.a. <code>Shuffle</code></h3>
+                <p>Routen blandar kortleken och därefter returnerar en JSON struktur med kortleken.</p>
+                <h3>5. Route <code>POST api/deck/draw</code> a.k.a. <code>Draw</code></h3>
+                <p>Routen drar 1 kort från kortleken och visar upp dem i en JSON struktur samt antalet kort som är kvar i kortleken. Kortleken sparas i sessionen så om man anropar routen flera gånger så minskas antalet kort i kortleken.</p>
+                <h3>6. Route <code>POST api/deck/draw/:number</code> a.k.a. <code>Draw number_cards</code></h3>
+                <p>Routen drar :number kort från kortleken och visar upp dem i en JSON struktur samt antalet kort som är kvar i kortleken. Kortleken sparas i sessionen så om man anropar routen flera gånger så minskas antalet kort i kortleken.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

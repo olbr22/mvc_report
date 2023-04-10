@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortlek{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">Kort &amp; kortlek</h1>
+        <hr class="my-4">
+        <div class="row my-5">
+            <div class="col-sm-4">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('quote') }}">Dagens citat</a>
+                    <a class="list-group-item list-group-item-action" aria-current="true" href="{{ path('lucky') }}">Lyckokatt</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+            <pre>
+                {{response}}
+            </pre>
+                <p>Antal kort: {{ deck.getNumCards() }}</p>
+                {% for card in deck.getDeck() %}
+                    {% set left = card.getLeftOffset() %}
+                    {% set top = card.getTopOffset() %}
+                    <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

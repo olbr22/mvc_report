@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Kort &amp; kortlek{% endblock %}
+{% block title %}Dra kort{% endblock %}
 
 {% block body %}
 
@@ -31,11 +31,15 @@
                 </div>
             </div>
             <div class="col-sm-8">
-            <h3>Klassernas struktur</h3>
-            <p>Jag skapade fyra klasser Card, CardGraphic, CardHand och DeckOfCards. Klassen CardGraphic ärver från classen Card.</p>
-            <p>Klassen DeckOfCards har en komposition relation med Card-klassen eftersom det skapas en array av Card-objekt som en instansvariabel $deck. Kortobjekten tillhör DeckOfCards-objektet och kan inte existera oberoende av det. Därför kommer alla ändringar som görs i DeckOfCards-objektet också att påverka dess kortobjekt.</p>
-            <p>CardHand-klassen har en aggregeringsrelation med Card-klassen, eftersom den har en array av Card-objekt inom sin hand-egenskap. Kortobjekten skapas eller förstörs inte av CardHand-klassen, utan läggs helt enkelt till eller tas bort från dess hand - array efter behov.</p>
-            <img src="{{ asset('img/card_uml.png') }}" alt="UML diagram över classer skapade under kmom02.">
+                <p>Antal kort kvar i kortleken: {{ deck.getNumCards() }}</p>
+                {% for player in players %}
+                <p>Player {{ loop.index }}</p>
+                    {% for card in player.getHand() %}
+                            {% set left = card.getLeftOffset() %}
+                            {% set top = card.getTopOffset() %}
+                            <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">
+                    {% endfor %}
+                {% endfor %}
             </div>
         </div>
     </div>
