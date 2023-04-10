@@ -2,7 +2,6 @@
 
 namespace App\Deck;
 
-
 /**
  * Represents a playing card with a rank and suit.
 */
