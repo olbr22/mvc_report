@@ -109,7 +109,13 @@ class Kmom02ControllerJson extends AbstractController
     public function shuffleDeckCallback(
         SessionInterface $session
     ): Response {
-        $deck = $session->get("deck");
+        $deck = $session->get('deck');
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set('deck', $deck);
+        }
+
         $deck->shuffle();
 
         foreach ($deck->getDeck() as $card) {
@@ -132,8 +138,18 @@ class Kmom02ControllerJson extends AbstractController
     public function drawGetCallback(
         SessionInterface $session
     ): Response {
-        $deck = $session->get("deck");
-        $hand = $session->get("hand");
+        $hand = $session->get('hand');
+        $deck = $session->get('deck');
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set('deck', $deck);
+        }
+
+        if (!$hand) {
+            $hand = new CardHand();
+            $session->set('hand', $hand);
+        }
         $hand->draw($deck);
 
         foreach ($hand->getHand() as $card) {
@@ -156,8 +172,18 @@ class Kmom02ControllerJson extends AbstractController
     public function drawCallback(
         SessionInterface $session
     ): Response {
-        $deck = $session->get("deck");
-        $hand = $session->get("hand");
+        $hand = $session->get('hand');
+        $deck = $session->get('deck');
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set('deck', $deck);
+        }
+
+        if (!$hand) {
+            $hand = new CardHand();
+            $session->set('hand', $hand);
+        }
         $hand->draw($deck);
 
         foreach ($hand->getHand() as $card) {
@@ -181,15 +207,27 @@ class Kmom02ControllerJson extends AbstractController
         SessionInterface $session,
         int $num
     ): Response {
-        $deck = $session->get("deck");
-        $hand = $session->get("hand");
+        $hand = $session->get('hand');
+        $deck = $session->get('deck');
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set('deck', $deck);
+        }
+
+        if (!$hand) {
+            $hand = new CardHand();
+            $session->set('hand', $hand);
+        }
         $hand->draw($deck, $num);
 
+        $json = [];
         foreach ($hand->getHand() as $card) {
             $json[] = $card->getCardName();
         }
 
         $data = [
+            'crads_left_deck' => $deck->getNumCards(),
             'hand' => $json,
         ];
 
@@ -208,10 +246,21 @@ class Kmom02ControllerJson extends AbstractController
     ): Response {
         $numberCards = $request->request->get('number_cards');
 
-        $deck = $session->get("deck");
-        $hand = $session->get("hand");
+        $hand = $session->get('hand');
+        $deck = $session->get('deck');
+
+        if (!$deck) {
+            $deck = new DeckOfCards();
+            $session->set('deck', $deck);
+        }
+
+        if (!$hand) {
+            $hand = new CardHand();
+            $session->set('hand', $hand);
+        }
         $hand->draw($deck, $numberCards);
 
+        $json = [];
         foreach ($hand->getHand() as $card) {
             $json[] = $card->getCardName();
         }

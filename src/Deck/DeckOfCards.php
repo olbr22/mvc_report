@@ -42,7 +42,7 @@ class DeckOfCards
     /**
      * @var array $deck An array of cards representing the deck.
      */
-    private $deck;
+    private $deck = [];
 
     /**
      * Constructs a new DeckOfCards object.

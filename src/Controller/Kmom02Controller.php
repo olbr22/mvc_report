@@ -9,24 +9,52 @@ use App\Deck\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class Kmom02Controller extends AbstractController
 {
+    public function testSession(SessionInterface $session)
+    {
+        // Set a value in the session
+        $session->set('test_key', 'test_value');
+
+        // Retrieve the value from the session
+        $value = $session->get('test_key');
+
+        // Check if the retrieved value is equal to the original value
+        if ($value === 'test_value') {
+            echo 'SessionInterface is working!';
+        } else {
+            echo 'SessionInterface is not working.';
+        }
+    }
+
     #[Route("/card", name: "card")]
     public function card(): Response
     {
         return $this->render('card/card.html.twig');
     }
 
-    #[Route("/card/deck", name: "card_deck")]
-    public function deck(): Response
-    {
+    #[Route("/card/deck", name: "card_deck", methods: ['GET'])]
+    public function deck(
+        SessionInterface $session
+    ): Response {
+        $my_deck = new DeckOfCards();
+        $my_hand = new CardHand();
+        // create a deck of cards
+        $session->set('deck', $my_deck);
+        // create a hand
+        $session->set('hand', $my_hand);
+
+        if (!$my_deck) {
+            $my_deck = new DeckOfCards();
+            $session->set('deck', $my_deck);
+        }
 
         $data = [
-            'deck' => new DeckOfCards(),
+            'deck' => $session->get('deck')
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -36,13 +64,18 @@ class Kmom02Controller extends AbstractController
     public function deck_shuffle(
         SessionInterface $session
     ): Response {
-        // create a deck of cards
-        $session->set("deck", new DeckOfCards());
-        // create a hand
-        $session->set("hand", new CardHand());
+
+        $my_deck = $session->get('deck');
+
+        if (!$my_deck) {
+            $my_deck = new DeckOfCards();
+            $session->set('deck', $my_deck);
+        }
+
+        $my_deck->shuffle();
 
         $data = [
-            'deck' => $session->get("deck"),
+            'deck' => $my_deck
         ];
 
         return $this->render('card/shuffle.html.twig', $data);
@@ -53,14 +86,26 @@ class Kmom02Controller extends AbstractController
         SessionInterface $session
     ): Response {
 
-        $hand = $session->get("hand");
-        $deck = $session->get("deck");
+        $my_hand = $session->get('hand');
+        $my_deck = $session->get('deck');
+
+        if (!$my_deck) {
+            $my_deck = new DeckOfCards();
+            $session->set('deck', $my_deck);
+        }
+
+        if (!$my_hand) {
+            $my_hand = new CardHand();
+            $session->set('hand', $my_hand);
+        }
         // draw a card from the deck
-        $hand->draw($deck);
+        $my_hand->draw($my_deck);
+
+        $session->set('hand', $my_hand);
 
         $data = [
-            'deck' => $session->get("deck"),
-            'hand' => $session->get("hand"),
+            'deck' => $session->get('deck'),
+            'hand' => $my_hand
         ];
 
         return $this->render('card/draw.html.twig', $data);
@@ -71,22 +116,29 @@ class Kmom02Controller extends AbstractController
         SessionInterface $session,
         int $num
     ): Response {
-        $hand = $session->get("hand");
-        $deck = $session->get("deck");
-        // var_dump($deck);
-        // var_dump($hand);
-        // print_r($deck);
+        $my_hand = $session->get('hand');
+        $my_deck = $session->get('deck');
 
-        if ($deck->getNumCards() < $num) {
+        if (!$my_deck) {
+            $my_deck = new DeckOfCards();
+            $session->set('deck', $my_deck);
+        }
+
+        if (!$my_hand) {
+            $my_hand = new CardHand();
+            $session->set('hand', $my_hand);
+        }
+
+        if ($my_deck->getNumCards() < $num) {
             throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}, du vill dra {$num}.");
         }
 
         // draw a card from the deck
-        $hand->draw($deck);
+        $my_hand->draw($my_deck, $num);
 
         $data = [
-            'deck' => $session->get("deck"),
-            'hand' => $session->get("hand"),
+            'deck' => $session->get('deck'),
+            'hand' => $session->get('hand')
         ];
 
         return $this->render('card/draw_num_cards.html.twig', $data);
@@ -98,9 +150,15 @@ class Kmom02Controller extends AbstractController
         int $num_players,
         int $num_cards
     ): Response {
-        $deck = $session->get("deck");
 
-        if (($num_players * $num_cards) > $deck->getNumCards()) {
+        $my_deck = $session->get('deck');
+
+        if (!$my_deck) {
+            $my_deck = new DeckOfCards();
+            $session->set('deck', $my_deck);
+        }
+
+        if (($num_players * $num_cards) > $my_deck->getNumCards()) {
             throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}.");
         }
 
@@ -108,14 +166,12 @@ class Kmom02Controller extends AbstractController
         $players = array();
         for ($i = 1; $i <= $num_players; $i++) {
             $players["player" . $i] = new CardHand();
-            $players["player" . $i]->draw($deck, $num_cards);
+            $players["player" . $i]->draw($my_deck, $num_cards);
         }
 
-        // var_dump($players);
-
         $data = [
-            'deck' => $session->get("deck"),
-            'players' => $players,
+            'deck' => $session->get('deck'),
+            'players' => $players
         ];
 
         return $this->render('card/deal.html.twig', $data);

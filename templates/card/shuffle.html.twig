@@ -33,7 +33,7 @@
             <div class="col-sm-8">
                 <p>Antal kort: {{ deck.getNumCards() }}</p>
                 {# shuffle the deck #}
-                {{ deck.shuffle() }}
+                {# {{ deck.shuffle() }} #}
                 {% for card in deck.getDeck() %}
                     {% set left = card.getLeftOffset() %}
                     {% set top = card.getTopOffset() %}
