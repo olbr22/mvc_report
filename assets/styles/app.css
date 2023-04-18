@@ -8,7 +8,9 @@ h4 {
     font-family: 'Shrikhand', cursive;
 }
 
-p {
+p,
+ul,
+li {
     font-family: 'Adamina', serif;
 }
 

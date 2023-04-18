@@ -130,7 +130,7 @@ class Kmom02Controller extends AbstractController
         }
 
         if ($my_deck->getNumCards() < $num) {
-            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}, du vill dra {$num}.");
+            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$my_deck->getNumCards()}, du vill dra {$num}.");
         }
 
         // draw a card from the deck
@@ -159,7 +159,7 @@ class Kmom02Controller extends AbstractController
         }
 
         if (($num_players * $num_cards) > $my_deck->getNumCards()) {
-            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$deck->getNumCards()}.");
+            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$my_deck->getNumCards()}.");
         }
 
         // create array with players/hand and give them x cards

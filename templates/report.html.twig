@@ -22,12 +22,31 @@
             </div>
             <div class="col-sm-8">
                 <h2 id="kmom01">Kmom01</h2>
-                <h3>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering</h3>
+                <h4>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering</h4>
                 <p>I kursen oopython lärde jag mig hur man skapar klasser i python. Klasser kan ha olika attribut och metoder som tillhör klassen. För att instantiera klassen, alltså skapa en objekt eller instans av en klass, måste man ha en så kallad konstruktor metod definierad inuti klassen.</p>
-                <h3>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</h3>
-                <p>jadajadajaada</p>
+                <h4>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</h4>
+                <p>PHP stödjer objektorientering via klasser, objekt och vanliga objektorienterade konstruktionerna som normalt förekommer i objektorienterade programmeringsspråk. Ett objekt skapas utifrån en klass. Ett objekt har medlemsvariabler och metoder. Allt som objektet behöver lagra finns i dess medlemsvariabler och allt man kan göra med objektet exponeras via dess metoder.</p>
+                <h4>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</h4>
+                <p>Allt börjar med en Kontroller. Kontroller länkar samman kod och det visuella med hjälp av klasser/funktioner och twig filer.</p>
+                <h4>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</h4>
+                <p>Eftersom jag alldrig hört on Namespace i programmering läste jag om det lite extra.</p>
+                <p>Jag spenderade mer tid på guiden <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php">Kom igång med Objektorienterad programmering i PHP. Jag tycker att det var givande att koda tillsammans med guiden.</a></p>
+                <h4>Vilken är din TIL för detta kmom?</h4>
+                <p>Väldigt mycket som var  nytt i denna kmom. Jag lärt mig mer om nampespace, klasse och objekter i PHP, DocBlock kommentarer, privata och publika metoder och variabler, autoloading.</p>
                 <h2 id="kmom02">Kmom02</h2>
-                <p>Redovisning</p>
+                <h4>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</h4>
+                <p>Arv kan förkralas som en relation mellan klasserna av typ är-en. Till exempel klass VovloBil kan ärva från klass Bil, alltså att klassen VovloBil kan ärva metoder och egenskaper som tillhör klassen Bill. Till exempel metoden kör och egenskap som t.ex. har fyra hjul.</p>
+                <p>Komposition kan förklaras som en relation mellan klasserna av typen har-en dvs att en klass kan ha en annan klass som en medlemsvariabel. Till exempel klass Kortlek kan ha klass Kort som en medlemsvariabel.</p>
+                <p>Trait liknar en klass genom att den kan definiera metoder, men till skillnad från en klass kan den inte instansieras på egen hand. Istället är trait avsedd att inkluderas i en klass med hjälp av "use"-satsen. När trait används i en klass blir de metoder som definieras i trait en del av klassens publika gränssnitt. Trait är användbar i situationer när man behöver dela funktionalitet mellan flera klasser, men man inte vill skapa en hierarki av arv som kan bli svårhanterlig eller oflexibel.</p>
+                <p>Interface är ett kontrakt där en klass lovar att erbjuda en viss uppsättning metoder. En klass kan implementera ett interface, det innebär att klassen förbinder sig att erbjuda ett API som motsvaras av interfacet.Ett interface innehåller ingen kod som en klass kan återanvända, det är bara ett löfte om att interfacets metoder skall återfinnas inuti klassen.När man vet att en klass implementerar ett visst interface så vet man också vad man kan göra med den klassen. Interface i PHP liknar abstrakta klasser i Python.</p>
+                <h4>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</h4>
+                <p>För att visa kort i sidan använder jag en sprite sheet. I klassen CardGraphic när jag skapar ett kort beräknas det även en offset alltså en position på sprite sheet där motsvarande kort ritas. Jag skapar kortlek med hjälp av en nästlad loop där jag loopar igenom två arrayer, den ena med namn på suits och den andra namn på ranks. Deck är en array som fylls med 52 st CardGraphic objekt. I mina routes skickar jag $data arrayen fylld med objekt som deck och hand. Därefter anropar jag olika medtoder inuti twig tamplaten och visar upp resultat. Förstår inte riktigt varför, men jag var tvungen att instansiera Deck och Hand klasser i varenda route eftersom instanserna/objekt av någon anledning inte ville sparas i sessionen.</p>
+                <p>Som förbättringspotential ser jag att en hel del av kod som används i rotes kan skrivas om till separata funktioner.</p>
+                <h4>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</h4>
+                <p>Jag har svårt att svara på denna fråga eftersom jag skapade klasser innan jag ritade UML till mina klasser. Jag utgick väldigt mycket från den exempel som vi fick av Mikael till denna kmom.</p>
+                <h4>Vilken är din TIL för detta kmom?</h4>
+                <p>Jag lärt mig hur man skriver en konstruktor <code>__construct()</code> i PHP samt att man anropar metoder med en pil <code>-></code>. För att ärva metoder och egenskaper från en annan klass skall man använda konstruktion <code>parent::__construct($rank, $suit);</code> och även skicka in argument/parametrar. Jag lärt mig att för att kunna arbeta med session och POST metoden i Symfony måste man ange <code>use Symfony\Component\HttpFoundation\Request;
+use och Symfony\Component\HttpFoundation\Session\SessionInterface;</code></p>
                 <h2 id="kmom03">Kmom03</h2>
                 <p>Redovisning</p>
                 <h2 id="kmom04">Kmom04</h2>
