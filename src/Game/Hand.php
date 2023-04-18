@@ -2,6 +2,8 @@
 
 namespace App\Game;
 
+use App\Game\Card;
+
 class Hand
 {
     private $cards;
@@ -40,5 +42,9 @@ class Hand
     public function getCards()
     {
         return $this->cards;
+    }
+
+    public function clearCards() {
+        $this->cards = [];
     }
 }
