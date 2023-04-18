@@ -6,6 +6,7 @@ class Card
 {
     private $suit;
     private $rank;
+    private $value;
     private $left_offset;
     private $top_offset;
 
@@ -14,6 +15,22 @@ class Card
         $this->suit = $suit;
         $this->rank = $rank;
         $this->getOffset($col, $row);
+        $this->setCardValue();
+    }
+
+    public function setCardValue()
+    {
+        if ($this->rank == "Ace") {
+            $this->value = 14;
+        } else if ($this->rank == "King") {
+            $this->value = 13;
+        } else if ($this->rank == "Queen") {
+            $this->value = 12;
+        } else if ($this->rank == "Jack") {
+            $this->value = 11;
+        } else {
+            $this->value = intval($this->rank);
+        }
     }
 
     public function getSuit()
@@ -28,17 +45,7 @@ class Card
 
     public function getValue()
     {
-        if ($this->rank == "Ace") {
-            return 14;
-        } else if ($this->rank == "King") {
-            return 13;
-        } else if ($this->rank == "Queen") {
-            return 12;
-        } else if ($this->rank == "Jack") {
-            return 11;
-        } else {
-            return intval($this->rank);
-        }
+        return $this->value;
     }
 
     public function getOffset($col, $row)
