@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortspel 21{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">Kortspel 21 <img class="playing-card" src="{{ asset('img/card_back.png') }}" width="62" height="81"></h1>
+        <hr class="my-4">
+        <div class="row my-5">
+            <div class="col-sm-12">
+                <form method="post" action="" class="form-api">
+                        <label for="name">Skriv in spelarens namn:</label>
+                        <input type="text" name="name" id="name">
+                        <input type="submit" name="play" value="Spela"  onClick=" this.form.action = '{{path('game_init_post')}}'; ">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

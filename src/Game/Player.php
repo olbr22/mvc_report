@@ -3,6 +3,7 @@
 namespace App\Game;
 
 use App\Game\Card;
+use App\Game\Deck;
 use App\Game\Hand;
 
 class Player
@@ -14,6 +15,11 @@ class Player
     {
         $this->name = $name;
         $this->hand = new Hand();
+    }
+
+    public function hit($deck)
+    {
+        $this->hand->addCard($deck->draw());
     }
 
     public function getName() {

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 h1,
 h2,
 h3,
@@ -75,4 +81,82 @@ footer .icon-bar {
     border-radius: 5px;
     padding: 1rem;
     background-color: rgba(32, 178, 171, 0.196);
+    width: 32rem;
+}
+
+input,
+label {
+    width: 30rem;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+}
+
+/* Flash messages style */
+.flash-success,
+.flash-notice,
+.flash-warning,
+.flash-error {
+    width: 30rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.flash-success {
+    padding: 0.5em;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}
+
+.flash-error {
+    padding: 0.5em;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+/* Kmom03 Game21 */
+.player {
+    border: 1px solid seagreen;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #eee;
+    width: 32rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 667px) {
+    .form-api,
+    form,
+    input,
+    label,
+    .player,
+    .flash-success,
+    .flash-notice,
+    .flash-warning,
+    .flash-error {
+        width: 100%;
+    }
 }

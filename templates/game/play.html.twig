@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortspel 21{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">Spela 21</h1>
+        <hr class="my-4">
+        <div class="row my-5">
+            <div class="col-sm-12">
+                <h4>{{ playerName }} spelar mot Banken</h4>
+                <form method="post" action="" class="form-api">
+                        <input type="submit" name="hit" value="Ta ett kort" onClick=" this.form.action = '{{path('hit')}}'; ">
+                        <input type="submit" name="stand" value="Stanna" onClick=" this.form.action = '{{path('stand')}}'; ">
+                        <input type="submit" name="reset" value="Ny omgång" onClick=" this.form.action = '{{path('reset')}}'; ">
+                        <input type="submit" name="new_game" value="Starta om spelet" onClick=" this.form.action = '{{path('game_init_get')}}', this.form.method = 'get'; ">
+                </form>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-12">
+                <p>Antal kort i kortleken: {{ deckCount }}</p>
+                {{ include('flash.html.twig') }}
+            </div>
+            <div class="col-sm-5 player">
+                <h4>{{ playerName }}</h4>
+                <p>Handens värde: {{ playerValue }}</p>
+                {% for card in playerHand.getCards() %}
+                    {% set left = card.getLeftOffset() %}
+                    {% set top = card.getTopOffset() %}
+                    <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">
+                {% endfor %}
+            </div>
+            <div class="col-sm-5 player">
+                <h4>Banken</h4>
+                <p>Handens värde: {{ bankValue }}</p>
+                {% for card in bankHand.getCards() %}
+                    {% set left = card.getLeftOffset() %}
+                    {% set top = card.getTopOffset() %}
+                    <img class="playing-card" src="{{ asset('img/transparent.png') }}" width="1" height="1" style=" background: url(' {{ asset('img/cards.png') }}' ) -{{left}}px -{{top}}px;">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
