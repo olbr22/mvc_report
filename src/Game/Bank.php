@@ -23,7 +23,7 @@ class Bank
 
     /**
      * Draws cards from the specified deck and adds them to the bank's hand until the value of the hand is at least 17.
-     * 
+     *
      * @param Deck $deck The deck from which to draw cards.
      */
     public function hit($deck): void
@@ -35,7 +35,7 @@ class Bank
 
     /**
      * Returns the bank's hand of cards.
-     * 
+     *
      * @return Hand The bank's hand of cards.
      */
     public function getHand(): Hand

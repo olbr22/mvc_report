@@ -102,7 +102,8 @@ class Kmom02ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle_get", methods: ['GET'])]
-    public function shuffleDeck(): Response {
+    public function shuffleDeck(): Response
+    {
         return $this->render('api/api_deck_shuffle.html.twig');
     }
 

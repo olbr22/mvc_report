@@ -25,7 +25,7 @@ class Card
 
     /**
      * Constructs a new `Card` instance with the specified suit, rank, and position.
-     * 
+     *
      * @param string $suit The suit of the card.
      * @param string $rank The rank of the card.
      * @param int $col The column index of the card's position on the screen.
@@ -59,7 +59,7 @@ class Card
 
     /**
      * Returns the suit of the card.
-     * 
+     *
      * @return string The suit of the card.
      */
     public function getSuit(): string
@@ -69,7 +69,7 @@ class Card
 
     /**
      * Returns the rank of the card.
-     * 
+     *
      * @return string The rank of the card.
      */
     public function getRank()
@@ -79,7 +79,7 @@ class Card
 
     /**
      * Returns the numerical value of the card.
-     * 
+     *
      * @return int The numerical value of the card.
      */
     public function getValue(): int
@@ -89,7 +89,7 @@ class Card
 
     /**
      * Calculates the visual offset of the card's position on the spread sheet image based on the column and row indices.
-     * 
+     *
      * @param int $col The column index of the card's position on the spread sheet image.
      * @param int $row The row index of the card's position on the spread sheet image.
      */
@@ -103,7 +103,7 @@ class Card
 
     /**
      * Returns the horizontal offset of the card's position.
-     * 
+     *
      * @return float The numerical value of the horizontal offset.
      */
     public function getLeftOffset(): float
@@ -113,7 +113,7 @@ class Card
 
     /**
      * Returns the vertical offset of the card's position.
-     * 
+     *
      * @return int The numerical value of the vertical offset.
      */
     public function getTopOffset(): int
@@ -123,7 +123,7 @@ class Card
 
     /**
      * Returns a string that represents the suit and rank of the card in format suit rank.
-     * 
+     *
      * @return string The suit and rank of the card.
      */
     public function getCardName(): string

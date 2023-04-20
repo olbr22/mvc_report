@@ -30,7 +30,7 @@ class Game
 
     /**
      * Initializes a new instance of the Game class.
-     * 
+     *
      * @param string $playerName The name of the player.
      */
     public function __construct($playerName)
@@ -50,8 +50,8 @@ class Game
 
     /**
      * Plays a round of the game.
-     * 
-     * @param string $choice The player's choice ('hit' or 'stand'). 
+     *
+     * @param string $choice The player's choice ('hit' or 'stand').
      */
     public function play($choice): void
     {

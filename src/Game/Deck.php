@@ -3,11 +3,23 @@
 namespace App\Game;
 
 use App\Game\Card;
+use Exception;
 
+/**
+ * Represents a deck of cards.
+ */
 class Deck
 {
+    /**
+     * @var array<Card> $deck The array of cards in the deck.
+     */
     private $deck;
 
+    /**
+     * Constructs a new deck of cards.
+     *
+     * @param array<Card> $cards The initial cards to include in the deck.
+     */
     public function __construct($cards = [])
     {
         $this->deck = [];
@@ -18,6 +30,7 @@ class Deck
             $this->deck = $cards;
         }
 
+        // Add all possible cards to the deck.
         foreach ($suits as $row => $suit) {
             foreach ($ranks as $col => $rank) {
                 $this->deck[] = new Card($suit, $rank, $col, $row);
@@ -25,22 +38,45 @@ class Deck
         }
     }
 
-    public function shuffle()
+    /**
+     * Shuffles the deck of cards on place.
+     */
+    public function shuffle(): void
     {
         shuffle($this->deck);
     }
 
-    public function draw()
+    /**
+     * Draws a card from the top of the deck.
+     *
+     * @return Card The card that was drawn.
+     */
+    public function draw(): Card
     {
-        return array_shift($this->deck);
+        $card = array_shift($this->deck);
+
+        if (is_null($card)) {
+            throw new Exception("The deck is empty");
+        }
+        return $card;
     }
 
-    public function getCards()
+    /**
+     * Returns all cards in the deck.
+     *
+     * @return array<Card> The array of cards in the deck.
+     */
+    public function getCards(): array
     {
         return $this->deck;
     }
 
-    public function getNumCards()
+    /**
+     * Returns the number of cards in the deck.
+     *
+     * @return int The number of cards in the deck.
+     */
+    public function getNumCards(): int
     {
         return count($this->deck);
     }

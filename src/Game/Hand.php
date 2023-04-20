@@ -26,7 +26,7 @@ class Hand
      *
      * @param Card $card The card to add to the hand.
      */
-    public function addCard($card)
+    public function addCard($card): void
     {
         $this->cards[] = $card;
     }
@@ -62,7 +62,7 @@ class Hand
      *
      * @return array<Card> The array of Card objects representing the cards in the hand.
      */
-    public function getCards()
+    public function getCards(): array
     {
         return $this->cards;
     }
@@ -70,7 +70,7 @@ class Hand
     /**
      * Removes all cards from the hand.
      */
-    public function clearCards()
+    public function clearCards(): void
     {
         $this->cards = [];
     }
