@@ -12,5 +12,10 @@ $finder = PhpCsFixer\Finder::create();
 
 $config = new PhpCsFixer\Config();
 $config->setFinder($finder);
+// $config->setRules([
+//     '@Symfony' => true,
+//     'concat_space' => ['spacing' => 'one'],
+//     'global_namespace_import' => true,
+// ]);
 
 return $config;

@@ -8,14 +8,14 @@ namespace App\Deck;
 class CardGraphic extends Card
 {
     /**
-     * @var int The horizontal offset of the card on the sprite sheet.
+     * @var float The horizontal offset of the card on the sprite sheet.
      */
-    private $left_offset;
+    private $leftOffset;
 
     /**
      * @var int The vertical offset of the card on the sprite sheet.
      */
-    private $top_offset;
+    private $topOffset;
 
     /**
      * Constructs a new CardGraphic object with the given rank, suit, and position.
@@ -37,22 +37,22 @@ class CardGraphic extends Card
      * @param int $col The column position of the card on the sprite sheet.
      * @param int $row The row position of the card on the sprite sheet.
      */
-    public function getOffset($col, $row)
+    public function getOffset($col, $row): void
     {
-        $card_width = 61.6;
-        $card_height = 81;
-        $this->left_offset = $card_width * $col;
-        $this->top_offset = $card_height * $row;
+        $cardWidth = 61.6;
+        $cardHeight = 81;
+        $this->leftOffset = $cardWidth * $col;
+        $this->topOffset = $cardHeight * $row;
     }
 
     /**
      * Returns the horizontal offset of the card on the sprite sheet.
      *
-     * @return int The horizontal offset of the card on the sprite sheet.
+     * @return float The horizontal offset of the card on the sprite sheet.
      */
-    public function getLeftOffset()
+    public function getLeftOffset(): float
     {
-        return $this->left_offset;
+        return $this->leftOffset;
     }
 
     /**
@@ -60,9 +60,9 @@ class CardGraphic extends Card
      *
      * @return int The vertical offset of the card on the sprite sheet.
      */
-    public function getTopOffset()
+    public function getTopOffset(): int
     {
-        return $this->top_offset;
+        return $this->topOffset;
     }
 
     /**
@@ -70,7 +70,7 @@ class CardGraphic extends Card
      *
      * @return string The name of the card.
      */
-    public function getCardName()
+    public function getCardName(): string
     {
         return "{$this->getRank()} {$this->getSuit()}";
     }

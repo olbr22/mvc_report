@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Deck\Card;
 use App\Deck\CardGraphic;
 use App\Deck\CardHand;
 use App\Deck\DeckOfCards;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Kmom02Controller extends AbstractController
 {
-    public function testSession(SessionInterface $session)
+    public function testSession(SessionInterface $session): void
     {
         // Set a value in the session
         $session->set('test_key', 'test_value');
@@ -26,9 +28,9 @@ class Kmom02Controller extends AbstractController
         // Check if the retrieved value is equal to the original value
         if ($value === 'test_value') {
             echo 'SessionInterface is working!';
-        } else {
-            echo 'SessionInterface is not working.';
         }
+
+        echo 'SessionInterface is not working.';
     }
 
     #[Route("/card", name: "card")]
@@ -41,16 +43,16 @@ class Kmom02Controller extends AbstractController
     public function deck(
         SessionInterface $session
     ): Response {
-        $my_deck = new DeckOfCards();
-        $my_hand = new CardHand();
+        $myDeck = new DeckOfCards();
+        $myHand = new CardHand();
         // create a deck of cards
-        $session->set('deck', $my_deck);
+        $session->set('deck', $myDeck);
         // create a hand
-        $session->set('hand', $my_hand);
+        $session->set('hand', $myHand);
 
-        if (!$my_deck) {
-            $my_deck = new DeckOfCards();
-            $session->set('deck', $my_deck);
+        if ($myDeck == []) {
+            $myDeck = new DeckOfCards();
+            $session->set('deck', $myDeck);
         }
 
         $data = [
@@ -61,80 +63,85 @@ class Kmom02Controller extends AbstractController
     }
 
     #[Route("/card/deck/shuffle", name: "deck_shuffle")]
-    public function deck_shuffle(
+    public function deckShuffle(
         SessionInterface $session
     ): Response {
 
-        $my_deck = $session->get('deck');
+        /** @var DeckOfCards $myDeck */
+        $myDeck = $session->get('deck');
 
-        if (!$my_deck) {
-            $my_deck = new DeckOfCards();
-            $session->set('deck', $my_deck);
+        if ($myDeck == []) {
+            $myDeck = new DeckOfCards();
+            $session->set('deck', $myDeck);
         }
 
-        $my_deck->shuffle();
+        $myDeck->shuffle();
 
         $data = [
-            'deck' => $my_deck
+            'deck' => $myDeck
         ];
 
         return $this->render('card/shuffle.html.twig', $data);
     }
 
     #[Route("/card/deck/draw", name: "draw_card")]
-    public function draw_card(
+    public function drawCard(
         SessionInterface $session
     ): Response {
 
-        $my_hand = $session->get('hand');
-        $my_deck = $session->get('deck');
+        /** @var CardHand $myHand */
+        $myHand = $session->get('hand');
+        /** @var DeckOfCards $myDeck */
+        $myDeck = $session->get('deck');
 
-        if (!$my_deck) {
-            $my_deck = new DeckOfCards();
-            $session->set('deck', $my_deck);
+        if ($myDeck == []) {
+            $myDeck = new DeckOfCards();
+            $session->set('deck', $myDeck);
         }
 
-        if (!$my_hand) {
-            $my_hand = new CardHand();
-            $session->set('hand', $my_hand);
+        if ($myHand == []) {
+            $myHand = new CardHand();
+            $session->set('hand', $myHand);
         }
         // draw a card from the deck
-        $my_hand->draw($my_deck);
+        $myHand->draw($myDeck);
 
-        $session->set('hand', $my_hand);
+        $session->set('hand', $myHand);
 
         $data = [
             'deck' => $session->get('deck'),
-            'hand' => $my_hand
+            'hand' => $myHand
         ];
 
         return $this->render('card/draw.html.twig', $data);
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_num_cards")]
-    public function draw_num_cards(
+    public function drawNumCards(
         SessionInterface $session,
         int $num
     ): Response {
-        $my_hand = $session->get('hand');
-        $my_deck = $session->get('deck');
+        /** @var CardHand $myHand */
+        $myHand = $session->get('hand');
+        /** @var DeckOfCards $myDeck */
+        $myDeck = $session->get('deck');
 
-        if (!$my_deck) {
-            $my_deck = new DeckOfCards();
-            $session->set('deck', $my_deck);
+        if ($myDeck == []) {
+            $myDeck = new DeckOfCards();
+            $session->set('deck', $myDeck);
         }
 
-        if (!$my_hand) {
-            $my_hand = new CardHand();
-            $session->set('hand', $my_hand);
+        if ($myHand == []) {
+            $myHand = new CardHand();
+            $session->set('hand', $myHand);
         }
 
-        if ($my_deck->getNumCards() < $num) {
-            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$my_deck->getNumCards()}, du vill dra {$num}.");
+        if ($myDeck->getNumCards() < $num) {
+            throw new Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$myDeck->getNumCards()}, du vill dra {$num}.");
         }
 
         // draw a card from the deck
-        $my_hand->draw($my_deck, $num);
+        $myHand->draw($myDeck, $num);
 
         $data = [
             'deck' => $session->get('deck'),
@@ -147,26 +154,27 @@ class Kmom02Controller extends AbstractController
     #[Route("/card/deck/deal/{num_players<\d+>}/{num_cards<\d+>}", name: "deal")]
     public function deal(
         SessionInterface $session,
-        int $num_players,
-        int $num_cards
+        int $numPlayer,
+        int $numCards
     ): Response {
 
-        $my_deck = $session->get('deck');
+        /** @var DeckOfCards $myDeck */
+        $myDeck = $session->get('deck');
 
-        if (!$my_deck) {
-            $my_deck = new DeckOfCards();
-            $session->set('deck', $my_deck);
+        if ($myDeck == []) {
+            $myDeck = new DeckOfCards();
+            $session->set('deck', $myDeck);
         }
 
-        if (($num_players * $num_cards) > $my_deck->getNumCards()) {
-            throw new \Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$my_deck->getNumCards()}.");
+        if (($numPlayer * $numCards) > $myDeck->getNumCards()) {
+            throw new Exception("Det finns inte tillräckligt med kort i kortleken! Antal kort i kortleken {$myDeck->getNumCards()}.");
         }
 
         // create array with players/hand and give them x cards
         $players = array();
-        for ($i = 1; $i <= $num_players; $i++) {
+        for ($i = 1; $i <= $numPlayer; $i++) {
             $players["player" . $i] = new CardHand();
-            $players["player" . $i]->draw($my_deck, $num_cards);
+            $players["player" . $i]->draw($myDeck, $numCards);
         }
 
         $data = [

@@ -2,14 +2,35 @@
 
 namespace App\Game;
 
+/**
+ * Class represents a playing card with a suit, rank, value, left and right offset
+ * which corresponds the card's position on the spread sheet image 'cards.png'.
+*/
 class Card
 {
+    /** @var string $suit The suit of the card (e.g. 'Clubs', 'Diamonds', 'Hearts', 'Spades'). */
     private $suit;
-    private $rank;
-    private $value;
-    private $left_offset;
-    private $top_offset;
 
+    /** @var string $rank The rank of the card (e.g. 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'). */
+    private $rank;
+
+    /** @var int $value The numerical value of the card (e.g. 14 for an Ace, 13 for a King, etc.). */
+    private $value;
+
+    /** @var float $leftOffset The horizontal offset of the card's position on the spread sheet image. */
+    private $leftOffset;
+
+    /** @var int $topOffset The vertical offset of the card's position on the spread sheet image. */
+    private $topOffset;
+
+    /**
+     * Constructs a new `Card` instance with the specified suit, rank, and position.
+     * 
+     * @param string $suit The suit of the card.
+     * @param string $rank The rank of the card.
+     * @param int $col The column index of the card's position on the screen.
+     * @param int $row The row index of the card's position on the screen.
+     */
     public function __construct($suit, $rank, $col, $row)
     {
         $this->suit = $suit;
@@ -18,55 +39,94 @@ class Card
         $this->setCardValue();
     }
 
-    public function setCardValue()
+    /**
+     * Sets the numerical value of the card based on its rank.
+     */
+    public function setCardValue(): void
     {
         if ($this->rank == "Ace") {
             $this->value = 14;
-        } else if ($this->rank == "King") {
+        } elseif ($this->rank == "King") {
             $this->value = 13;
-        } else if ($this->rank == "Queen") {
+        } elseif ($this->rank == "Queen") {
             $this->value = 12;
-        } else if ($this->rank == "Jack") {
+        } elseif ($this->rank == "Jack") {
             $this->value = 11;
-        } else {
-            $this->value = intval($this->rank);
         }
+
+        $this->value = intval($this->rank);
     }
 
-    public function getSuit()
+    /**
+     * Returns the suit of the card.
+     * 
+     * @return string The suit of the card.
+     */
+    public function getSuit(): string
     {
         return $this->suit;
     }
 
+    /**
+     * Returns the rank of the card.
+     * 
+     * @return string The rank of the card.
+     */
     public function getRank()
     {
         return $this->rank;
     }
 
-    public function getValue()
+    /**
+     * Returns the numerical value of the card.
+     * 
+     * @return int The numerical value of the card.
+     */
+    public function getValue(): int
     {
         return $this->value;
     }
 
-    public function getOffset($col, $row)
+    /**
+     * Calculates the visual offset of the card's position on the spread sheet image based on the column and row indices.
+     * 
+     * @param int $col The column index of the card's position on the spread sheet image.
+     * @param int $row The row index of the card's position on the spread sheet image.
+     */
+    public function getOffset($col, $row): void
     {
-        $card_width = 61.6;
-        $card_height = 81;
-        $this->left_offset = $card_width * $col;
-        $this->top_offset = $card_height * $row;
+        $cardWidth = 61.6;
+        $cardHeight = 81;
+        $this->leftOffset = $cardWidth * $col;
+        $this->topOffset = $cardHeight * $row;
     }
 
-    public function getLeftOffset()
+    /**
+     * Returns the horizontal offset of the card's position.
+     * 
+     * @return float The numerical value of the horizontal offset.
+     */
+    public function getLeftOffset(): float
     {
-        return $this->left_offset;
+        return $this->leftOffset;
     }
 
-    public function getTopOffset()
+    /**
+     * Returns the vertical offset of the card's position.
+     * 
+     * @return int The numerical value of the vertical offset.
+     */
+    public function getTopOffset(): int
     {
-        return $this->top_offset;
+        return $this->topOffset;
     }
 
-    public function getCardName()
+    /**
+     * Returns a string that represents the suit and rank of the card in format suit rank.
+     * 
+     * @return string The suit and rank of the card.
+     */
+    public function getCardName(): string
     {
         return "{$this->getSuit()} {$this->getRank()}";
     }

@@ -8,19 +8,19 @@ namespace App\Deck;
 class CardHand
 {
     /**
-     * @var array An array of cards in the hand.
+     * @var array<Card> An array of cards in the hand.
      */
     private $hand = [];
 
     /**
      * Draws one or more cards from a deck and adds them to the hand.
      *
-     * @param Deck $deck The deck to draw cards from.
-     * @param int $num_cards The number of cards to draw (default 1).
+     * @param DeckOfCards $deck The deck to draw cards from.
+     * @param int $numCards The number of cards to draw (default 1).
      */
-    public function draw($deck, $num_cards = 1)
+    public function draw($deck, $numCards = 1): void
     {
-        for ($i = 0; $i < $num_cards; $i++) {
+        for ($i = 0; $i < $numCards; $i++) {
             $this->hand[] = $deck->popCard();
         }
     }
@@ -28,9 +28,9 @@ class CardHand
     /**
      * Returns the hand of cards.
      *
-     * @return array The hand of cards.
+     * @return array<Card> The hand of cards.
      */
-    public function getHand()
+    public function getHand(): array
     {
         return $this->hand;
     }

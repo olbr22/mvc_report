@@ -3,6 +3,7 @@
 namespace App\Deck;
 
 use App\Deck\Card;
+use Exception;
 
 /**
  * The DeckOfCards class represents a standard deck of playing cards.
@@ -11,9 +12,9 @@ use App\Deck\Card;
 class DeckOfCards
 {
     /**
-     * @var array $SUITS An array of the four possible suits for a card.
+     * @var array<string> $suits An array of the four possible suits for a card.
      */
-    private $SUITS = [
+    private $suits = [
         0 => "spades",
         1 => "clubs",
         2 => "diamonds",
@@ -21,9 +22,9 @@ class DeckOfCards
     ];
 
     /**
-     * @var array $RANKS An array of the 13 possible ranks for a card.
+     * @var array<string> $ranks An array of the 13 possible ranks for a card.
      */
-    private $RANKS = [
+    private $ranks = [
         0 => "ace",
         1 => "2",
         2 => "3",
@@ -40,7 +41,7 @@ class DeckOfCards
     ];
 
     /**
-     * @var array $deck An array of cards representing the deck.
+     * @var array<Card> $deck An array of cards representing the deck.
      */
     private $deck = [];
 
@@ -49,15 +50,15 @@ class DeckOfCards
      * If an array of cards is provided as a parameter, the deck is initialized
      * with those cards. Otherwise, the deck is created in sorted order.
      *
-     * @param array $cards (optional) An array of Card objects to initialize the deck with.
+     * @param array<Card> $cards (optional) An array of Card objects to initialize the deck with.
      */
     public function __construct($cards = [])
     {
         if ($cards) {
             $this->deck = $cards;
-        } else {
-            $this->createDeck();
         }
+
+        $this->createDeck();
     }
 
     /**
@@ -65,7 +66,7 @@ class DeckOfCards
      *
      * @param Card $card The Card object to add to the deck.
      */
-    public function add(Card $card)
+    public function add(Card $card): void
     {
         $this->deck[] = $card;
     }
@@ -76,10 +77,10 @@ class DeckOfCards
      * Cards are added to the deck in row-major order, from top to bottom and
      * left to right.
      */
-    public function createDeck()
+    public function createDeck(): void
     {
-        foreach ($this->SUITS as $row => $suit) {
-            foreach ($this->RANKS as $col => $rank) {
+        foreach ($this->suits as $row => $suit) {
+            foreach ($this->ranks as $col => $rank) {
                 $this->add(new CardGraphic($rank, $suit, $col, $row));
             }
         }
@@ -88,9 +89,9 @@ class DeckOfCards
     /**
      * Returns the current deck of cards.
      *
-     * @return array An array of Card objects representing the deck.
+     * @return array<Card> An array of Card objects representing the deck.
      */
-    public function getDeck()
+    public function getDeck(): array
     {
         return $this->deck;
     }
@@ -100,7 +101,7 @@ class DeckOfCards
      *
      * @return int The number of cards in the deck.
      */
-    public function getNumCards()
+    public function getNumCards(): int
     {
         return count($this->deck);
     }
@@ -111,16 +112,20 @@ class DeckOfCards
      *
      * @return Card The top card from the deck.
      */
-    public function popCard()
+    public function popCard(): Card
     {
-        return array_pop($this->deck);
+        $card = array_pop($this->deck);
+        if (is_null($card)) {
+            throw new Exception("The deck is empty");
+        }
+        return $card;
     }
 
     /**
      * Shuffles the deck of cards.
      * This function randomizes the order of the cards in the deck.
      */
-    public function shuffle()
+    public function shuffle(): void
     {
         shuffle($this->deck);
     }

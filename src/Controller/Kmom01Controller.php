@@ -12,10 +12,10 @@ class Kmom01Controller extends AbstractController
     #[Route("/", name: "presentation")]
     public function presentation(): Response
     {
-        $my_name = 'Olha Bruce';
+        $myName = 'Olha Bruce';
 
         $data = [
-            'name' => $my_name
+            'name' => $myName
         ];
 
         return $this->render('presentation.html.twig', $data);

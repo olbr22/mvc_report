@@ -34,11 +34,11 @@ class GameController extends AbstractController
     public function initCallback(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $playersName = $request->request->get('name');
+        $playerNameAsString = strval($playersName);
 
-        $game = new Game($playersName);
+        $game = new Game($playerNameAsString);
         $game->start();
 
         $session->set('game', $game);
@@ -55,9 +55,7 @@ class GameController extends AbstractController
     #[Route('/game/play', name: 'play', methods: ['GET'])]
     public function play(
         SessionInterface $session
-    ): Response
-    {
-        $game = $session->get('game');
+    ): Response {
         $playerValue = $session->get('player_value');
 
         if ($playerValue == 21) {
@@ -89,10 +87,10 @@ class GameController extends AbstractController
     #[Route('/game/hit', name: 'hit', methods: ['POST'])]
     public function hit(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $choice = 'hit';
 
+        /** @var Game $game */
         $game = $session->get('game');
         $game->play($choice);
         $session->set('game', $game);
@@ -105,10 +103,9 @@ class GameController extends AbstractController
     #[Route('/game/stand', name: 'stand', methods: ['POST'])]
     public function stand(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $choice = 'stand';
-
+        /** @var Game $game */
         $game = $session->get('game');
         $game->play($choice);
         $session->set('deck_count', $game->deck->getNumCards());
@@ -122,20 +119,15 @@ class GameController extends AbstractController
                 'success',
                 'Banken har spruckit!'
             );
-        } else if ($playerValue > $bankValue) {
+        } elseif ($playerValue > $bankValue) {
             $this->addFlash(
                 'success',
                 'Grattis! Du vann!'
             );
-        } else if ($playerValue == $bankValue && $playerValue != 0) {
+        } elseif ($playerValue == $bankValue && $playerValue != 0) {
             $this->addFlash(
                 'warning',
                 'Det är lika mellan er! Du förlorade!'
-            );
-        } else {
-            $this->addFlash(
-                'warning',
-                'Du förlorade!'
             );
         }
 
@@ -145,8 +137,8 @@ class GameController extends AbstractController
     #[Route('/game/reset', name: 'reset', methods: ['POST'])]
     public function reset(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
+        /** @var Game $game */
         $game = $session->get('game');
         $game->end();
         $session->set('deck_count', $game->deck->getNumCards());

@@ -28,22 +28,25 @@ class Kmom02ControllerJson extends AbstractController
         $url = 'https://api.thecatapi.com/v1/images/search'; // Get random image of a cat from this API
         $response = file_get_contents($url); // Send a GET request to the API and get the response
 
+        $result = [];
         if ($response) {
             // Process the response data
+            /** @var array{0: array{url: string}} $data */
             $data = json_decode($response, true); // Convert the JSON data to an associative array
             $result = [
                 'cat' => $data[0]['url']
             ];
-        } else {
-            echo 'Error fetching data'; // Handle the error if the response is empty or invalid
         }
+
+        echo 'Error fetching data'; // Handle the error if the response is empty or invalid
+
         return $this->render('lucky.html.twig', $result);
     }
 
     #[Route("/api/quote", name: "quote")]
     public function jsonQuote(): Response
     {
-        $current_timestamp = date('Y-m-d H:i:s'); // outputs today's date and time in the format YYYY-MM-DD HH:MM:SS
+        $currentTimestamp = date('Y-m-d H:i:s'); // outputs today's date and time in the format YYYY-MM-DD HH:MM:SS
 
         $quotes = [
             0 => "If you want light to come into your life, you need to stand where it is shining.\nGuy Finley\nWriter",
@@ -56,7 +59,7 @@ class Kmom02ControllerJson extends AbstractController
 
         $quote = [
             'quote' => $quotes[$number],
-            'timestamp' => $current_timestamp
+            'timestamp' => $currentTimestamp
         ];
 
         // $response = new Response();
@@ -73,7 +76,7 @@ class Kmom02ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck", name: "api_deck_create", methods: ['GET'])]
-    public function create_deck(
+    public function createDeck(
         SessionInterface $session
     ): Response {
         $json = [];
@@ -99,9 +102,7 @@ class Kmom02ControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle_get", methods: ['GET'])]
-    public function shuffleDeck(
-        SessionInterface $session
-    ): Response {
+    public function shuffleDeck(): Response {
         return $this->render('api/api_deck_shuffle.html.twig');
     }
 
@@ -109,14 +110,16 @@ class Kmom02ControllerJson extends AbstractController
     public function shuffleDeckCallback(
         SessionInterface $session
     ): Response {
+        /** @var DeckOfCards $deck */
         $deck = $session->get('deck');
 
-        if (!$deck) {
+        if ($deck == []) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 
         $deck->shuffle();
+        $json = [];
 
         foreach ($deck->getDeck() as $card) {
             $json[] = $card->getCardName();
@@ -138,20 +141,23 @@ class Kmom02ControllerJson extends AbstractController
     public function drawGetCallback(
         SessionInterface $session
     ): Response {
+        /** @var CardHand $hand */
         $hand = $session->get('hand');
+        /** @var DeckOfCards $deck */
         $deck = $session->get('deck');
 
-        if (!$deck) {
+        if ($deck == []) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 
-        if (!$hand) {
+        if ($hand == []) {
             $hand = new CardHand();
             $session->set('hand', $hand);
         }
         $hand->draw($deck);
 
+        $json = [];
         foreach ($hand->getHand() as $card) {
             $json[] = $card->getCardName();
         }
@@ -172,20 +178,23 @@ class Kmom02ControllerJson extends AbstractController
     public function drawCallback(
         SessionInterface $session
     ): Response {
+        /** @var CardHand $hand */
         $hand = $session->get('hand');
+        /** @var DeckOfCards $deck */
         $deck = $session->get('deck');
 
-        if (!$deck) {
+        if ($deck == []) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 
-        if (!$hand) {
+        if ($hand == []) {
             $hand = new CardHand();
             $session->set('hand', $hand);
         }
         $hand->draw($deck);
 
+        $json = [];
         foreach ($hand->getHand() as $card) {
             $json[] = $card->getCardName();
         }
@@ -207,15 +216,17 @@ class Kmom02ControllerJson extends AbstractController
         SessionInterface $session,
         int $num
     ): Response {
+        /** @var CardHand $hand */
         $hand = $session->get('hand');
+        /** @var DeckOfCards $deck */
         $deck = $session->get('deck');
 
-        if (!$deck) {
+        if ($deck == []) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 
-        if (!$hand) {
+        if ($hand == []) {
             $hand = new CardHand();
             $session->set('hand', $hand);
         }
@@ -245,20 +256,23 @@ class Kmom02ControllerJson extends AbstractController
         Request $request
     ): Response {
         $numberCards = $request->request->get('number_cards');
+        $numberCardsNum = intval($numberCards);
 
+        /** @var CardHand $hand */
         $hand = $session->get('hand');
+        /** @var DeckOfCards $deck */
         $deck = $session->get('deck');
 
-        if (!$deck) {
+        if ($deck == []) {
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
 
-        if (!$hand) {
+        if ($hand == []) {
             $hand = new CardHand();
             $session->set('hand', $hand);
         }
-        $hand->draw($deck, $numberCards);
+        $hand->draw($deck, $numberCardsNum);
 
         $json = [];
         foreach ($hand->getHand() as $card) {
@@ -277,5 +291,4 @@ class Kmom02ControllerJson extends AbstractController
 
         return $response;
     }
-
 }

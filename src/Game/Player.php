@@ -22,15 +22,18 @@ class Player
         $this->hand->addCard($deck->draw());
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getHand() {
+    public function getHand()
+    {
         return $this->hand;
     }
 
-    public function clearHand() {
+    public function clearHand()
+    {
         $this->hand->clearCards();
     }
 }
