@@ -124,6 +124,11 @@ class GameController extends AbstractController
                 'success',
                 'Grattis! Du vann!'
             );
+        } elseif ($playerValue < $bankValue) {
+            $this->addFlash(
+                'warning',
+                'Banken har större hand! Du förlorade!'
+            );
         } elseif ($playerValue == $bankValue && $playerValue != 0) {
             $this->addFlash(
                 'warning',

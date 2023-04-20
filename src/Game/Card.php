@@ -44,17 +44,22 @@ class Card
      */
     public function setCardValue(): void
     {
-        if ($this->rank == "Ace") {
-            $this->value = 14;
-        } elseif ($this->rank == "King") {
-            $this->value = 13;
-        } elseif ($this->rank == "Queen") {
-            $this->value = 12;
-        } elseif ($this->rank == "Jack") {
-            $this->value = 11;
+        switch ($this->rank) {
+            case "Ace":
+                $this->value = 14;
+                break;
+            case "King":
+                $this->value = 13;
+                break;
+            case "Queen":
+                $this->value = 12;
+                break;
+            case "Jack":
+                $this->value = 11;
+                break;
+            default:
+                $this->value = intval($this->rank);
         }
-
-        $this->value = intval($this->rank);
     }
 
     /**
