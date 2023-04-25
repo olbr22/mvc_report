@@ -10,6 +10,7 @@ use App\Game\Bank;
 use App\Game\Game;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -157,5 +158,39 @@ class GameController extends AbstractController
         $session->set('bank_value', $game->getBank()->getHand()->getValue());
 
         return $this->redirectToRoute('play');
+    }
+
+    #[Route("/api/game", name: "api_game", methods: ['GET'])]
+    public function gameApi(
+        SessionInterface $session
+    ): Response {
+
+        $playerHand = $session->get('player_hand');
+        $playerCards = array();
+        foreach($playerHand->getCards() as $card) {
+            $playerCards[] = $card->getCardName();
+        }
+
+        $bankHand = $session->get('bank_hand');
+        $bankCards = array();
+        foreach($bankHand->getCards() as $card) {
+            $bankCards[] = $card->getCardName();
+        }
+
+        $data = [
+            'playerName' => $session->get('player_name'),
+            'playerHand' => $playerCards,
+            'playerValue' => $session->get('player_value'),
+            'bankHand' => $bankCards,
+            'bankValue' => $session->get('bank_value'),
+            'deckCount' => $session->get('deck_count'),
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
     }
 }
