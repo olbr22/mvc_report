@@ -16,17 +16,17 @@ class Game
     /**
      * @var Player The player in the game.
      */
-    public $player;
+    private $player;
 
     /**
      * @var Bank The bank in the game.
      */
-    public $bank;
+    private $bank;
 
     /**
      * @var Deck The deck of cards used in the game.
      */
-    public $deck;
+    private $deck;
 
     /**
      * Initializes a new instance of the Game class.
@@ -38,6 +38,36 @@ class Game
         $this->player = new Player($playerName);
         $this->bank = new Bank();
         $this->deck = new Deck();
+    }
+
+    /**
+     * Returns the Player object.
+     *
+     * @return Player The Player object.
+     */
+    public function getPlayer(): Player
+    {
+        return $this->player;
+    }
+
+    /**
+     * Returns the Bank object.
+     *
+     * @return Bank The Bank object.
+     */
+    public function getBank(): Bank
+    {
+        return $this->bank;
+    }
+
+    /**
+     * Returns the Deck object.
+     *
+     * @return Deck The Deck object.
+     */
+    public function getDeck(): Deck
+    {
+        return $this->deck;
     }
 
     /**

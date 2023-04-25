@@ -7,7 +7,7 @@
     <div class="container my-5">
         <h1 class="display-4">Kortspel 21</h1>
         <hr class="my-4">
-            <div class="game start">
+            <div class="game start row my-1">
                 <a href="{{ path('game_init_get') }}">Spela</a>
                 <a href="{{ path('game_init_get') }}">Dokumentation</a>
             </div>
@@ -15,9 +15,11 @@
             <div class="game short-description">
                 <h4>Spelregler</h4>
                 <p>Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21, eller komma så nära som möjligt utan att överskrida 21. Essen är värda valfritt 1 eller 14, kungarna 13, damerna 12, knektarna 11. Nummerkorten har samma värden som valören.</p>
-                <ul>En spelrunda kan se ut så här när en spelare spelar mot banken:
-                    <li>Spelet leder till en landningssida där man kan läsa spelregler och se dokumentation om spelet samt påbörja ett spel.</li>
+                <h4>En spelrunda kan se ut så här när en spelare spelar mot banken:</h4>
+                <ul>
+                    <li>Spelare kan ange sitt namn och påbörja spelet.</li>
                     <li>Spelplanen visas och spelaren och banken har inte tagit några kort.</li>
+                    <li>Spelaren kan ta ett kort, stanna, påbörja en ny omgång där nästa kort dras från samma kortlek som spelet var initierat med eller starta om spelet med en ny kortlek.</li>
                     <li>Spelaren tar ett kort. Kortet visas.</li>
                     <li>Spelaren kan bestämma att stanna eller ta ytterligare ett kort.</li>
                     <li>Om spelaren får över 21 vinner banken.</li>

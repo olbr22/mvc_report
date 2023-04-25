@@ -42,12 +42,12 @@ class GameController extends AbstractController
         $game->start();
 
         $session->set('game', $game);
-        $session->set('player_name', $game->player->getName());
-        $session->set('player_hand', $game->player->getHand());
-        $session->set('player_value', $game->player->getHand()->getValue());
-        $session->set('bank_hand', $game->bank->getHand());
-        $session->set('bank_value', $game->bank->getHand()->getValue());
-        $session->set('deck_count', $game->deck->getNumCards());
+        $session->set('player_name', $game->getPlayer()->getName());
+        $session->set('player_hand', $game->getPlayer()->getHand());
+        $session->set('player_value', $game->getPlayer()->getHand()->getValue());
+        $session->set('bank_hand', $game->getBank()->getHand());
+        $session->set('bank_value', $game->getBank()->getHand()->getValue());
+        $session->set('deck_count', $game->getDeck()->getNumCards());
 
         return $this->redirectToRoute('play');
     }
@@ -94,8 +94,8 @@ class GameController extends AbstractController
         $game = $session->get('game');
         $game->play($choice);
         $session->set('game', $game);
-        $session->set('deck_count', $game->deck->getNumCards());
-        $session->set('player_value', $game->player->getHand()->getValue());
+        $session->set('deck_count', $game->getDeck()->getNumCards());
+        $session->set('player_value', $game->getPlayer()->getHand()->getValue());
 
         return $this->redirectToRoute('play');
     }
@@ -108,8 +108,8 @@ class GameController extends AbstractController
         /** @var Game $game */
         $game = $session->get('game');
         $game->play($choice);
-        $session->set('deck_count', $game->deck->getNumCards());
-        $session->set('bank_value', $game->bank->getHand()->getValue());
+        $session->set('deck_count', $game->getDeck()->getNumCards());
+        $session->set('bank_value', $game->getBank()->getHand()->getValue());
 
         $bankValue = $session->get('bank_value');
         $playerValue = $session->get('player_value');
@@ -146,9 +146,9 @@ class GameController extends AbstractController
         /** @var Game $game */
         $game = $session->get('game');
         $game->end();
-        $session->set('deck_count', $game->deck->getNumCards());
-        $session->set('player_value', $game->player->getHand()->getValue());
-        $session->set('bank_value', $game->bank->getHand()->getValue());
+        $session->set('deck_count', $game->getDeck()->getNumCards());
+        $session->set('player_value', $game->getPlayer()->getHand()->getValue());
+        $session->set('bank_value', $game->getBank()->getHand()->getValue());
 
         return $this->redirectToRoute('play');
     }
