@@ -17,6 +17,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GameController extends AbstractController
 {
+    #[Route('/game/doc', name: 'game_doc')]
+    public function documentation(): Response
+    {
+        return $this->render('game/doc.html.twig');
+    }
+
     #[Route('/game', name: 'game')]
     public function game(): Response
     {

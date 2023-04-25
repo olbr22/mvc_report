@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dokumentation{% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1 class="display-4">Dokumentation Kortspel21</h1>
+        <hr class="my-4">
+            <div class="game start row my-1">
+                <a href="{{ path('game_init_get') }}">Spela</a>
+                <a href="{{ path('game_doc') }}">Dokumentation</a>
+            </div>
+        <div class="row my-5">
+            <div class="game short-description">
+                <h4>Flödesschema som representerar hur jag tänker lösa grunderna i spelet</h4>
+                <div class="row my-5">
+                <figure class="figure">
+                    <img src="{{ asset('img/general_flowchart_game_21.png') }}" class="figure-img img-fluid rounded" alt="Ett generellt flödesschema som representerar kortspelet 'Tjugoett'.">
+                    <figcaption class="figure-caption">Ett generellt flödesschema som representerar kortspelet 'Tjugoett'.</figcaption>
+                </figure>
+                <figure class="figure">
+                    <img src="{{ asset('img/flowchart_determine_the_winner.png') }}" class="figure-img img-fluid rounded" alt="Ett flödesschema som representerar spelflödet mellan spelare och bank.">
+                    <figcaption class="figure-caption">Ett flödesschema som representerar spelflödet mellan spelare och bank.</figcaption>
+                </figure>
+                </div>
+                <h4>Psuedokod som visar hur jag tänker räkna ut handens värde</h4>
+                <pre>
+                    <code>
+                        public function getHandValue()
+                        {
+                            SET value to zero
+                            SET numberOfAces to zero
+
+                            FOR each card in the hand
+                                IF the rank of the card is Ace
+                                    SET numberOfAces to numberOfAces plus one
+
+                            WHILE value is bigger than 21 and number of Aces bigger than zero
+                                SET value to value minus 13
+                                SET numberOfAces to numberOfAces minus one
+
+                            RETURN value
+                        }
+                    </code>
+                </pre>
+                <h4>Beskriv klasserna i text med klassens namn och en mening som beskriver vad klassens syfte är</h4>
+                <p>Card - represents a playing card. Card class has properties rank, suit, value, top- and leftOffset.</p>
+                <p>Deck - represents a deck of 52 playing cards. Deck class has such methods as shuffle to shuffle the deck and draw that returns a card.</p>
+                <p>Hand - represents a collection of cards that player/bank holds. Hand has such methods as addCard, getHandValue and clearHand.</p>
+                <p>Player - represents a player in the game. Class Player has properties as name and hand. The Player class has methods to draw a card and add it to the hand and method to clear the hand.</p>
+                <p>Bank - represents a bank in the game. Class Bank has properties hand. The Bank class has method hit that allows to add cards to the hand until the value of the hand equals to 17 or more.</p>
+                <p>Game - represents a game with a player, a bank and a deck. Class Game has properties player, bank and deck. The Game class allows to instantiate and hold the Player, the Bank and the Deck objects. The class has methods start, play and end that allows to controll the flow of the game.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
