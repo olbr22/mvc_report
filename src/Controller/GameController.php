@@ -164,13 +164,14 @@ class GameController extends AbstractController
     public function gameApi(
         SessionInterface $session
     ): Response {
-
+        /** @var Hand $playerHand */
         $playerHand = $session->get('player_hand');
         $playerCards = array();
         foreach($playerHand->getCards() as $card) {
             $playerCards[] = $card->getCardName();
         }
 
+        /** @var Hand $bankHand */
         $bankHand = $session->get('bank_hand');
         $bankCards = array();
         foreach($bankHand->getCards() as $card) {

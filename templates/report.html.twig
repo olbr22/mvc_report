@@ -48,7 +48,18 @@
                 <p>Jag lärt mig hur man skriver en konstruktor <code>__construct()</code> i PHP samt att man anropar metoder med en pil <code>-></code>. För att ärva metoder och egenskaper från en annan klass skall man använda konstruktion <code>parent::__construct($rank, $suit);</code> och även skicka in argument/parametrar. Jag lärt mig att för att kunna arbeta med session och POST metoden i Symfony måste man ange <code>use Symfony\Component\HttpFoundation\Request;
 use och Symfony\Component\HttpFoundation\Session\SessionInterface;</code></p>
                 <h2 id="kmom03">Kmom03</h2>
-                <p>Redovisning</p>
+                <h4>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</h4>
+                <p>Som utgångspunkt i modelleringen tog jag <a href="https://dbwebb.se/uppgift/bygg-kortspel-i-php-och-symfony-enligt-mvc#kortspel" target="_blank">rekomendationer</a> till kmom03 "En spelrunda kan se ut så här när en spelare spelar mot banken." Jag fick undersöka vilka klasser som är "typiska" för kortspel. Föregående kmom02 har get mig en bra grund för att jag skulle kunna utveckla och bygga på den basen och de kalsser som jag skapade under kmom02. Det flödesschema som jag visar i sidan med dokumentation representerar spelflödet mellan spelare och bank och psuedokoden visar hur jag tänker räkna ut handens värde.</p>
+                <h4>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden, dina klasser och applikationen som helhet?</h4>
+                <p>I routen <code>#[Route('/game/init', name: 'game_init_post', methods: ['POST'])]</code> instantieras Game klassen som i sin tur instansierar spelare, bank och kortlek. Därefter anropas Game klassens metod <code>start</code> som blandar kortleken. All data sparas i session.</p>
+                <p>Användaren presenteras med fyra alternativ (en form med fyra knappar) som i sin tur exekverar logiken/metoder. Jag återanvänder Mikaels <code>flash.html.twig</code> fil i kombination med Symfonys inbyggd <code>addFlash()</code> metod för att kunna informera användaren om resultatet av spelet. Jag valde att hålla mig till principen KISS och är rätt så nöjd med resultatet.</p>
+                <h4>Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?</h4>
+                <p>Det känns som om jag fått grepp om hur routes, klasser och session kan samspela i Symfony ramverket för att få en fungerande applikation.</p>
+                <h4>Vilken är din TIL för detta kmom?</h4>
+                <p>Jag har lärt mig om vilka arbetssätt kan hjälpa mig att strukturera upp programkod när jag bygger program och applikationer.</p>
+                <p>Flowchart eller flödesdiagram är nyttiga då man behöver bygga förståelse för hur en process eller ett arbetsflöde skall gå till. Exempelvis kan vi visualisera hur en splerunda mellan spelare och bank kan gå till.</p>
+                <p>Pseudokod är till för att beskriva algoritmer med "vanligt" språk, vilket gör det möjligt att fokusera på algoritmens logik.</p>
+                <p>Jag har lärt mig grunderna i hur PHP-dokumentation ska se ut.</p>
                 <h2 id="kmom04">Kmom04</h2>
                 <p>Redovisning</p>
                 <h2 id="kmom05">Kmom05</h2>
