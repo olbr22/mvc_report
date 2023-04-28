@@ -12,7 +12,6 @@ class Hand
     /** @var array<Card> $cards An array of Card objects representing the cards in the hand. */
     private $cards;
 
-
     /**
      * Initializes an empty array.
      */

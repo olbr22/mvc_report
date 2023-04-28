@@ -5,7 +5,7 @@ namespace App\Game;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test that object is of instance Card, rank, suit, offsets are correct. The correct card values are set.
+ * Test that object is of instance Deck. That deck holds 52 Card objects, can be shuffled and a card/cards can be drawn.
  */
 class DeckTest extends TestCase
 {
@@ -57,7 +57,7 @@ class DeckTest extends TestCase
         $deck = new Deck();
         $card = $deck->draw();
 
-        $this->assertInstanceOf("\App\Game\Card", $card);
+        $this->assertInstanceOf(Card::class, $card);
 
         $res = $deck->getCards();
         $this->assertCount(51, $res);

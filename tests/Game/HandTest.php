@@ -5,61 +5,120 @@ namespace App\Game;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test that object is of instance Card, rank, suit, offsets are correct. The correct card values are set.
+ * Test that object is of instance Hand. Test that hand holds Card objects. Test that methods addCard, getValue, getCards and clearCards work correctly.
  */
-class DeckTest extends TestCase
+class HandTest extends TestCase
 {
     /**
-     * Construct object and verify that the object has the expected
-     * properties.
+     * Construct object and verify that the object is an empty array.
      */
-    public function testCreateDeck()
+    public function testCreateHand()
     {
-        $deck = new Deck();
-        $this->assertInstanceOf("\App\Game\Deck", $deck);
+        $hand = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand);
 
-        $res = $deck->getCards();
+        $res = $hand->getCards();
         $this->assertIsArray($res);
 
-        $res = $deck->getCards();
-        $this->assertContainsOnlyInstancesOf(Card::class, $res);
-
-        $res = $deck->getCards();
-        $this->assertCount(52, $res);
-
-        $res = $deck->getNumCards();
-        $this->assertEquals(52, $res);
+        $res = $hand->getCards();
+        $this->assertEmpty($res);
     }
 
 
 
     /**
-     * Construct object and verify that the original deck is not equal shuffled deck.
+     * Construct object and verify that Card object can be added to the Hand object.
      */
-    public function testShuffleDeck()
+    public function testAddCardToHand()
     {
-        $deck = new Deck();
-        $originalDeck = $deck->getCards();
+        $hand = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand);
 
-        $deck->shuffle();
-        $shuffledDeck = $deck->getCards();
-
-        $this->assertNotEquals($originalDeck, $shuffledDeck);
+        $card = new Card("Spades", "Ace", 1, 1);
+        $hand->addCard($card);
     }
 
 
 
     /**
-     * Construct object and verify that the draw method returns an object of instance Card and the number of cards in the deck decreases by one.
+     * Construct object and verify that the hand value is correct.
      */
-    public function testDrawOneCard()
+    public function testVerifyHandValue()
     {
-        $deck = new Deck();
-        $card = $deck->draw();
+        $hand = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand);
 
-        $this->assertInstanceOf("\App\Game\Card", $card);
+        $res = $hand->getValue();
+        $this->assertEquals(0, $res);
 
-        $res = $deck->getCards();
-        $this->assertCount(51, $res);
+        $card = new Card("Spades", "Ace", 1, 1);
+        $hand->addCard($card);
+
+        $res = $hand->getValue();
+        $this->assertEquals(14, $res);
+
+        $hand2 = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand2);
+
+        $card1 = new Card("Spades", "Ace", 1, 1);
+        $hand2->addCard($card1);
+        $card2 = new Card("Clubs", "Ace", 1, 2);
+        $hand2->addCard($card2);
+        $card3 = new Card("Spades", 6, 6, 1);
+        $hand2->addCard($card3);
+
+        $res = $hand2->getValue();
+        var_dump($res);
+        $this->assertEquals(21, $res);
     }
+
+
+
+    /**
+     * Construct Hand object with 4 Aces and verify that the hand value is correct.
+     */
+    public function testVerifyHandValueFourAces()
+    {
+        $hand = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand);
+
+        $ace1 = new Card("Spades", "Ace", 1, 1);
+        $hand->addCard($ace1);
+        $ace2 = new Card("Clubs", "Ace", 1, 2);
+        $hand->addCard($ace2);
+        $ace3 = new Card("Diamonds", "Ace", 1, 3);
+        $hand->addCard($ace3);
+        $ace4 = new Card("Hearts", "Ace", 1, 4);
+        $hand->addCard($ace4);
+
+        $res = $hand->getValue();
+        $this->assertEquals(17, $res);
+    }
+
+
+
+    /**
+     * Construct Hand object add a card/several cards and clear hand of cards, verify the hand is an empty array.
+     */
+    public function testVerifyClearCards()
+    {
+        $hand = new Hand();
+        $this->assertInstanceOf(Hand::class, $hand);
+
+        $ace1 = new Card("Spades", "Ace", 1, 1);
+        $hand->addCard($ace1);
+        $ace2 = new Card("Clubs", "Ace", 1, 2);
+        $hand->addCard($ace2);
+        $ace3 = new Card("Diamonds", "Ace", 1, 3);
+        $hand->addCard($ace3);
+        $ace4 = new Card("Hearts", "Ace", 1, 4);
+        $hand->addCard($ace4);
+
+        $res = $hand->getCards();
+        $this->assertNotEmpty($res);
+
+        $res = $hand->clearCards();
+        $this->assertEmpty($res);
+    }
+
 }

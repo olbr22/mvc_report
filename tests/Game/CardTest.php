@@ -5,7 +5,7 @@ namespace App\Game;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test that object is of instance Card, rank, suit, offsets are correct. The correct card values are set.
+ * Test that object is of instance Card and rank, suit, offsets are correct. The correct card values are set.
  */
 class CardTest extends TestCase
 {
