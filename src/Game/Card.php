@@ -77,7 +77,7 @@ class Card
      *
      * @return string The rank of the card.
      */
-    public function getRank()
+    public function getRank(): string
     {
         return $this->rank;
     }

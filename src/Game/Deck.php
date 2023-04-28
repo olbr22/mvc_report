@@ -3,7 +3,7 @@
 namespace App\Game;
 
 use App\Game\Card;
-use Exception;
+use App\Game\DeckException;
 
 /**
  * Represents a deck of cards.
@@ -18,7 +18,7 @@ class Deck
     /**
      * Constructs a new deck of cards.
      *
-     * @param array<Card> $cards The initial cards to include in the deck.
+     * @param array<Card> $cards (optional) An array of Card objects to initialize the deck with.
      */
     public function __construct($cards = [])
     {
@@ -28,12 +28,11 @@ class Deck
 
         if ($cards) {
             $this->deck = $cards;
-        }
-
-        // Add all possible cards to the deck.
-        foreach ($suits as $row => $suit) {
-            foreach ($ranks as $col => $rank) {
-                $this->deck[] = new Card($suit, $rank, $col, $row);
+        } else {
+            foreach ($suits as $row => $suit) {
+                foreach ($ranks as $col => $rank) {
+                    $this->deck[] = new Card($suit, $rank, $col, $row);
+                }
             }
         }
     }
@@ -49,6 +48,8 @@ class Deck
     /**
      * Draws a card from the top of the deck.
      *
+     * @throws DeckException when the deck is empty.
+     *
      * @return Card The card that was drawn.
      */
     public function draw(): Card
@@ -56,8 +57,9 @@ class Deck
         $card = array_shift($this->deck);
 
         if (is_null($card)) {
-            throw new Exception("The deck is empty");
+            throw new DeckException("The deck is empty");
         }
+
         return $card;
     }
 
