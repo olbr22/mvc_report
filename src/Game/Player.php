@@ -7,7 +7,7 @@ use App\Game\Deck;
 use App\Game\Hand;
 
 /**
- *  Represents a player with a name and hand.
+ *  Represents a player with a name and a hand.
  */
 class Player
 {
@@ -26,7 +26,7 @@ class Player
      *
      * @param string $name The name of the player.
      */
-    public function __construct($name)
+    public function __construct($name = "")
     {
         $this->name = $name;
         $this->hand = new Hand();
