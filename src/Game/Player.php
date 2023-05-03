@@ -25,13 +25,18 @@ class Player
      * Initializes a new instance of the Player class.
      *
      * @param string $name The name of the player.
+     * @param Hand|null $hand The hand object.
      */
-    public function __construct($name = "")
+    public function __construct($name = "", Hand $hand = null)
     {
         $this->name = $name;
-        $this->hand = new Hand();
+        if (is_null($hand)) {
+            $this->hand = new Hand();
+        }
+        if ($hand) {
+            $this->hand = $hand;
+        }
     }
-
 
     /**
      * Add a card to the player's hand.

@@ -5,7 +5,7 @@ namespace App\Game;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test that object is of instance Bank. Test create object with and without argument. The the class methods.
+ * Test that object is of instance Bank. Test the hit method that it stops att minimum 17 points.
  */
 class BankTest extends TestCase
 {

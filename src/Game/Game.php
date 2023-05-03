@@ -32,12 +32,23 @@ class Game
      * Initializes a new instance of the Game class.
      *
      * @param string $playerName The name of the player.
+     * @param Deck|null $deck The Deck object or null.
      */
-    public function __construct($playerName)
+    public function __construct($playerName = "", Deck $deck = null, Bank $bank = null)
     {
         $this->player = new Player($playerName);
-        $this->bank = new Bank();
-        $this->deck = new Deck();
+
+        if ($bank) {
+            $this->bank = $bank;
+        } elseif (is_null($bank)) {
+            $this->bank = new Bank();
+        }
+
+        if ($deck) {
+            $this->deck = $deck;
+        } elseif (is_null($deck)) {
+            $this->deck = new Deck();
+        }
     }
 
     /**
