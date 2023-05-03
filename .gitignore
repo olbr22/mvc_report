@@ -41,3 +41,7 @@ yarn-error.log
 ###> phpstan.neon ###
 /phpstan.neon
 ###< phpstan.neon ###
+
+###> phpdoc ###
+.phpdoc/
+###< phpdoc ###
