@@ -12,7 +12,7 @@ class HandTest extends TestCase
     /**
      * Construct object and verify that the object is an empty array.
      */
-    public function testCreateHand()
+    public function testCreateHand(): void
     {
         $hand = new Hand();
         $this->assertInstanceOf(Hand::class, $hand);
@@ -29,7 +29,7 @@ class HandTest extends TestCase
     /**
      * Construct object and verify that Card object can be added to the Hand object.
      */
-    public function testAddCardToHand()
+    public function testAddCardToHand(): void
     {
         $hand = new Hand();
         $this->assertInstanceOf(Hand::class, $hand);
@@ -43,7 +43,7 @@ class HandTest extends TestCase
     /**
      * Construct object and verify that the hand value is correct.
      */
-    public function testVerifyHandValue()
+    public function testVerifyHandValue(): void
     {
         $hand = new Hand();
         $this->assertInstanceOf(Hand::class, $hand);
@@ -64,11 +64,10 @@ class HandTest extends TestCase
         $hand2->addCard($card1);
         $card2 = new Card("Clubs", "Ace", 1, 2);
         $hand2->addCard($card2);
-        $card3 = new Card("Spades", 6, 6, 1);
+        $card3 = new Card("Spades", "6", 6, 1);
         $hand2->addCard($card3);
 
         $res = $hand2->getValue();
-        var_dump($res);
         $this->assertEquals(21, $res);
     }
 
@@ -77,7 +76,7 @@ class HandTest extends TestCase
     /**
      * Construct Hand object with 4 Aces and verify that the hand value is correct.
      */
-    public function testVerifyHandValueFourAces()
+    public function testVerifyHandValueFourAces(): void
     {
         $hand = new Hand();
         $this->assertInstanceOf(Hand::class, $hand);
@@ -100,7 +99,7 @@ class HandTest extends TestCase
     /**
      * Construct Hand object add a card/several cards and clear hand of cards, verify the hand is an empty array.
      */
-    public function testVerifyClearCards()
+    public function testVerifyClearCards(): void
     {
         $hand = new Hand();
         $this->assertInstanceOf(Hand::class, $hand);
@@ -117,7 +116,8 @@ class HandTest extends TestCase
         $res = $hand->getCards();
         $this->assertNotEmpty($res);
 
-        $res = $hand->clearCards();
+        $hand->clearCards();
+        $res = $hand->getCards();
         $this->assertEmpty($res);
     }
 

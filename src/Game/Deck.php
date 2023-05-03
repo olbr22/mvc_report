@@ -28,7 +28,9 @@ class Deck
 
         if ($cards) {
             $this->deck = $cards;
-        } else {
+        }
+
+        if ($cards == []) {
             foreach ($suits as $row => $suit) {
                 foreach ($ranks as $col => $rank) {
                     $this->deck[] = new Card($suit, $rank, $col, $row);

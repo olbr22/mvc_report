@@ -12,7 +12,7 @@ class DeckExceptionTest extends TestCase
     /**
      * Verify DeckException when there is no cards in the deck.
      */
-    public function testDeckExceptionRaisedNoCardsInTheDeck()
+    public function testDeckExceptionRaisedNoCardsInTheDeck(): void
     {
 
         $this->expectException(DeckException::class);
@@ -23,7 +23,7 @@ class DeckExceptionTest extends TestCase
         $this->assertEquals($res, 1);
 
         for ($i = 0; $i <= 1; $i++) {
-            $card = $deck->draw();
+            $deck->draw();
         }
 
     }

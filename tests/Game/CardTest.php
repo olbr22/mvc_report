@@ -13,7 +13,7 @@ class CardTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties.
      */
-    public function testCreateCard()
+    public function testCreateCard(): void
     {
         $card = new Card("Spades", "Ace", 1, 1);
         $this->assertInstanceOf(Card::class, $card);
@@ -45,7 +45,7 @@ class CardTest extends TestCase
      * Construct object and verify that the
      * correct card value is returned.
      */
-    public function testVerifyCardValue()
+    public function testVerifyCardValue(): void
     {
         $card = new Card("Spades", "Ace", 1, 1);
         $res = $card->getValue();

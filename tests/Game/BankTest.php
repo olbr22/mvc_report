@@ -12,7 +12,7 @@ class BankTest extends TestCase
     /**
      * Construct object and verify its instance.
      */
-    public function testCreateBank()
+    public function testCreateBank(): void
     {
         $bank = new Bank();
         $this->assertInstanceOf(Bank::class, $bank);
@@ -26,7 +26,7 @@ class BankTest extends TestCase
     /**
      * Construct object and verify that cards have been added to the hand and that hand value is 17.
      */
-    public function testHitMethod()
+    public function testHitMethod(): void
     {
         $bank = new Bank();
         $this->assertInstanceOf(Bank::class, $bank);
@@ -46,7 +46,7 @@ class BankTest extends TestCase
     /**
      * Construct object and verify that the banks hand is empty after calling clearHand().
      */
-    public function testClearHandMethod()
+    public function testClearHandMethod(): void
     {
         $bank = new Bank();
         $this->assertInstanceOf(Bank::class, $bank);

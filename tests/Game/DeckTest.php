@@ -13,7 +13,7 @@ class DeckTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties.
      */
-    public function testCreateDeck()
+    public function testCreateDeck(): void
     {
         $deck = new Deck();
         $this->assertInstanceOf("\App\Game\Deck", $deck);
@@ -36,7 +36,7 @@ class DeckTest extends TestCase
     /**
      * Construct object and verify that the original deck is not equal shuffled deck.
      */
-    public function testShuffleDeck()
+    public function testShuffleDeck(): void
     {
         $deck = new Deck();
         $originalDeck = $deck->getCards();
@@ -52,7 +52,7 @@ class DeckTest extends TestCase
     /**
      * Construct object and verify that the draw method returns an object of instance Card and the number of cards in the deck decreases by one.
      */
-    public function testDrawOneCard()
+    public function testDrawOneCard(): void
     {
         $deck = new Deck();
         $card = $deck->draw();

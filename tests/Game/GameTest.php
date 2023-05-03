@@ -13,7 +13,7 @@ class GameTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties.
      */
-    public function testCreateGameNoArguments()
+    public function testCreateGameNoArguments(): void
     {
         $game = new Game();
         $this->assertInstanceOf(Game::class, $game);
@@ -30,7 +30,7 @@ class GameTest extends TestCase
     /**
      * Construct object and verify that the players name is correct.
      */
-    public function testCreateGameWithArguments()
+    public function testCreateGameWithArguments(): void
     {
         $game = new Game("Kalle Anka");
         $this->assertInstanceOf(Game::class, $game);
@@ -46,7 +46,7 @@ class GameTest extends TestCase
     /**
      * Construct object and verify that the start method calls the Decks shuffle method once.
      */
-    public function testStartGameMethod()
+    public function testStartGameMethod(): void
     {
         $deckMock = $this->getMockBuilder(Deck::class)
         ->getMock();
@@ -67,7 +67,7 @@ class GameTest extends TestCase
     /**
      * Verify play method when hand value is < than 21 and choice is 'hit'.
      */
-    public function testPlayWithValueLess21ChoiceHit()
+    public function testPlayWithValueLess21ChoiceHit(): void
     {
         // Create a mock object of the Deck class
         $mockDeck = $this->getMockBuilder(Deck::class)->getMock();
@@ -98,7 +98,7 @@ class GameTest extends TestCase
         /**
      * Verify play method when hand value is < than 21 and choice is 'stand'.
      */
-    public function testPlayWithValueLess21ChoiceStand()
+    public function testPlayWithValueLess21ChoiceStand(): void
     {
         // Create a mock object of the Bank class
         $mockBank = $this->getMockBuilder(Bank::class)->getMock();

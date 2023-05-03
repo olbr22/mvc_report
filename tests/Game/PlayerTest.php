@@ -12,7 +12,7 @@ class PlayerTest extends TestCase
     /**
      * Construct object without argument.
      */
-    public function testCreatePlayerNoArgument()
+    public function testCreatePlayerNoArgument(): void
     {
         $player = new Player();
         $this->assertInstanceOf(Player::class, $player);
@@ -24,7 +24,7 @@ class PlayerTest extends TestCase
     /**
      * Construct object with argument.
      */
-    public function testCreatePlayerWithArgument()
+    public function testCreatePlayerWithArgument(): void
     {
         $player = new Player("Kalle Anka");
         $this->assertInstanceOf(Player::class, $player);
@@ -36,7 +36,7 @@ class PlayerTest extends TestCase
     /**
      * Construct object and verify the hand property holds an object of instance Hand.
      */
-    public function testVerifyHandPropertyOfInstanceHand()
+    public function testVerifyHandPropertyOfInstanceHand(): void
     {
         $player = new Player();
 
@@ -47,16 +47,8 @@ class PlayerTest extends TestCase
     /**
      * Construct object and verify the clearHand method empties the hand of cards.
      */
-    public function testClearHandMethod()
+    public function testClearHandMethod(): void
     {
-        // Create a mock object of the Deck class
-        $mockDeck = $this->getMockBuilder(Deck::class)->getMock();
-
-        // Mock draw method. Draw method will return new Card
-        $mockDeck->method('draw')->willReturn(new Card("Spades", "Ace", 1, 1));
-
-        $card = $mockDeck->draw();
-
         $player = new Player();
         $deck = new Deck();
         // Take a card
