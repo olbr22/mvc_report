@@ -61,6 +61,19 @@ use och Symfony\Component\HttpFoundation\Session\SessionInterface;</code></p>
                 <p>Pseudokod är till för att beskriva algoritmer med "vanligt" språk, vilket gör det möjligt att fokusera på algoritmens logik.</p>
                 <p>Jag har lärt mig grunderna i hur PHP-dokumentation ska se ut.</p>
                 <h2 id="kmom04">Kmom04</h2>
+                <h4>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.</h4>
+                <p>Jag har dragit slutsatsen att för att skriva kod som är lätt att testa måste man ha det i åtanke när man skriver kod. Det har varit svårt i vissa fall att bli av med beroenden då jag använder klasser inne i klasser som medlemmar/egenskaper och då har det varit svårt att skriva kod för testklasser. Till exempel, för att testa klassen Game, var jag tvungen att skriva om __construct-metod. Jag skrev om konstruktorn för att den skulle ta emot spelar- och bankklasser för att möjligtgöra att testklasser skall kunna ta emot mockade klasser.</p>
+                <p>Jag upplever att dokumentationen till PHPUnit är inte så enkel att förstå. Det som var inte så enkelt var att förstå hur metoder <code>createMock</code> och <code>getMockBuilder</code> fungerar.</p>
+                <p>Jag tycker att det är trevligt med visualisering av kodtäckning de testade klasser. Man ser tydligt vilka rader/metoder som täcks av testfall i en testsuit.</p>
+                <h4>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?</h4>
+                <p>Jag har lyckats att täcka 96.74% av rader, 94.29% av funktioner/metoder och 66.67% av classes och traits.</p>
+                <h4>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet? Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.</h4>
+                <p>De delar som var svåra att testa var delar med beroenden. Till exempel, för att testa metod <code>play</code> av <code>Game</code> klassen var jag tvungen att mocka <code>Bank</code> klass och dess <code>hit metod</code> samt <code>Hand</code> klass med tillhörade metod <code>getValue</code>.</p>
+                <h4>Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.</h4>
+                <p>Testbar kod är kod som är strukturerad på ett sätt som är lätt att förstå och som separerar olika delar av funktionaliteten i separata moduler som kan testas oberoende.  Med det sagt tycker jag att testbar kod bidrar till att kod kan betraktas som “snygg och ren kod”.</p>
+                <h4>Vilken är din TIL för detta kmom?</h4>
+                <p>Jag lärt mig hur jag kan använda verktyget <code>PHPUnit</code> för att skriva test suits och testfall för egendefinierade klasser. Jag lärt mig hur jag kan mocka objekt och metoder.</p>
+                <p>Jag lärt mig att dokumentera min kod med hjälp av DocBlock och generera  HTML dokumentation med hjälp av phpDocumentor.</p>
                 <p>Redovisning</p>
                 <h2 id="kmom05">Kmom05</h2>
                 <p>Redovisning</p>
