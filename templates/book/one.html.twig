@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List one book{% endblock %}
+
+{% block body %}
+<style>
+    table {
+    margin: 0.5rem;
+    }
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.5rem;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>List one book</h1>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+        </tr>
+        {% if book %}
+            <tr>
+                
+                <td>{{ book.image }}</td>
+                <td>
+                    <a href = "{{ path('book_by_id', { 'id': book.id }) }}">
+                    {{ book.title }}
+                    </a>
+                </td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.isbn }}</td>
+            </tr>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
