@@ -29,8 +29,7 @@ class LibraryController extends AbstractController
     public function createBook(
         ManagerRegistry $doctrine,
         Request $request
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $title = $request->request->get('title');
         $author = $request->request->get('author');
@@ -57,7 +56,7 @@ class LibraryController extends AbstractController
         //     'image' => $book->getImage(),
         // ];
 
-        return $this->redirectToRoute('library');
+        return $this->redirectToRoute('book_show_all');
     }
 
     #[Route('/library/book/show/{id}', name: 'book_by_id')]
@@ -81,6 +80,111 @@ class LibraryController extends AbstractController
         // var_dump($books);
 
         // return $this->json($books);
-        return $this->render('book/all.html.twig', [ 'books' => $books ]);
+        return $this->render('book/all.html.twig', [ 'books' => $books, 'num_books' => count($books) ]);
+    }
+
+    // update details book
+    #[Route('/library/book/update/{id}', name: 'book_update_get', methods: ['GET'])]
+    public function showUpdateBook(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id '.$id
+            );
+        }
+
+        // $product->setValue($value);
+        // $productRepository->save($product, true);
+
+        // return $this->redirectToRoute('product_show_all');
+        return $this->render('book/update.html.twig', [ 'book' => $book ]);
+    }
+
+    #[Route('/library/book/update/{id}', name: 'book_update_post', methods: ['POST'])]
+    public function updateBook(
+        Request $request,
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository->find($id);
+
+        $title = $request->request->get('title');
+        $author = $request->request->get('author');
+        $isbn = $request->request->get('isbn');
+        $image = $request->request->get('image');
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id '.$id
+            );
+        }
+
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setIsbn($isbn);
+        $book->setImage($image);
+        $bookRepository->save($book, true);
+
+        return $this->redirectToRoute('book_update_get', [ 'id' => $id ]);
+        // return $this->render('book/update.html.twig', [ 'book' => $book ]);
+    }
+
+    #[Route('/library/book/delete/{id}', name: 'book_delete_get', methods: ['GET'])]
+    public function showDeleteBook(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id '.$id
+            );
+        }
+
+        return $this->render('book/delete.html.twig', [ 'book' => $book ]);
+    }
+
+    #[Route('/library/book/delete/{id}', name: 'book_delete_by_id', methods: ['POST'])]
+    public function deleteBookById(
+        BookRepository $bookRepository,
+        int $id
+    ): Response {
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for id '.$id
+            );
+        }
+
+        $bookRepository->remove($book, true);
+
+        return $this->redirectToRoute('book_show_all');
+    }
+
+    #[Route('api/library/books', name: 'api_book_show_all')]
+    public function apiShowAll(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository
+            ->findAll();
+        // var_dump($books);
+
+        return $this->json($books);
+    }
+
+    #[Route('api/library/book/{isbn}', name: 'api_book_show_isbn')]
+    public function apiShowBookByIsbn(
+        BookRepository $bookRepository,
+        string $isbn
+    ): Response {
+        $book = $bookRepository->findBy([ 'isbn' => $isbn ]);
+
+        return $this->json($book);
     }
 }

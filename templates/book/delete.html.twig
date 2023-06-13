@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}List one book{% endblock %}
+{% block title %}Delete{% endblock %}
 
 {% block body %}
 <style>
     table,
-    a {
+    a,
+    input {
     margin: 0.5rem;
     }
     table, th, td {
@@ -16,11 +17,9 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>List one book</h1>
-    <a href="{{ path('book_show_all') }}">Show all the books</a>
+    <h1>Delete " {{ book.title}} "</h1>
     <table>
         <tr>
-            <th></th>
             <th>Image</th>
             <th>Title</th>
             <th>Author</th>
@@ -28,9 +27,6 @@
         </tr>
         {% if book %}
             <tr>
-                <td>
-                <a href="{{ path('book_update_get', {'id': book.id}) }}">Update</a>|<a href="{{ path('book_delete_get', {'id': book.id}) }}">Delete</a>
-                </td>
                 <td>{{ book.image }}</td>
                 <td>
                     <a href = "{{ path('book_by_id', { 'id': book.id }) }}">
@@ -42,5 +38,8 @@
             </tr>
         {% endif %}
     </table>
+    <form action="{{ path('book_delete_by_id', {'id': book.id}) }}" method="post">
+        <input type="submit" value="Delete">
+    </form>
 </div>
 {% endblock %}

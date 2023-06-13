@@ -166,3 +166,7 @@ label {
     display: inline-block;
     font-size: 1.2rem;
 }
+
+input[type=submit] {
+    max-width: 10rem;
+}
