@@ -13,6 +13,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Book|null findOneBy(array $criteria, array $orderBy = null)
  * @method Book[]    findAll()
  * @method Book[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 class BookRepository extends ServiceEntityRepository
 {
@@ -30,6 +35,7 @@ class BookRepository extends ServiceEntityRepository
         }
     }
 
+    // @SuppressWarnings("BooleanArgumentFlag")
     public function remove(Book $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

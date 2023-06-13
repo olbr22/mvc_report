@@ -11,6 +11,12 @@ use App\Entity\Book;
 use App\Repository\BookRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * This will suppress all the PMD warnings in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 class LibraryController extends AbstractController
 {
     #[Route('/library', name: 'library')]
@@ -31,9 +37,13 @@ class LibraryController extends AbstractController
         Request $request
     ): Response {
         $entityManager = $doctrine->getManager();
+        /** @var string $title */
         $title = $request->request->get('title');
+        /** @var string $author */
         $author = $request->request->get('author');
+        /** @var string $isbn */
         $isbn = $request->request->get('isbn');
+        /** @var string $image */
         $image = $request->request->get('image');
 
         $book = new Book();
@@ -112,9 +122,13 @@ class LibraryController extends AbstractController
     ): Response {
         $book = $bookRepository->find($id);
 
+        /** @var string $title */
         $title = $request->request->get('title');
+        /** @var string $author */
         $author = $request->request->get('author');
+        /** @var string $isbn */
         $isbn = $request->request->get('isbn');
+        /** @var string $image */
         $image = $request->request->get('image');
 
         if (!$book) {
@@ -165,26 +179,5 @@ class LibraryController extends AbstractController
         $bookRepository->remove($book, true);
 
         return $this->redirectToRoute('book_show_all');
-    }
-
-    #[Route('api/library/books', name: 'api_book_show_all')]
-    public function apiShowAll(
-        BookRepository $bookRepository
-    ): Response {
-        $books = $bookRepository
-            ->findAll();
-        // var_dump($books);
-
-        return $this->json($books);
-    }
-
-    #[Route('api/library/book/{isbn}', name: 'api_book_show_isbn')]
-    public function apiShowBookByIsbn(
-        BookRepository $bookRepository,
-        string $isbn
-    ): Response {
-        $book = $bookRepository->findBy([ 'isbn' => $isbn ]);
-
-        return $this->json($book);
     }
 }
