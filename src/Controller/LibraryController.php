@@ -137,10 +137,10 @@ class LibraryController extends AbstractController
             );
         }
 
-        $book->setTitle($title);
-        $book->setAuthor($author);
-        $book->setIsbn($isbn);
-        $book->setImage($image);
+        $book->setTitle($title)
+            ->setAuthor($author)
+            ->setIsbn($isbn)
+            ->setImage($image);
         $bookRepository->save($book, true);
 
         return $this->redirectToRoute('book_update_get', [ 'id' => $id ]);
