@@ -76,7 +76,19 @@ use och Symfony\Component\HttpFoundation\Session\SessionInterface;</code></p>
                 <p>Jag lärt mig att dokumentera min kod med hjälp av DocBlock och generera  HTML dokumentation med hjälp av phpDocumentor.</p>
                 <p>Redovisning</p>
                 <h2 id="kmom05">Kmom05</h2>
-                <p>Redovisning</p>
+                <h4>Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?</h4>
+                <p>Det gick bra. Jag försökte finna skillnader mellan Book entity och Book repository, och komm fram till att Book entity eller Book class representerar en tabel i en databas. För att skapa en Entity Class används komandot <code>php bin/console make:entity</code>. Här anger vi även namn till tabelens columner samt dess datatyp. Book repository är ett 'service' class som ett mellan lager som skriver och läser objekt av Entity (Book) klassen till databasen.</p>
+                <p>När vi gör ändringar i databasens schema dvs ändrar namn på kolumner eller dess datatyper måste vi skapa en migration. Vi skapar en migration med komandot <code>php bin/console make:migration</code> och updaterar eller nedgraderar version av vår databas med komandot <code>php bin/console doctrine:migrations:migrate</code></p>
+                <p>För att kunna visa upp data ur databas måste vi skapa en kontroller med komandot <code>php bin/console make:controller ControllerName</code></p>
+                <h4>Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?</h4>
+                <p>Användargränssnit i min applikation är mycket enkelt. Jag tog inspiration till gränssnitet från kursen databas v2. Jag lade till länkar som möjligtgör att radera och updatera böcker i min bibliotek. Länkarna dirigerar användaren om till en sida med en formulär.</p>
+                <h4>Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?</h4>
+                <p>Det gick bra. Exemplet som vi fick till övningen symfony-doctrine var i stort sätt en lösning till CRUD uppgifterna. Det är nog samma steg oavsätt om man för in ändringar i databas via PHP och classer som rent SQL. I PHP ORM använder vi metoder som set och get likaså i SQL används nyckelord SET och SELECT eller WHERE.</p>
+                <h4>Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?</h4>
+                <p>ORM är en teknik som används för att hantera kommunikationen mellan en applikationskod och en databas. ORM erbjuder en abstraktionsnivå genom att mappa objekt i kodbasen till rader i en relationsdatabas och vice versa. Genom att använda ORM kan vi interagera med databaser genom att använda objekt och deras metoder istället för att skriva rå SQL-kod.</p>
+                <h4>Vilken är din TIL för detta kmom?</h4>
+                <p>Jag har lärt mig hur jag kan integrera en databas i mitt Symfony projekt med hjälp av ramverk Doctrine ORM.
+                </p>
                 <h2 id="kmom06">Kmom06</h2>
                 <p>Redovisning</p>
             </div>
