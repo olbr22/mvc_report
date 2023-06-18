@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686750778">
-  <project timestamp="1686750778">
+<coverage generated="1687091636">
+  <project timestamp="1687091636">
     <file name="/home/olga/dbwebb-kurser/mvc/me/report/src/Controller/GameController.php">
       <class name="App\Controller\GameController" namespace="global">
         <metrics complexity="18" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="97" coveredstatements="0" elements="106" coveredelements="0"/>
