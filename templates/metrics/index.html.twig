@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Metrics analys {% endblock %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card text-white bg-dark">
+                    <div class="card-header">Analys av kodkvalitetsmått</div>
+                    <div class="card-body">
+                        <p class="card-text">Kursen Objektorienterade webbteknologier, a.k.a. mvc, fokuserar på objektorienterade programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner hanteras tillsammans med objektorienterad programmering i webbaserat ramverk tillsammans med databaser samt enhetstestning.</p>
+                        <a href="https://github.com/dbwebb-se/mvc" class="btn btn-primary">Go till kursens Git-repo</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Denna webbplats är byggd med hjälp av ramverket Symfony. Webbsidorna renderas med templatemotorn Twig.</p>
+                                <a href="https://github.com/olbr22/mvc_report" class="btn btn-success">Go till mitt Git-repo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <figure class="figure">
+                    <img src="{{ asset('img/mvc.png') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                    <figcaption class="figure-caption">En del av min utvecklingsmiljö i kursen MVC</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
