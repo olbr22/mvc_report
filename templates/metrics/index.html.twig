@@ -21,16 +21,32 @@
                 </div>
             </div>
             <div class="col-sm-8">
-                <h2 id="introduktion">1 Introduktion</h2>
+                <h2 id="introduktion">1. Introduktion</h2>
                 <h4>1.1 Kvalitetsmått 6C</h4>
                 <h5>1.1.1 Codestyle</h5>
                 <p>Codestyle är en uppsättning regler eller riktlinjer som är specifika för olika programmeringsspråk t.ex. för att visa ett kodblock i Python används indrag, medan i JavaScript används klammerparenteser <code>&lcub;&rcub;</code>. Det finns dock flera element som är gemensamma för ett stort antal programmeringsstilar. Att följa regler och riktlinjer för kodstil är viktigt för att uppnå god kodläsbarhet.</p>
-                <p>I mitt Symfony-projekt används tre utvecklingsverktyg för att hjälpa mig att förbättra min kodningsstil och uppnå renare kod. Dessa verktyg är PHP Coding Standards Fixer, PHPMD och PHPStan. PHPMD och PHPStan fungerar enligt en regeluppsättning &#40;<code>.me/report/phpmd.xml och me/report/phpstan.neon</code>&#41; som kontrollerar att min kod följer reglerna. Alla verktyg som nämns ovan installerats lokalt i mappen <code>me/report/tools</code>.</p>
+                <p>I mitt Symfony-projekt används tre utvecklingsverktyg för att hjälpa mig att förbättra min kodningsstil och uppnå renare kod. Dessa verktyg är PHP Coding Standards Fixer, PHPMD och PHPStan. PHPMD och PHPStan fungerar enligt en regeluppsättning &#40;<code>.me/report/phpmd.xml och me/report/phpstan.neon</code>&#41; som kontrollerar att min kod följer reglerna. Alla verktyg som nämns ovan installerats lokalt i mappen <code>me/report/tools</code>. För att kunna enkelt exekvera dessa verktyg från terminalen, har jag inkluderat skripten i <code>me/report/composer.json</code>
+                <pre><code>
+                    "scripts": {
+                        "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
+                        "phpmd": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml || true",
+                        "phpstan": "tools/phpstan/vendor/bin/phpstan || true",
+                        "lint": [
+                            "@phpmd",
+                            "@phpstan",
+                            "@csfix"
+                        ]
+                    }</code></pre></p>
                 <h5>1.1.2 Coverage</h5>
-                <h4>Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</h4>
-                <p>PHP stödjer objektorientering via klasser, objekt och vanliga objektorienterade konstruktionerna som normalt förekommer i objektorienterade programmeringsspråk. Ett objekt skapas utifrån en klass. Ett objekt har medlemsvariabler och metoder. Allt som objektet behöver lagra finns i dess medlemsvariabler och allt man kan göra med objektet exponeras via dess metoder.</p>
-                <h4>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</h4>
-                <p>Allt börjar med en Kontroller. Kontroller länkar samman kod och det visuella med hjälp av klasser/funktioner och twig filer.</p>
+                <p>Kodtäckning är ett mått som ger en uppskattning av hur många rader, filer, klasser, metoder som omfattas av ett eller flera testfall. En högre täckningsgrad indikerar en vältestad kod, medan en låg täckningsgrad kan innebära potentiella risker inom kvalitetssäkringen.</p>
+                <p>För att kunna skriva testfall och därmed testa klasser i projekttet har jag integrerat verktyget PHPUnit samt genererat Kodtäckning rapport som HTML fil. Rapporten ligger i <code>me/report/docs/coverage</code>
+                <figure>
+                    <img src="{{ asset('img/code_coverage.png') }}" alt="Code coverage Game" width="500" height="600">
+                <figcaption>Kodtäckning me/report/src/Game.</figcaption>
+                </figure>
+                </p>
+                <h5>1.1.3 Complexity</h5>
+                <p></p>
                 <h4>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</h4>
                 <p>Eftersom jag alldrig hört on Namespace i programmering läste jag om det lite extra.</p>
                 <p>Jag spenderade mer tid på guiden <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php">Kom igång med Objektorienterad programmering i PHP. Jag tycker att det var givande att koda tillsammans med guiden.</a></p>
