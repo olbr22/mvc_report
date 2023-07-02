@@ -13,7 +13,7 @@
                     <a href="#introduktion" class="list-group-item list-group-item-action active" aria-current="true">
                     Introduktion
                     </a>
-                    <a href="#kmom02" class="list-group-item list-group-item-action">Kmom02</a>
+                    <a href="#phpmetrics" class="list-group-item list-group-item-action">PhpMetrics</a>
                     <a href="#kmom03" class="list-group-item list-group-item-action">Kmom03</a>
                     <a href="#kmom04" class="list-group-item list-group-item-action">Kmom04</a>
                     <a href="#kmom05" class="list-group-item list-group-item-action">Kmom05</a>
@@ -85,6 +85,117 @@
                         <figcaption>En översikt över alla klasser i mitt Symfony-projekt som visar deras AC- och EC-koppling.</figcaption>
                     </figure>
                 </p>
+                <h5>1.1.6 CRAP</h5>
+                <p>CRAP &#40;Change Risk Anti-Patterns&#41; är en förkortning som återspeglar dess syfte att ta itu med risken i samband med att modifiera en kod. I enklare termer innebär metoder med höga CRAP-poäng en större risk när det gäller att göra förändringar. Därför fokuserar CRAP-måttet främst på att utvärdera risknivån. Beräkningen av CRAP-måttet baseras på hur komplex en metod är jämfört med hur många testfall som täcker den metoden.
+                    <figure>
+                            <a href="{{ asset('img/crap.png') }}" target="_blank"><img src="{{ asset('img/crap.png') }}" alt="CRAP score for the method stand()" width="800"></a>
+                            <figcaption>CRAP-mått för metoden stand.</figcaption>
+                    </figure>
+                </p>
+                <h2 id="phpmetrics">2. PhpMetrics</h2>
+                <p>I min analys kommer jag att fokusera på kontrollern <code>me/report/src/Controller/GameController.php</code> och klasser som finns i mappen <code>me/report/src/Game</code>.</p>
+                <p>Fliken <code>Class Violations</code> för klassen <code>App\Controller\GameController</code> visar att denna klass är förmodligen har buggar och att komponenten teoretiskt består av <code>0.52</code> buggar.
+                    <figure>
+                            <a href="{{ asset('img/game_controller_violations.png') }}" target="_blank"><img src="{{ asset('img/game_controller_violations.png') }}" alt="Violations for class GameController" width="800"></a>
+                            <figcaption>'Class Violations' för klass GameController.</figcaption>
+                    </figure>
+                </p>
+                <p>Det finns inga tester skrivna för klassen <code>GameController</code>. PhpMetrics rekomenderar att klasser med hög cyklomatisk komplexitet eller hög sannolikhet för buggar bör täckas med tester.</p>
+                <p>
+                    <table>
+                        <caption>Tabell 1. Översikt över kodkvalitetsmått</caption>
+                        <tr>
+                            <th>Class</th>
+                            <th title="A higher Cyclomatic Complexity value indicates a higher number of decision points and possible execution paths, which can lead to increased complexity and potential risks">&#9432; Class cyclomatic complexity</th>
+                            <th title="If a class has a high LCOM value, it suggests that the methods within that class are not closely related or dependent on each other.">&#9432; LCOM</th>
+                            <th title="the number of classes affected by given class">&#9432; Afferent coupling</th>
+                            <th title="the number of classes from which given class receives effects">&#9432; Efferent coupling</th>
+                            <th>Volume</th>
+                            <th title="measures how maintainable (easy to support and change) the source code is">&#9432; Maintainability Index</th>
+                            <th>Unit testsuits</th>
+                        </tr>
+                        <tr>
+                            <td>App\Controller\GameController</td>
+                            <td>10</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>1559.79</td>
+                            <td>59.41</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Deck</td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>282.39</td>
+                            <td>89.37</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Card</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>69.74</td>
+                            <td>85.58</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Hand</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>163.5</td>
+                            <td>91.25</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Player</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>69</td>
+                            <td>98.53</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Bank</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>33.69</td>
+                            <td>102.86</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Game</td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>182.75</td>
+                            <td>89</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </p>
+                <p>Baserat på mätvärdena i tabellen "Tabell 1. Översikt över kodkvalitetsmätningar" kan man dra slutsatsen att GameController-klassen/kontrollern bör förbättras. Genom att omfaktorisera koden i denna klass/kontroller kan volymen minskas och eventuellt kan cyklomatisk komplexitet reduceras genom att bryta ut en lös if-elseif-sats till en metod/funktion.</p>
+
+                <h2 id="scrutinizer">3. Scrutinizer</h2>
+                <figure>
+                            <img src="https://scrutinizer-ci.com/g/olbr22/mvc_report/badges/quality-score.png?b=main" alt="Scrutinizer quality" width="150">
+                            <img src="https://scrutinizer-ci.com/g/olbr22/mvc_report/badges/coverage.png?b=main" alt="Scrutinizer coverage" width="150">
+                            <img src="https://scrutinizer-ci.com/g/olbr22/mvc_report/badges/build.png?b=main" alt="Scrutinizer build" width="130">
+                            <figcaption>Scrutinizer badges.</figcaption>
+                </figure>
+
 
                 <p>Jag spenderade mer tid på guiden <a href="https://dbwebb.se/guide/kom-igang-med-objektorienterad-programmering-i-php">Kom igång med Objektorienterad programmering i PHP. Jag tycker att det var givande att koda tillsammans med guiden.</a></p>
                 <h4>Vilken är din TIL för detta kmom?</h4>
