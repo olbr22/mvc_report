@@ -38,17 +38,9 @@ class Game
     {
         $this->player = new Player($playerName);
 
-        if ($bank) {
-            $this->bank = $bank;
-        } elseif (is_null($bank)) {
-            $this->bank = new Bank();
-        }
+        $this->bank = $bank ?? new Bank();
 
-        if ($deck) {
-            $this->deck = $deck;
-        } elseif (is_null($deck)) {
-            $this->deck = new Deck();
-        }
+        $this->deck = $deck ?? new Deck();
     }
 
     /**
