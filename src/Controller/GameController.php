@@ -123,7 +123,7 @@ class GameController extends AbstractController
 
         $flashMessage = $game->determineFlashMessage($playerValue, $bankValue);
 
-        if ($flashMessage !== null) {
+        if ($flashMessage) {
             $this->addFlash(
                 $flashMessage['type'],
                 $flashMessage['message']

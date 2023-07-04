@@ -113,9 +113,9 @@ class Game
      * @param int $playerValue The player's hand value.
      * @param int $bankValue The bank's hand value.
      * 
-     * @return array The type of the flash message and the message itself.
+     * @return array|null The type of the flash message and the message itself.
      */
-    public function determineFlashMessage($playerValue, $bankValue): array
+    public function determineFlashMessage($playerValue, $bankValue): ?array
     {
         if ($bankValue > 21) {
             return [
