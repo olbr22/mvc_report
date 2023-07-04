@@ -105,4 +105,40 @@ class Game
         $this->bank->getHand()->clearCards();
         $this->player->getHand()->clearCards();
     }
+
+    /**
+     * Determine the type of the flash message and the message itself
+     * based on the player's and bank's hand value.
+     * 
+     * @param int $playerValue The player's hand value.
+     * @param int $bankValue The bank's hand value.
+     * 
+     * @return array The type of the flash message and the message itself.
+     */
+    public function determineFlashMessage($playerValue, $bankValue): array
+    {
+        if ($bankValue > 21) {
+            return [
+                'type' => 'success',
+                'message' => 'Banken har spruckit!'
+            ];
+        } elseif ($playerValue > $bankValue) {
+            return [
+                'type' => 'success',
+                'message' => 'Grattis! Du vann!'
+            ];
+        } elseif ($playerValue < $bankValue) {
+            return [
+                'type' => 'warning',
+                'message' => 'Banken har större hand! Du förlorade!'
+            ];
+        } elseif ($playerValue == $bankValue && $playerValue != 0) {
+            return [
+                'type' => 'warning',
+                'message' => 'Det är lika mellan er! Du förlorade!'
+            ];
+        }
+
+        return null;
+    }
 }

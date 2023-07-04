@@ -274,6 +274,8 @@
                 </p>
                 <h2 id="forbattringar">4. Förbättringar</h2>
                 <p>Till att börja med väljer jag att fixa buggar för klassen <code>App\Game\Game</code> där Scrutinizer föreslår att granska en elseif-sats: <code>The condition is_null($bank) is always true.</code> Denna åtgärd kommer att göra koden i klassen mer läsbar och lättare att förstå.</p>
+                <p>Därefter tänker jag lyfta en if elseif sats ur GameController::stand metoden till en egen metod i klassen Game. Även denna åtgärd kommer att göra koden mer läsbar samt eventuellt minskar GameControllers komplexitet.</p>
+                <p>En till förbättring i form av ökad kodtäckning kan uppnås genom att skriva enhetstester till GameController klassen.</p>
             </div>
         </div>
     </div>

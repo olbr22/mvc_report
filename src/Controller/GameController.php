@@ -121,25 +121,12 @@ class GameController extends AbstractController
         $bankValue = $session->get('bank_value');
         $playerValue = $session->get('player_value');
 
-        if ($bankValue > 21) {
+        $flashMessage = $game->determineFlashMessage($playerValue, $bankValue);
+
+        if ($flashMessage !== null) {
             $this->addFlash(
-                'success',
-                'Banken har spruckit!'
-            );
-        } elseif ($playerValue > $bankValue) {
-            $this->addFlash(
-                'success',
-                'Grattis! Du vann!'
-            );
-        } elseif ($playerValue < $bankValue) {
-            $this->addFlash(
-                'warning',
-                'Banken har större hand! Du förlorade!'
-            );
-        } elseif ($playerValue == $bankValue && $playerValue != 0) {
-            $this->addFlash(
-                'warning',
-                'Det är lika mellan er! Du förlorade!'
+                $flashMessage['type'],
+                $flashMessage['message']
             );
         }
 
