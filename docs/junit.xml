@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="23" assertions="65" errors="0" warnings="0" failures="0" skipped="0" time="0.087714">
-    <testsuite name="Project Test Suite" tests="23" assertions="65" errors="0" warnings="0" failures="0" skipped="0" time="0.087714">
-      <testsuite name="App\Game\BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" tests="3" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.014785">
-        <testcase name="testCreateBank" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="15" assertions="2" time="0.011139"/>
-        <testcase name="testHitMethod" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="29" assertions="2" time="0.002443"/>
-        <testcase name="testClearHandMethod" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="49" assertions="3" time="0.001203"/>
+  <testsuite name="" tests="24" assertions="66" errors="0" warnings="0" failures="0" skipped="0" time="0.088145">
+    <testsuite name="Project Test Suite" tests="24" assertions="66" errors="0" warnings="0" failures="0" skipped="0" time="0.088145">
+      <testsuite name="App\Game\BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" tests="3" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.015492">
+        <testcase name="testCreateBank" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="15" assertions="2" time="0.012047"/>
+        <testcase name="testHitMethod" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="29" assertions="2" time="0.002403"/>
+        <testcase name="testClearHandMethod" class="App\Game\BankTest" classname="App.Game.BankTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/BankTest.php" line="49" assertions="3" time="0.001042"/>
       </testsuite>
-      <testsuite name="App\Game\CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" tests="2" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.001920">
-        <testcase name="testCreateCard" class="App\Game\CardTest" classname="App.Game.CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="16" assertions="9" time="0.001410"/>
-        <testcase name="testVerifyCardValue" class="App\Game\CardTest" classname="App.Game.CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="48" assertions="5" time="0.000509"/>
+      <testsuite name="App\Game\CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" tests="2" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.001991">
+        <testcase name="testCreateCard" class="App\Game\CardTest" classname="App.Game.CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="16" assertions="9" time="0.001515"/>
+        <testcase name="testVerifyCardValue" class="App\Game\CardTest" classname="App.Game.CardTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/CardTest.php" line="48" assertions="5" time="0.000475"/>
       </testsuite>
-      <testsuite name="App\Game\DeckExceptionTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckExceptionTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.002772">
-        <testcase name="testDeckExceptionRaisedNoCardsInTheDeck" class="App\Game\DeckExceptionTest" classname="App.Game.DeckExceptionTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckExceptionTest.php" line="15" assertions="2" time="0.002772"/>
+      <testsuite name="App\Game\DeckExceptionTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckExceptionTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.003072">
+        <testcase name="testDeckExceptionRaisedNoCardsInTheDeck" class="App\Game\DeckExceptionTest" classname="App.Game.DeckExceptionTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckExceptionTest.php" line="15" assertions="2" time="0.003072"/>
       </testsuite>
-      <testsuite name="App\Game\DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" tests="3" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.031377">
-        <testcase name="testCreateDeck" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="16" assertions="5" time="0.003146"/>
-        <testcase name="testShuffleDeck" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="39" assertions="1" time="0.027467"/>
-        <testcase name="testDrawOneCard" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="55" assertions="2" time="0.000764"/>
+      <testsuite name="App\Game\DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" tests="3" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.028348">
+        <testcase name="testCreateDeck" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="16" assertions="5" time="0.004345"/>
+        <testcase name="testShuffleDeck" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="39" assertions="1" time="0.023033"/>
+        <testcase name="testDrawOneCard" class="App\Game\DeckTest" classname="App.Game.DeckTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/DeckTest.php" line="55" assertions="2" time="0.000970"/>
       </testsuite>
-      <testsuite name="App\Game\GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" tests="5" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="0.030581">
-        <testcase name="testCreateGameNoArguments" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="16" assertions="4" time="0.003467"/>
-        <testcase name="testCreateGameWithArguments" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="33" assertions="3" time="0.000879"/>
-        <testcase name="testStartGameMethod" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="49" assertions="1" time="0.020177"/>
-        <testcase name="testPlayWithValueLess21ChoiceHit" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="70" assertions="1" time="0.003050"/>
-        <testcase name="testPlayWithValueLess21ChoiceStand" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="101" assertions="4" time="0.003008"/>
+      <testsuite name="App\Controller\GameControllerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameControllerTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.002811">
+        <testcase name="testReturnsResponse" class="App\Controller\GameControllerTest" classname="App.Controller.GameControllerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameControllerTest.php" line="11" assertions="1" time="0.002811"/>
       </testsuite>
-      <testsuite name="App\Game\HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" tests="5" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.003671">
-        <testcase name="testCreateHand" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="15" assertions="3" time="0.000999"/>
-        <testcase name="testAddCardToHand" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="32" assertions="1" time="0.000801"/>
-        <testcase name="testVerifyHandValue" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="46" assertions="5" time="0.000577"/>
-        <testcase name="testVerifyHandValueFourAces" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="79" assertions="2" time="0.000488"/>
-        <testcase name="testVerifyClearCards" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="102" assertions="3" time="0.000806"/>
+      <testsuite name="App\Game\GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" tests="5" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="0.030246">
+        <testcase name="testCreateGameNoArguments" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="16" assertions="4" time="0.002666"/>
+        <testcase name="testCreateGameWithArguments" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="33" assertions="3" time="0.000863"/>
+        <testcase name="testStartGameMethod" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="49" assertions="1" time="0.021067"/>
+        <testcase name="testPlayWithValueLess21ChoiceHit" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="70" assertions="1" time="0.004130"/>
+        <testcase name="testPlayWithValueLess21ChoiceStand" class="App\Game\GameTest" classname="App.Game.GameTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="101" assertions="4" time="0.001519"/>
       </testsuite>
-      <testsuite name="App\Game\PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" tests="4" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.002609">
-        <testcase name="testCreatePlayerNoArgument" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="15" assertions="2" time="0.000418"/>
-        <testcase name="testCreatePlayerWithArgument" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="27" assertions="2" time="0.000501"/>
-        <testcase name="testVerifyHandPropertyOfInstanceHand" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="39" assertions="1" time="0.000802"/>
-        <testcase name="testClearHandMethod" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="50" assertions="2" time="0.000888"/>
+      <testsuite name="App\Game\HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" tests="5" assertions="14" errors="0" warnings="0" failures="0" skipped="0" time="0.002929">
+        <testcase name="testCreateHand" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="15" assertions="3" time="0.000407"/>
+        <testcase name="testAddCardToHand" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="32" assertions="1" time="0.000534"/>
+        <testcase name="testVerifyHandValue" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="46" assertions="5" time="0.000503"/>
+        <testcase name="testVerifyHandValueFourAces" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="79" assertions="2" time="0.000665"/>
+        <testcase name="testVerifyClearCards" class="App\Game\HandTest" classname="App.Game.HandTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/HandTest.php" line="102" assertions="3" time="0.000819"/>
+      </testsuite>
+      <testsuite name="App\Game\PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" tests="4" assertions="7" errors="0" warnings="0" failures="0" skipped="0" time="0.003257">
+        <testcase name="testCreatePlayerNoArgument" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="15" assertions="2" time="0.000443"/>
+        <testcase name="testCreatePlayerWithArgument" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="27" assertions="2" time="0.000947"/>
+        <testcase name="testVerifyHandPropertyOfInstanceHand" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="39" assertions="1" time="0.000714"/>
+        <testcase name="testClearHandMethod" class="App\Game\PlayerTest" classname="App.Game.PlayerTest" file="/home/olga/dbwebb-kurser/mvc/me/report/tests/Game/PlayerTest.php" line="50" assertions="2" time="0.001154"/>
       </testsuite>
     </testsuite>
   </testsuite>
