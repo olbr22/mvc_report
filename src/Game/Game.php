@@ -102,8 +102,8 @@ class Game
      */
     public function end(): void
     {
-        $this->bank->getHand()->clearCards();
-        $this->player->getHand()->clearCards();
+        $this->bank->clearHand();
+        $this->player->clearHand();
     }
 
     /**

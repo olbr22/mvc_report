@@ -95,7 +95,7 @@ class GameTest extends TestCase
 
 
 
-        /**
+    /**
      * Verify play method when hand value is < than 21 and choice is 'stand'.
      */
     public function testPlayWithValueLess21ChoiceStand(): void
@@ -123,5 +123,101 @@ class GameTest extends TestCase
 
         // Call the play method of the Game class
         $game->play('stand');
+    }
+
+    /**
+     * Verify that the end method clears the hand.
+     */
+    public function testEnd(): void
+    {
+        // Create a mock object of the Bank class
+        $mockHand = $this->getMockBuilder(Hand::class)->getMock();
+        // Set an expectation that the hit method will be called once
+        $mockHand->method('getCards')->willReturn([]);
+
+        // Create a new instance of the Game class
+        $game = new Game("Pop Eye", null, null);
+
+        $this->assertInstanceOf(Player::class, $game->getPlayer());
+
+        $this->assertInstanceOf(Bank::class, $game->getBank());
+
+        $this->assertInstanceOf(Deck::class, $game->getDeck());
+
+        // Call the play method of the Game class
+        $game->end();
+
+        // check if the bank's hand is []
+        $bank = $game->getBank();
+        $banksHand = $bank->getHand();
+        $res = $banksHand->getCards();
+
+        // assert that the bank's hand is an empty array
+        $this->assertEmpty($res);
+    }
+
+    /**
+     * Verify that the end method clears the hand.
+     */
+    public function testDetermineFlashMessage(): void
+    {
+        // Create a mock object of the Bank class
+        $mockHand = $this->getMockBuilder(Hand::class)->getMock();
+        // Set an expectation that the hit method will be called once
+        $mockHand->method('getCards')->willReturn([]);
+
+        // Create a new instance of the Game class
+        $game = new Game("Pop Eye", null, null);
+
+        $this->assertInstanceOf(Player::class, $game->getPlayer());
+
+        $this->assertInstanceOf(Bank::class, $game->getBank());
+
+        $this->assertInstanceOf(Deck::class, $game->getDeck());
+
+        // Call the play method of the Game class
+        $game->end();
+
+        // check if the bank's hand is []
+        $bank = $game->getBank();
+        $banksHand = $bank->getHand();
+        $res = $banksHand->getCards();
+
+        // assert that the bank's hand is an empty array
+        $this->assertEmpty($res);
+
+        // when bank's value is bigger 21
+        $playersValue = 19;
+        $bankValue = 23;
+        $res = $game->determineFlashMessage($playersValue, $bankValue);
+        $this->assertNotEmpty($res);
+        $this->assertContains('Banken har spruckit!', $res);
+
+        // when bank's value is less that player's value
+        $playersValue = 20;
+        $bankValue = 19;
+        $res = $game->determineFlashMessage($playersValue, $bankValue);
+        $this->assertNotEmpty($res);
+        $this->assertContains('Grattis! Du vann!', $res);
+
+        // when player's value is less than bank's value
+        $playersValue = 17;
+        $bankValue = 19;
+        $res = $game->determineFlashMessage($playersValue, $bankValue);
+        $this->assertNotEmpty($res);
+        $this->assertContains('Banken har större hand! Du förlorade!', $res);
+
+        // when player's value = bank's value and not 0
+        $playersValue = 19;
+        $bankValue = 19;
+        $res = $game->determineFlashMessage($playersValue, $bankValue);
+        $this->assertNotEmpty($res);
+        $this->assertContains('Det är lika mellan er! Du förlorade!', $res);
+
+        // when player's value = bank's value and not 0
+        $playersValue = 0;
+        $bankValue = 0;
+        $res = $game->determineFlashMessage($playersValue, $bankValue);
+        $this->assertNull($res);
     }
 }
