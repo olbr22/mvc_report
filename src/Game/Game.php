@@ -109,11 +109,11 @@ class Game
     /**
      * Determine the type of the flash message and the message itself
      * based on the player's and bank's hand value.
-     * 
+     *
      * @param int $playerValue The player's hand value.
      * @param int $bankValue The bank's hand value.
-     * 
-     * @return array|null The type of the flash message and the message itself.
+     *
+     * @return array<string> The type of the flash message and the message itself.
      */
     public function determineFlashMessage($playerValue, $bankValue): ?array
     {

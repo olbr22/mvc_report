@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Book entity represents a table book in var/data.db
- * 
+ *
  * This will suppress ShortVariable warning in
  * this class.
  *

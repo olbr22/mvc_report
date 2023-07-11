@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-06-18 12:24:54        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-07-11 19:41:20        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -60,21 +60,21 @@
         <div class="bloc bloc-number">
             <div class="label">Test suites</div>
             <div class="number">
-                7            </div>
+                8            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">Assertions</div>
             <div class="number">
-                65            </div>
+                83            </div>
         </div>
     </div>
     <div class="column">
         <div class="bloc bloc-number">
             <div class="label">
                 classes never called by tests
-                <small>(73.91 %)</small>
+                <small>(70.83 %)</small>
             </div>
             <div class="number">
                 17            </div>
@@ -125,17 +125,6 @@
                                     </td>
                                                             </tr>
                                                         <tr>
-                                <td><span class="path">App\Controller\GameController</span></td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.56);">
-                                        10                                        </span>
-                                    </td>
-                                                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.52);">
-                                        0.52                                        </span>
-                                    </td>
-                                                            </tr>
-                                                        <tr>
                                 <td><span class="path">App\Controller\Kmom01Controller</span></td>
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
@@ -155,6 +144,17 @@
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);">
                                         0.44                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Controller\CodeQualityController</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        0                                        </span>
                                     </td>
                                                             </tr>
                                                         <tr>
@@ -377,13 +377,24 @@
                                                                     </td>
                             </tr>
                                                     <tr>
+                                <td valign="top"><span class="path">App\Controller\GameControllerTest</span></td>
+                                <td style="padding-bottom: 1em;">
+                                                                                                                    <span class="badge" title="Cyclomatic complexity of class">
+                                            -                                        </span>
+                                        <span class="path">PHPUnit\Framework\TestCase</span>
+                                                                            <br>                                        <span class="badge" title="Cyclomatic complexity of class">
+                                            6                                        </span>
+                                        <span class="path">App\Controller\GameController</span>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
                                 <td valign="top"><span class="path">App\Game\GameTest</span></td>
                                 <td style="padding-bottom: 1em;">
                                                                                                                     <span class="badge" title="Cyclomatic complexity of class">
                                             -                                        </span>
                                         <span class="path">PHPUnit\Framework\TestCase</span>
                                                                             <br>                                        <span class="badge" title="Cyclomatic complexity of class">
-                                            8                                        </span>
+                                            11                                        </span>
                                         <span class="path">App\Game\Game</span>
                                                                             <br>                                        <span class="badge" title="Cyclomatic complexity of class">
                                             5                                        </span>
@@ -662,7 +673,7 @@
 
 
             
-            var json = {"name":"Execution time","children":[{"name":"App\\Game\\BankTest","time":0.016576},{"name":"App\\Game\\CardTest","time":0.002348},{"name":"App\\Game\\DeckExceptionTest","time":0.001913},{"name":"App\\Game\\DeckTest","time":0.038381},{"name":"App\\Game\\GameTest","time":0.035651},{"name":"App\\Game\\HandTest","time":0.003412},{"name":"App\\Game\\PlayerTest","time":0.004884}]};
+            var json = {"name":"Execution time","children":[{"name":"App\\Game\\BankTest","time":0.017413},{"name":"App\\Game\\CardTest","time":0.002128},{"name":"App\\Game\\DeckExceptionTest","time":0.003192},{"name":"App\\Game\\DeckTest","time":0.024942},{"name":"App\\Controller\\GameControllerTest","time":0.004623},{"name":"App\\Game\\GameTest","time":0.034044},{"name":"App\\Game\\HandTest","time":0.003223},{"name":"App\\Game\\PlayerTest","time":0.002711}]};
             root = json;
             var nodes = treemap.nodes(json)
                 .filter(function (d) {

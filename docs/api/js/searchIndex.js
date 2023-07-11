@@ -501,6 +501,11 @@ Search.appendIndex(
             "summary": "Clears\u0020the\u0020player\u0027s\u0020and\u0020the\u0020bank\u0027s\u0020hand.",
             "url": "classes/App-Game-Game.html#method_end"
         },                {
+            "fqsen": "\\App\\Game\\Game\u003A\u003AdetermineFlashMessage\u0028\u0029",
+            "name": "determineFlashMessage",
+            "summary": "Determine\u0020the\u0020type\u0020of\u0020the\u0020flash\u0020message\u0020and\u0020the\u0020message\u0020itself\nbased\u0020on\u0020the\u0020player\u0027s\u0020and\u0020bank\u0027s\u0020hand\u0020value.",
+            "url": "classes/App-Game-Game.html#method_determineFlashMessage"
+        },                {
             "fqsen": "\\App\\Game\\Game\u003A\u003A\u0024player",
             "name": "player",
             "summary": "",
@@ -855,6 +860,16 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Controller\\CodeQualityController",
+            "name": "CodeQualityController",
+            "summary": "",
+            "url": "classes/App-Controller-CodeQualityController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\CodeQualityController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-CodeQualityController.html#method_index"
         },                {
             "fqsen": "\\",
             "name": "\\",

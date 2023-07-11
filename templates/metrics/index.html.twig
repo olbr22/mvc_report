@@ -274,8 +274,135 @@
                 </p>
                 <h2 id="forbattringar">4. Förbättringar</h2>
                 <p>Till att börja med väljer jag att fixa buggar för klassen <code>App\Game\Game</code> där Scrutinizer föreslår att granska en elseif-sats: <code>The condition is_null($bank) is always true.</code> Denna åtgärd kommer att göra koden i klassen mer läsbar och lättare att förstå.</p>
-                <p>Därefter tänker jag lyfta en if elseif sats ur GameController::stand metoden till en egen metod i klassen Game. Även denna åtgärd kommer att göra koden mer läsbar samt eventuellt minskar GameControllers komplexitet.</p>
+                <p>Därefter tänker jag lyfta en if elseif sats ur GameController::stand metoden till en egen metod i Game klassen. Även denna åtgärd kommer att göra koden mer läsbar samt eventuellt minskar GameControllers komplexitet.</p>
                 <p>En till förbättring i form av ökad kodtäckning kan uppnås genom att skriva enhetstester till GameController klassen.</p>
+                <h3>4.1 Förbättringar analys</h3>
+                <p>Efter att jag ersatte två elseif-satser i Game-klassen, som kontrollerade om $deck- och $bank-variablerna var null, med null coalescing operator ??, minskade antalet rader i Game-klassen. Denna åtgärd minskade antalet buggar med 2, men förbättrade inte kodens kvalitet. Tyvärr ledde detta till att testtäckningen för Game-klassen minskade från 88.89% till 85.71%, och testtäckningen för hela projektet minskade från 18% till 17%.
+                    <figure>
+                        <a href="{{ asset('img/bug_fix.png') }}" target="_blank"><img src="{{ asset('img/bug_fix.png') }}" alt="Summary of changes in Scrutinizer" width="300"></a>
+                        <figcaption>Ändring av kodstatus i Scrutinizer.</figcaption>
+                    </figure>
+                </p>
+                <p>Genom att separera if-elseif-konstruktionen från stand() metoden i GameController klassen, har jag lyckats förbättra kodbetyget för metoden GameController::stand() från B till A.
+                    <figure>
+                        <a href="{{ asset('img/gamecontroller_stand.png') }}" target="_blank"><img src="{{ asset('img/gamecontroller_stand.png') }}" alt="Increased test coverage in Scrutinizer" width="300"></a>
+                        <figcaption>Ändring av kodstatus i Scrutinizer.</figcaption>
+                    </figure>
+                Kodkomplexiteten och CRAP-måttet för stand() metoden har minskat. Bilder nedan visar rapporter för GameController::stand() medtoden före och efter förändringar.
+                <figure>
+                        <a href="{{ asset('img/crap.png') }}" target="_blank"><img src="{{ asset('img/crap.png') }}" alt="Code status before changes" width="500"></a>
+                        <figcaption>Kodstatus för GameController::stand() före förbättringar.</figcaption>
+                </figure>
+                <figure>
+                        <a href="{{ asset('img/crap_after.png') }}" target="_blank"><img src="{{ asset('img/crap_after.png') }}" alt="Code status after changes" width="500"></a>
+                        <figcaption>Kodstatus för GameController::stand() efter förbättringar.</figcaption>
+                </figure>
+                </p>
+                <p>Jag har även försökt skriva enhetstester för GameController-klassen, men har haft svårt att hitta meningsfulla testfall. Istället valde jag att fokusera på att skriva ytterligare testfall för klassen Game, vilket resulterade i en ökning av kodtäckningen från 17% till 20%.
+                    <figure>
+                        <a href="{{ asset('img/testcoveragetwenty.png') }}" target="_blank"><img src="{{ asset('img/testcoveragetwenty.png') }}" alt="Summary of changes in Scrutinizer" width="300"></a>
+                        <figcaption>Ändring av kodtäckning i Scrutinizer.</figcaption>
+                    </figure>
+                </p>
+                <p>
+                    <table>
+                        <caption>Tabell 3. Översikt över kodkvalitetsmått före och efter ändringarna enligt PhpMetrics</caption>
+                        <tr>
+                            <th>Class</th>
+                            <th title="A higher Cyclomatic Complexity value indicates a higher number of decision points and possible execution paths, which can lead to increased complexity and potential risks">&#9432; Class cyclomatic complexity</th>
+                            <th title="If a class has a high LCOM value, it suggests that the methods within that class are not closely related or dependent on each other.">&#9432; LCOM</th>
+                            <th title="the number of classes affected by given class">&#9432; Afferent coupling</th>
+                            <th title="the number of classes from which given class receives effects">&#9432; Efferent coupling</th>
+                            <th>Volume</th>
+                            <th title="measures how maintainable (easy to support and change) the source code is">&#9432; Maintainability Index</th>
+                            <th>Unit testsuits</th>
+                        </tr>
+                        <tr>
+                            <th><span class="before">Before</span> / <span class="after">After</span></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>App\Controller\GameController</td>
+                            <td><span class="before">10</span> / <span class="after">6</span></td>
+                            <td><span class="before">2</span> / <span class="after">2</span></td>
+                            <td><span class="before">0</span> / <span class="after">0</span></td>
+                            <td><span class="before">6</span> / <span class="after">6</span></td>
+                            <td><span class="before">1559.79</span> / <span class="after">1435.24</span></td>
+                            <td><span class="before">59.41</span> / <span class="after">61.23</span></td>
+                            <td><span class="before">0</span> / <span class="after">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Deck</td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>282.39</td>
+                            <td>89.37</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Card</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>69.74</td>
+                            <td>85.58</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Hand</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>163.5</td>
+                            <td>91.25</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Player</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>69</td>
+                            <td>98.53</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Bank</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>33.69</td>
+                            <td>102.86</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>App\Game\Game</td>
+                            <td><span class="before">8</span> / <span class="after">11</span> </td>
+                            <td><span class="before">1</span> / <span class="after">2</span> </td>
+                            <td><span class="before">1</span> / <span class="after">1</span> </td>
+                            <td><span class="before">3</span> / <span class="after">3</span> </td>
+                            <td><span class="before">182.75</span> / <span class="after">392.55</span> </td>
+                            <td><span class="before">89</span> / <span class="after">86.04</span> </td>
+                            <td><span class="before">5</span> / <span class="after">7</span> </td>
+                        </tr>
+                    </table>
+                </p>
+                <h2 id="discussion">5. Diskussion</h2>
+                <p>Ja, det är definitivt möjligt att aktivt arbeta med kodkvalitet och "clean code" med hjälp av verktyg för kodanalys. Att använda verktyg som Scrutinizer och PhpMetrics har varit till stor hjälp för mig när det gäller att upptäcka potentiella problem i min kod, såsom kodstilbrott, buggar eller prestandafrågor.</p>
+                <p>Det är dock viktigt att vara medveten om att kodanalysverktyg ibland kan generera falska positiva eller falska negativa resultat. Det har hänt att verktygen har markerat vissa delar av min kod som buggar även om mitt program fungerade korrekt. Det har krävt lite extra tid och engagemang att utvärdera och hantera dessa resultat.</p>
+                <p>Dessutom har jag upptäckt att det kan ta lite tid och ansträngning att lära sig om måttvärdena och hur man tolkar resultaten från kodanalysverktygen. Det är värt att investera tid i att förstå och använda dessa värden på rätt sätt för att kunna dra full nytta av verktygens potential.</p>
             </div>
         </div>
     </div>

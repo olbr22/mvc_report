@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688502470">
-  <project timestamp="1688502470">
+<coverage generated="1689093087">
+  <project timestamp="1689093087">
     <file name="/home/olga/dbwebb-kurser/mvc/me/report/src/Controller/CodeQualityController.php">
       <class name="App\Controller\CodeQualityController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>

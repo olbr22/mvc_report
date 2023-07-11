@@ -186,3 +186,11 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.before {
+    color: red;
+}
+
+.after {
+    color: green;
+}

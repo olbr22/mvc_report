@@ -118,7 +118,9 @@ class GameController extends AbstractController
         $session->set('deck_count', $game->getDeck()->getNumCards());
         $session->set('bank_value', $game->getBank()->getHand()->getValue());
 
+        /** @var int $bankValue */
         $bankValue = $session->get('bank_value');
+        /** @var int $playerValue */
         $playerValue = $session->get('player_value');
 
         $flashMessage = $game->determineFlashMessage($playerValue, $bankValue);
