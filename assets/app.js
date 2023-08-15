@@ -17,6 +17,13 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import '@fortawesome/fontawesome-free/js/all.min.js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-import hello from './js/hello';
+import { textile } from './js/textile.js';
+import { food } from './js/food.js';
 
-console.log(hello());
+if (typeof dataFromDatabaseFood !== 'undefined') {
+    food();
+}
+
+if (typeof dataFromDatabaseTextile !== 'undefined') {
+    textile();
+}
