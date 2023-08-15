@@ -20,12 +20,7 @@ class SustainabilatyController extends AbstractController
     #[Route('/proj', name: 'project')]
     public function index(): Response
     {
-        $data = array(
-            array("year" => 2010, "count" => 10),
-            array("year" => 2012, "count" => 30)
-        );
-
-        return $this->render('project/index.html.twig', ['data' => $data]);
+        return $this->render('project/index.html.twig');
     }
 
     #[Route('/proj/about', name: 'sustainability')]
@@ -77,7 +72,6 @@ class SustainabilatyController extends AbstractController
 
         // return $this->json($dataArray);
         $data = json_encode($dataArray);
-        // var_dump($data);
         return $this->render('project/food.html.twig', ['food' => $data]);
     }
 }

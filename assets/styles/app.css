@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Oswald&display=swap');
 
 * {
     box-sizing: border-box;
@@ -193,4 +194,34 @@ tr:nth-child(even) {
 
 .after {
     color: green;
+}
+.custom-card {
+    display: flex;
+}
+
+.item {
+    width: calc(100% / 2);
+}
+
+.card-text {
+    padding: 1%;
+    color: #eee;
+    letter-spacing: 1.3px;
+}
+
+.card-text,
+p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+}
+
+.card-text h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+}
+
+
+.custom-card {
+    background-color: darkslategray;
+    padding: 10%;
 }

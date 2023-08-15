@@ -17,16 +17,15 @@
                     </li>
                 </ul>
             </div>
-        <h1>Hållbar konsumtion och produktion</h1>
-        <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-        <div style="width: 800px;"><canvas id="chart"></canvas></div>
-
-        <!-- <script type="module" src="dimensions.js"></script> -->
-        <script>
-            const dataFromDatabase = {{ data | json_encode|raw }};
-        </script>
-        <script type="module" src="{{ asset('build/app.js') }}">
-        </script>
+            <div class="custom-card">
+                <div class="card-text item">
+                    <h1>Hållbar utvecklig</h1>
+                    <p>Hållbar utveckling är inte bara en trendig fras, det är en viktig vision som formar vår gemensamma framtid. Det handlar om att balansera våra ekonomiska, sociala och miljömässiga behov för att säkerställa en livskraftig planet för kommande generationer.</p>
+                </div>
+                <div class="card-img item">
+                    <img src="{{ asset('img/sustainability_medium.jpg') }}" alt="A tree sprout growing between two palms." max-width="500">
+                </div>
+            </div>
     </div>
 
 {% endblock %}
