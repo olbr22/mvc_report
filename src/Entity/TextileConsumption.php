@@ -5,6 +5,14 @@ namespace App\Entity;
 use App\Repository\TextileConsumptionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * TextileConsumption entity represents a textile_consumption table in var/data.db
+ *
+ * This will suppress ShortVariable warning in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 #[ORM\Entity(repositoryClass: TextileConsumptionRepository::class)]
 class TextileConsumption
 {

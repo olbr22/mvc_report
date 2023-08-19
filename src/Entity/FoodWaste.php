@@ -5,6 +5,14 @@ namespace App\Entity;
 use App\Repository\FoodWasteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * FoodWaste entity represents a table food_waste in var/data.db
+ *
+ * This will suppress ShortVariable warning in
+ * this class.
+ *
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 #[ORM\Entity(repositoryClass: FoodWasteRepository::class)]
 class FoodWaste
 {

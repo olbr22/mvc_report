@@ -13,6 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method FoodWaste|null findOneBy(array $criteria, array $orderBy = null)
  * @method FoodWaste[]    findAll()
  * @method FoodWaste[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @SuppressWarnings(PHPMD)
  */
 class FoodWasteRepository extends ServiceEntityRepository
 {

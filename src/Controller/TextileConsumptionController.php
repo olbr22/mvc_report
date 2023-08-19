@@ -26,12 +26,12 @@ class TextileConsumptionController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $newEntry = new TextileConsumption();
-        $newEntry->setYear(2000);
-        $newEntry->setMale(2.6);
-        $newEntry->setFemale(2.7);
-        $newEntry->setUnisex(3.5);
-        $newEntry->setHousehold(1.9);
-        $newEntry->setTotal(10.7);
+        $newEntry->setYear('2000');
+        $newEntry->setMale('2.6');
+        $newEntry->setFemale('2.7');
+        $newEntry->setUnisex('3.5');
+        $newEntry->setHousehold('1.9');
+        $newEntry->setTotal('10.7');
 
         // tell Doctrine you want to (eventually) save the Product
         // (no queries yet)

@@ -13,6 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method TextileConsumption|null findOneBy(array $criteria, array $orderBy = null)
  * @method TextileConsumption[]    findAll()
  * @method TextileConsumption[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @SuppressWarnings(PHPMD)
  */
 class TextileConsumptionRepository extends ServiceEntityRepository
 {

@@ -13,8 +13,9 @@ use App\Repository\FoodWasteRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- *
+ * @SuppressWarnings(PHPMD)
  */
+
 class SustainabilatyController extends AbstractController
 {
     #[Route('/proj', name: 'project')]
