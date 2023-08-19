@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
@@ -206,22 +206,173 @@ tr:nth-child(even) {
 .card-text {
     padding: 1%;
     color: #eee;
+    text-shadow: 1px 1px #1c1407;
     letter-spacing: 1.3px;
 }
 
 .card-text,
-p {
-    font-family: 'Oswald', sans-serif;
+p,
+.font-p {
+    font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
 }
 
-.card-text h1 {
+.font-p {
+    color: #333;
+}
+
+.card-text h1,
+.font-h1 {
     font-family: 'Lora', serif;
     font-size: 2.2rem;
+}
+
+.font-h2 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
 }
 
 
 .custom-card {
     background-color: darkslategray;
     padding: 10%;
+}
+
+/*
+/proj/about
+templates/project/about.html.twig
+*/
+
+.about-circle {
+    margin: auto;
+    max-width: 80%;
+    background-color: #BF8B2E;
+    border-radius: 80px;
+    padding: 10%;
+}
+
+.about-circle .about-logo{
+    margin: auto;
+    max-width: 30%;
+    padding: 5%;
+}
+
+.about-circle p {
+    text-shadow: 1px 1px #af7e2a;
+    color: #FFFFFF;
+    padding: 2%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.about-circle .font-h1 {
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.font-p a {
+    color: #fff;
+}
+/*
+templates/project/food.html.twig
+*/
+#food,
+#textile {
+    margin-block: 5%;
+}
+
+/*
+navigation
+ */
+.navigation-body {
+    margin: 0;
+    margin-bottom: 3%;
+    padding: 0;
+    height: min-content;
+    background-color: transparent;
+}
+
+.navigation-body, .navigation, #menu {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.navigation {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    transition: 0.5s;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+#menu {
+    margin: 0;
+    padding: 0;
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.navigation input:checked ~ #menu {
+    width: 500px;
+    font-size: 1rem;
+}
+
+#menu li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+#menu li a:hover {
+    color: #161919;
+}
+
+.navigation input {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+.navigation span {
+    position: absolute;
+    left: 25px;
+    width: 30px;
+    height: 4px;
+    border-radius: 50px;
+    background-color: #666;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.navigation input:checked ~ span {
+    background-color: #f974a1;
+}
+
+.navigation span:nth-child(2) {
+    transform: translateY(-8px);
+}
+
+.navigation input:checked ~ span:nth-child(2) {
+    transform: translateY(0) rotate(-45deg);
+}
+.navigation span:nth-child(3) {
+    transform: translateY(8px);
+}
+
+.navigation input:checked ~ span:nth-child(3) {
+    transform: translateY(0) rotate(45deg);
 }

@@ -4,22 +4,37 @@
 
 {% block body %}
     <div class="container my-5">
-            <div>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sustainability') }}">Om projektet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('food') }}">Matavfall och matsvin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('textile') }}">Textilkonsumption</a>
-                    </li>
-                </ul>
+        <div class="navigation-body">
+            <div class="navigation">
+                <input type="checkbox">
+                    <span></span>
+                    <span></span>
+                    <div id="menu">
+                        <li>
+                            <a href="{{ path('sustainability') }}">Om</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('food') }}">Livsmedelsavfall</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('textile') }}">Textilkonsumption</a>
+                        </li>
+                    </div>
             </div>
-        <h1>Hållbar konsumtion och produktion</h1>
-        <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
-        <div style="max-width: 800px;"><canvas id="textile"></canvas></div>
+        </div>
+        <h1 class="font-h1">Textilkonsumtion, kilo per person i Sverige</h1>
+        <p class="font-p">
+            Grafen fokuserar på textilkonsumtionens betydelse för hållbar konsumtion och produktion. Modebranschen är känd för sin stora resursförbrukning och påverkan på miljön. Snabbt skiftande trender resulterar ofta i överkonsumtion och snabbt avfall. Här presenteras data om textilkonsumtion i Sverige under perioden 2000 till 2022, baserat på www.naturvardsverket.se, för att framhäva behovet av medvetna beslut när vi handlar och tar hand om våra kläder.
+        </p>
+        <div style="max-width: 800px;">
+            <canvas id="textile"></canvas>
+        </div>
+
+        <div>
+            <p class="font-p">
+            Nettoinflödet &#40; import minus export &#41; av nya textilier per person till Sverige har ökat med över 40 procent mellan åren 2000 och 2022. Det motsvarar en ökning på ungefär 4,5 kg per person.
+            </p>
+        </div>
 
         <!-- <script type="module" src="dimensions.js"></script> -->
         <script>

@@ -4,24 +4,33 @@
 
 {% block body %}
     <div class="container my-5">
-            <div>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('project') }}">Hem</a>
+        <div class="navigation-body">
+            <div class="navigation">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <div id="menu">
+                    <li>
+                            <a href="{{ path('project') }}">Hem</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('food') }}">Matavfall och matsvin</a>
+                    <li>
+                        <a href="{{ path('food') }}">Livsmedelsavfall</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('textile') }}">Textilkonsumption</a>
+                    <li>
+                        <a href="{{ path('textile') }}">Textilkonsumption</a>
                     </li>
-                </ul>
+                </div>
             </div>
-        <h1>Hållbar konsumtion och produktion</h1>
-        <h2>Om projektet</h2>
-        <p>Jag har valt att adressera ett av de centrala globala målen - "Hållbar konsumtion och produktion". Tanken är att skapa en medvetenhet om och främja förändringar i hur vi konsumerar och producerar varor och tjänster för att minska vår påverkan på planeten.
-        </p>
-        <p>På webbplatsen presenteras två grafer som visualiserar livsmedelsavfall och textilkonsumtion i Sverige. Datat som används för graferna hämtas från www.naturvardsverket.se.</p>
+        </div>
+        <div class="about-circle">
+            <h1 class = "font-h1">Hållbar konsumtion och produktion</h1>
+            <div class="about-logo">
+                <img src="{{ asset('img/logo_sustainable.png' )}}" alt="Logo for SUSTAINABLE CONSUMPTION AND PRODUCTION">
+            </div>
+            <p class = "font-p">Jag har valt att adressera ett av de centrala globala målen - "Hållbar konsumtion och produktion". Tanken är att skapa en medvetenhet om och främja förändringar i hur vi konsumerar och producerar varor och tjänster för att minska vår påverkan på planeten.
+            </p>
+            <p class = "font-p">På webbplatsen presenteras två grafer som visualiserar livsmedelsavfall och textilkonsumtion i Sverige. Datat som används för graferna hämtas från <a href="https://www.naturvardsverket.se/data-och-statistik/konsumtion/" target="_blank">www.naturvardsverket.se</a>.</p>
+        </div>
     </div>
 
 {% endblock %}

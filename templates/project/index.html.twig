@@ -4,19 +4,24 @@
 
 {% block body %}
     <div class="container my-5">
-            <div>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sustainability') }}">Om projektet</a>
+        <div class="navigation-body">
+            <div class="navigation">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <div id="menu">
+                    <li>
+                        <a href="{{ path('sustainability') }}">Om</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('food') }}">Matavfall och matsvin</a>
+                    <li>
+                        <a href="{{ path('food') }}">Livsmedelsavfall</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('textile') }}">Textilkonsumption</a>
+                    <li>
+                        <a href="{{ path('textile') }}">Textilkonsumption</a>
                     </li>
-                </ul>
-            </div>
+                </div>
+        </div>
+        </div>
             <div class="custom-card">
                 <div class="card-text item">
                     <h1>Hållbar utvecklig</h1>
