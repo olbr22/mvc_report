@@ -13,23 +13,40 @@ use App\Repository\FoodWasteRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * Controller for handling sustainability-related pages.
+ *
  * @SuppressWarnings(PHPMD)
  */
-
-class SustainabilatyController extends AbstractController
+class SustainabilityController extends AbstractController
 {
+    /**
+     * Display the index page of the project.
+     *
+     * @return Response
+     */
     #[Route('/proj', name: 'project')]
     public function index(): Response
     {
         return $this->render('project/index.html.twig');
     }
 
+    /**
+     * Display the about page of the project.
+     *
+     * @return Response
+     */
     #[Route('/proj/about', name: 'sustainability')]
     public function about(): Response
     {
         return $this->render('project/about.html.twig');
     }
 
+    /**
+     * Get textile consumption data from the database and render the corresponding page.
+     *
+     * @param TextileConsumptionRepository $textileConsumptionRepository
+     * @return Response
+     */
     #[Route('/proj/textile', name: 'textile')]
     public function getTextileConsumptionData(TextileConsumptionRepository $textileConsumptionRepository): Response
     {
@@ -48,14 +65,16 @@ class SustainabilatyController extends AbstractController
             ];
         }
 
-        // return $this->json($dataArray);
-        // var_dump($data);
-        // $data = $this->json($dataFromDatabase);
         $data = json_encode($dataArray);
-        // var_dump($data);
         return $this->render('project/textile.html.twig', ['textile' => $data]);
     }
 
+    /**
+     * Get food waste data from the database and render the corresponding page.
+     *
+     * @param FoodWasteRepository $foodWasteRepository
+     * @return Response
+     */
     #[Route('/proj/food', name: 'food')]
     public function getFoodWasteData(FoodWasteRepository $foodWasteRepository): Response
     {
@@ -71,7 +90,6 @@ class SustainabilatyController extends AbstractController
             ];
         }
 
-        // return $this->json($dataArray);
         $data = json_encode($dataArray);
         return $this->render('project/food.html.twig', ['food' => $data]);
     }
