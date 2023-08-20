@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-08-20 09:23:55        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-08-20 20:19:41        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -371,6 +371,34 @@
         ]
     },
     {
+        "name": "\\App\\Controller\\SustainabilityController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\TextileConsumptionRepository",
+            "\\App\\Repository\\FoodWasteRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\TextileConsumptionRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\TextileConsumption"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\FoodWasteRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\FoodWaste"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\Kmom02Controller",
         "size": 3000,
         "relations": [
@@ -400,34 +428,6 @@
         "name": "\\Exception",
         "size": 3000,
         "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\SustainabilatyController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\App\\Repository\\TextileConsumptionRepository",
-            "\\App\\Repository\\FoodWasteRepository"
-        ]
-    },
-    {
-        "name": "\\App\\Repository\\TextileConsumptionRepository",
-        "size": 3000,
-        "relations": [
-            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
-            "\\Doctrine\\Persistence\\ManagerRegistry",
-            "\\App\\Entity\\TextileConsumption"
-        ]
-    },
-    {
-        "name": "\\App\\Repository\\FoodWasteRepository",
-        "size": 3000,
-        "relations": [
-            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
-            "\\Doctrine\\Persistence\\ManagerRegistry",
-            "\\App\\Entity\\FoodWaste"
-        ]
     },
     {
         "name": "\\App\\Controller\\CodeQualityController",

@@ -871,31 +871,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-CodeQualityController.html#method_index"
         },                {
-            "fqsen": "\\App\\Controller\\SustainabilatyController",
-            "name": "SustainabilatyController",
-            "summary": "Controller\u0020for\u0020handling\u0020sustainability\u002Drelated\u0020pages.",
-            "url": "classes/App-Controller-SustainabilatyController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\SustainabilatyController\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "Display\u0020the\u0020index\u0020page\u0020of\u0020the\u0020project.",
-            "url": "classes/App-Controller-SustainabilatyController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\SustainabilatyController\u003A\u003Aabout\u0028\u0029",
-            "name": "about",
-            "summary": "Display\u0020the\u0020about\u0020page\u0020of\u0020the\u0020project.",
-            "url": "classes/App-Controller-SustainabilatyController.html#method_about"
-        },                {
-            "fqsen": "\\App\\Controller\\SustainabilatyController\u003A\u003AgetTextileConsumptionData\u0028\u0029",
-            "name": "getTextileConsumptionData",
-            "summary": "Get\u0020textile\u0020consumption\u0020data\u0020from\u0020the\u0020database\u0020and\u0020render\u0020the\u0020corresponding\u0020page.",
-            "url": "classes/App-Controller-SustainabilatyController.html#method_getTextileConsumptionData"
-        },                {
-            "fqsen": "\\App\\Controller\\SustainabilatyController\u003A\u003AgetFoodWasteData\u0028\u0029",
-            "name": "getFoodWasteData",
-            "summary": "Get\u0020food\u0020waste\u0020data\u0020from\u0020the\u0020database\u0020and\u0020render\u0020the\u0020corresponding\u0020page.",
-            "url": "classes/App-Controller-SustainabilatyController.html#method_getFoodWasteData"
-        },                {
             "fqsen": "\\App\\Controller\\TextileConsumptionController",
             "name": "TextileConsumptionController",
             "summary": "",
@@ -1001,6 +976,36 @@ Search.appendIndex(
             "summary": "Set\u0020the\u0020male\u0020textile\u0020consumption\u0020value.",
             "url": "classes/App-Entity-TextileConsumption.html#method_setMale"
         },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AgetFemale\u0028\u0029",
+            "name": "getFemale",
+            "summary": "Get\u0020the\u0020female\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_getFemale"
+        },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AsetFemale\u0028\u0029",
+            "name": "setFemale",
+            "summary": "Set\u0020the\u0020female\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_setFemale"
+        },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AgetUnisex\u0028\u0029",
+            "name": "getUnisex",
+            "summary": "Get\u0020the\u0020unisex\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_getUnisex"
+        },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AsetUnisex\u0028\u0029",
+            "name": "setUnisex",
+            "summary": "Set\u0020the\u0020unisex\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_setUnisex"
+        },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AgetHousehold\u0028\u0029",
+            "name": "getHousehold",
+            "summary": "Get\u0020the\u0020household\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_getHousehold"
+        },                {
+            "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AsetHousehold\u0028\u0029",
+            "name": "setHousehold",
+            "summary": "Set\u0020the\u0020household\u0020textile\u0020consumption\u0020value.",
+            "url": "classes/App-Entity-TextileConsumption.html#method_setHousehold"
+        },                {
             "fqsen": "\\App\\Entity\\TextileConsumption\u003A\u003AgetTotal\u0028\u0029",
             "name": "getTotal",
             "summary": "Get\u0020the\u0020total\u0020textile\u0020consumption\u0020value.",
@@ -1048,43 +1053,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\FoodWasteRepository",
             "name": "FoodWasteRepository",
-            "summary": "Repository\u0020class\u0020for\u0020managing\u0020FoodWaste\u0020entities.",
+            "summary": "",
             "url": "classes/App-Repository-FoodWasteRepository.html"
         },                {
             "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "FoodWasteRepository\u0020constructor.",
+            "summary": "",
             "url": "classes/App-Repository-FoodWasteRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Save\u0020the\u0020given\u0020FoodWaste\u0020entity.",
+            "summary": "",
             "url": "classes/App-Repository-FoodWasteRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "Remove\u0020the\u0020given\u0020FoodWaste\u0020entity.",
+            "summary": "",
             "url": "classes/App-Repository-FoodWasteRepository.html#method_remove"
-        },                {
-            "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "Find\u0020a\u0020FoodWaste\u0020entity\u0020by\u0020its\u0020ID.",
-            "url": "classes/App-Repository-FoodWasteRepository.html#method_find"
-        },                {
-            "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003AfindOneBy\u0028\u0029",
-            "name": "findOneBy",
-            "summary": "Find\u0020a\u0020single\u0020FoodWaste\u0020entity\u0020by\u0020its\u0020criteria.",
-            "url": "classes/App-Repository-FoodWasteRepository.html#method_findOneBy"
-        },                {
-            "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003AfindAll\u0028\u0029",
-            "name": "findAll",
-            "summary": "Find\u0020all\u0020FoodWaste\u0020entities.",
-            "url": "classes/App-Repository-FoodWasteRepository.html#method_findAll"
-        },                {
-            "fqsen": "\\App\\Repository\\FoodWasteRepository\u003A\u003AfindBy\u0028\u0029",
-            "name": "findBy",
-            "summary": "Find\u0020FoodWaste\u0020entities\u0020by\u0020criteria.",
-            "url": "classes/App-Repository-FoodWasteRepository.html#method_findBy"
         },                {
             "fqsen": "\\App\\Repository\\TextileConsumptionRepository",
             "name": "TextileConsumptionRepository",
@@ -1106,25 +1091,30 @@ Search.appendIndex(
             "summary": "Remove\u0020the\u0020given\u0020TextileConsumption\u0020entity.",
             "url": "classes/App-Repository-TextileConsumptionRepository.html#method_remove"
         },                {
-            "fqsen": "\\App\\Repository\\TextileConsumptionRepository\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "Find\u0020a\u0020TextileConsumption\u0020entity\u0020by\u0020its\u0020ID.",
-            "url": "classes/App-Repository-TextileConsumptionRepository.html#method_find"
+            "fqsen": "\\App\\Controller\\SustainabilityController",
+            "name": "SustainabilityController",
+            "summary": "Controller\u0020for\u0020handling\u0020sustainability\u002Drelated\u0020pages.",
+            "url": "classes/App-Controller-SustainabilityController.html"
         },                {
-            "fqsen": "\\App\\Repository\\TextileConsumptionRepository\u003A\u003AfindOneBy\u0028\u0029",
-            "name": "findOneBy",
-            "summary": "Find\u0020a\u0020single\u0020TextileConsumption\u0020entity\u0020by\u0020its\u0020criteria.",
-            "url": "classes/App-Repository-TextileConsumptionRepository.html#method_findOneBy"
+            "fqsen": "\\App\\Controller\\SustainabilityController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Display\u0020the\u0020index\u0020page\u0020of\u0020the\u0020project.",
+            "url": "classes/App-Controller-SustainabilityController.html#method_index"
         },                {
-            "fqsen": "\\App\\Repository\\TextileConsumptionRepository\u003A\u003AfindAll\u0028\u0029",
-            "name": "findAll",
-            "summary": "Find\u0020all\u0020TextileConsumption\u0020entities.",
-            "url": "classes/App-Repository-TextileConsumptionRepository.html#method_findAll"
+            "fqsen": "\\App\\Controller\\SustainabilityController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "Display\u0020the\u0020about\u0020page\u0020of\u0020the\u0020project.",
+            "url": "classes/App-Controller-SustainabilityController.html#method_about"
         },                {
-            "fqsen": "\\App\\Repository\\TextileConsumptionRepository\u003A\u003AfindBy\u0028\u0029",
-            "name": "findBy",
-            "summary": "Find\u0020TextileConsumption\u0020entities\u0020by\u0020criteria.",
-            "url": "classes/App-Repository-TextileConsumptionRepository.html#method_findBy"
+            "fqsen": "\\App\\Controller\\SustainabilityController\u003A\u003AgetTextileConsumptionData\u0028\u0029",
+            "name": "getTextileConsumptionData",
+            "summary": "Get\u0020textile\u0020consumption\u0020data\u0020from\u0020the\u0020database\u0020and\u0020render\u0020the\u0020corresponding\u0020page.",
+            "url": "classes/App-Controller-SustainabilityController.html#method_getTextileConsumptionData"
+        },                {
+            "fqsen": "\\App\\Controller\\SustainabilityController\u003A\u003AgetFoodWasteData\u0028\u0029",
+            "name": "getFoodWasteData",
+            "summary": "Get\u0020food\u0020waste\u0020data\u0020from\u0020the\u0020database\u0020and\u0020render\u0020the\u0020corresponding\u0020page.",
+            "url": "classes/App-Controller-SustainabilityController.html#method_getFoodWasteData"
         },                {
             "fqsen": "\\",
             "name": "\\",

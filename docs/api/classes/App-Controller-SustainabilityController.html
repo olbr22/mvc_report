@@ -106,15 +106,15 @@
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/app.html">App</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-repository.html">Repository</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-controller.html">Controller</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    TextileConsumptionRepository
+    SustainabilityController
 
         <span class="phpdocumentor-element__extends">
-        extends <abbr title="\Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository">ServiceEntityRepository</abbr>
+        extends <abbr title="\Symfony\Bundle\FrameworkBundle\Controller\AbstractController">AbstractController</abbr>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -128,13 +128,13 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TextileConsumptionRepository.php"><a href="files/src-repository-textileconsumptionrepository.html"><abbr title="src/Repository/TextileConsumptionRepository.php">TextileConsumptionRepository.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/SustainabilityController.php"><a href="files/src-controller-sustainabilitycontroller.html"><abbr title="src/Controller/SustainabilityController.php">SustainabilityController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Repository class for managing TextileConsumption entities.</p>
+            <p class="phpdocumentor-summary">Controller for handling sustainability-related pages.</p>
 
 
 
@@ -144,11 +144,11 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">extends</span>
+                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>ServiceEntityRepository&lt;TextileConsumption&gt;</p>
+                                                 <section class="phpdocumentor-description"><p>(PHPMD)</p>
 </section>
 
                                     </dd>
@@ -166,25 +166,32 @@
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Repository-TextileConsumptionRepository.html#method___construct">__construct()</a>
+    <a href="classes/App-Controller-SustainabilityController.html#method_about">about()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
-<dd>TextileConsumptionRepository constructor.</dd>
+<dd>Display the about page of the project.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Repository-TextileConsumptionRepository.html#method_remove">remove()</a>
+    <a href="classes/App-Controller-SustainabilityController.html#method_getFoodWasteData">getFoodWasteData()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
-<dd>Remove the given TextileConsumption entity.</dd>
+<dd>Get food waste data from the database and render the corresponding page.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Repository-TextileConsumptionRepository.html#method_save">save()</a>
+    <a href="classes/App-Controller-SustainabilityController.html#method_getTextileConsumptionData">getTextileConsumptionData()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
-<dd>Save the given TextileConsumption entity.</dd>
+<dd>Get textile consumption data from the database and render the corresponding page.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Controller-SustainabilityController.html#method_index">index()</a>
+    <span>
+                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+</dt>
+<dd>Display the index page of the project.</dd>
 
         </dl>
 
@@ -197,7 +204,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Repository-TextileConsumptionRepository.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Controller-SustainabilityController.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -205,41 +212,29 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/App-Repository-TextileConsumptionRepository.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_about">
+        about()
+        <a href="classes/App-Controller-SustainabilityController.html#method_about" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TextileConsumptionRepository.php"><a href="files/src-repository-textileconsumptionrepository.html"><abbr title="src/Repository/TextileConsumptionRepository.php">TextileConsumptionRepository.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/SustainabilityController.php"><a href="files/src-controller-sustainabilitycontroller.html"><abbr title="src/Controller/SustainabilityController.php">SustainabilityController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">TextileConsumptionRepository constructor.</p>
+        <p class="phpdocumentor-summary">Display the about page of the project.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$registry</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">about</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$registry</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Persistence\ManagerRegistry">ManagerRegistry</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The entity manager registry.</p>
-</section>
-
-            </dd>
-            </dl>
-
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
             &mdash;
         
     
@@ -250,50 +245,39 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_remove">
-        remove()
-        <a href="classes/App-Repository-TextileConsumptionRepository.html#method_remove" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getFoodWasteData">
+        getFoodWasteData()
+        <a href="classes/App-Controller-SustainabilityController.html#method_getFoodWasteData" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TextileConsumptionRepository.php"><a href="files/src-repository-textileconsumptionrepository.html"><abbr title="src/Repository/TextileConsumptionRepository.php">TextileConsumptionRepository.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/SustainabilityController.php"><a href="files/src-controller-sustainabilitycontroller.html"><abbr title="src/Controller/SustainabilityController.php">SustainabilityController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Remove the given TextileConsumption entity.</p>
+        <p class="phpdocumentor-summary">Get food waste data from the database and render the corresponding page.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">remove</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-TextileConsumption.html"><abbr title="\App\Entity\TextileConsumption">TextileConsumption</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$entity</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flush</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">getFoodWasteData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-FoodWasteRepository.html"><abbr title="\App\Repository\FoodWasteRepository">FoodWasteRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$foodWasteRepository</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$entity</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-TextileConsumption.html"><abbr title="\App\Entity\TextileConsumption">TextileConsumption</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$foodWasteRepository</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-FoodWasteRepository.html"><abbr title="\App\Repository\FoodWasteRepository">FoodWasteRepository</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The entity to be removed.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$flush</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Whether to flush the entity manager after removing.</p>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
             &mdash;
         
     
@@ -304,50 +288,72 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_save">
-        save()
-        <a href="classes/App-Repository-TextileConsumptionRepository.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getTextileConsumptionData">
+        getTextileConsumptionData()
+        <a href="classes/App-Controller-SustainabilityController.html#method_getTextileConsumptionData" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Repository/TextileConsumptionRepository.php"><a href="files/src-repository-textileconsumptionrepository.html"><abbr title="src/Repository/TextileConsumptionRepository.php">TextileConsumptionRepository.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/SustainabilityController.php"><a href="files/src-controller-sustainabilitycontroller.html"><abbr title="src/Controller/SustainabilityController.php">SustainabilityController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Save the given TextileConsumption entity.</p>
+        <p class="phpdocumentor-summary">Get textile consumption data from the database and render the corresponding page.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-TextileConsumption.html"><abbr title="\App\Entity\TextileConsumption">TextileConsumption</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$entity</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flush</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">getTextileConsumptionData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-TextileConsumptionRepository.html"><abbr title="\App\Repository\TextileConsumptionRepository">TextileConsumptionRepository</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$textileConsumptionRepository</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$entity</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-TextileConsumption.html"><abbr title="\App\Entity\TextileConsumption">TextileConsumption</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$textileConsumptionRepository</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Repository-TextileConsumptionRepository.html"><abbr title="\App\Repository\TextileConsumptionRepository">TextileConsumptionRepository</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The entity to be saved.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$flush</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Whether to flush the entity manager after persisting.</p>
-</section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_index">
+        index()
+        <a href="classes/App-Controller-SustainabilityController.html#method_index" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/SustainabilityController.php"><a href="files/src-controller-sustainabilitycontroller.html"><abbr title="src/Controller/SustainabilityController.php">SustainabilityController.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Display the index page of the project.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">index</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
             &mdash;
         
     
@@ -430,7 +436,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/App-Repository-TextileConsumptionRepository.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Controller-SustainabilityController.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
