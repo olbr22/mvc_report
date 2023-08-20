@@ -27,6 +27,10 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">src/Command</directory>
+            <!-- <file>src/autoload.php</file> -->
+        </exclude>
         <report>
             <clover outputFile="docs/coverage.clover"/>
             <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>

@@ -7,21 +7,29 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TextileConsumption>
+ * Repository class for managing TextileConsumption entities.
  *
- * @method TextileConsumption|null find($id, $lockMode = null, $lockVersion = null)
- * @method TextileConsumption|null findOneBy(array $criteria, array $orderBy = null)
- * @method TextileConsumption[]    findAll()
- * @method TextileConsumption[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- * @SuppressWarnings(PHPMD)
+ * @extends ServiceEntityRepository<TextileConsumption>
  */
 class TextileConsumptionRepository extends ServiceEntityRepository
 {
+    /**
+     * TextileConsumptionRepository constructor.
+     *
+     * @param ManagerRegistry $registry The entity manager registry.
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TextileConsumption::class);
     }
 
+    /**
+     * Save the given TextileConsumption entity.
+     *
+     * @param TextileConsumption $entity The entity to be saved.
+     * @param bool $flush Whether to flush the entity manager after persisting.
+     * @return void
+     */
     public function save(TextileConsumption $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -31,6 +39,13 @@ class TextileConsumptionRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove the given TextileConsumption entity.
+     *
+     * @param TextileConsumption $entity The entity to be removed.
+     * @param bool $flush Whether to flush the entity manager after removing.
+     * @return void
+     */
     public function remove(TextileConsumption $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -40,28 +55,52 @@ class TextileConsumptionRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return TextileConsumption[] Returns an array of TextileConsumption objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    // /**
+    //  * Find a TextileConsumption entity by its ID.
+    //  *
+    //  * @param int $id The ID of the entity.
+    //  * @param int|null $lockMode The lock mode.
+    //  * @param int|null $lockVersion The lock version.
+    //  * @return TextileConsumption|null The found entity or null if not found.
+    //  */
+    // public function find($id, $lockMode = null, $lockVersion = null): ?TextileConsumption
+    // {
+    //     return parent::find($id, $lockMode, $lockVersion);
+    // }
 
-//    public function findOneBySomeField($value): ?TextileConsumption
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    // /**
+    //  * Find a single TextileConsumption entity by its criteria.
+    //  *
+    //  * @param array $criteria The criteria to search for.
+    //  * @param array|null $orderBy The sorting criteria.
+    //  * @return TextileConsumption|null The found entity or null if not found.
+    //  */
+    // public function findOneBy(array $criteria, array $orderBy = null): ?TextileConsumption
+    // {
+    //     return parent::findOneBy($criteria, $orderBy);
+    // }
+
+    // /**
+    //  * Find all TextileConsumption entities.
+    //  *
+    //  * @return TextileConsumption[] The array of entities.
+    //  */
+    // public function findAll(): array
+    // {
+    //     return parent::findAll();
+    // }
+
+    // /**
+    //  * Find TextileConsumption entities by criteria.
+    //  *
+    //  * @param array $criteria The criteria to search for.
+    //  * @param array|null $orderBy The sorting criteria.
+    //  * @param int|null $limit The maximum number of entities to return.
+    //  * @param int|null $offset The offset to start from.
+    //  * @return TextileConsumption[] The array of entities.
+    //  */
+    // public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
+    // {
+    //     return parent::findBy($criteria, $orderBy, $limit, $offset);
+    // }
 }

@@ -2,7 +2,7 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*]
+    excluded_paths: [vendor/*, tests/*, src/Command/*, migrations/*, src/Controller/Kmom01Controller.php, src/Controller/Kmom02Controller.php, src/Controller/Kmom02ControllerJson.php]
 
 build:
     image: default-bionic

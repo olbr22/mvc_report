@@ -13,6 +13,9 @@
             <source dsn=".">
                 <path>src</path>
             </source>
+            <ignore hidden="true" symlinks="true">
+                <path>src/Command/*</path>
+            </ignore>
         </api>
     </version>
 </phpdocumentor>

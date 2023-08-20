@@ -2,8 +2,9 @@
     "includes": [
         "src"
     ],
-    "exclude": [
-      "test[s]?"
+    "excludes": [
+        "test[s]?",
+        "src/Command/*"
     ],
     "report": {
         "html": "docs/metrics"

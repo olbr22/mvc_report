@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-07-11 19:41:20        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-08-20 09:23:55        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -308,6 +308,21 @@
         ]
     },
     {
+        "name": "\\App\\Controller\\TextileConsumptionController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\TextileConsumption"
+        ]
+    },
+    {
+        "name": "\\App\\Entity\\TextileConsumption",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Controller\\LibraryControllerJson",
         "size": 3000,
         "relations": [
@@ -387,6 +402,34 @@
         "relations": []
     },
     {
+        "name": "\\App\\Controller\\SustainabilatyController",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\TextileConsumptionRepository",
+            "\\App\\Repository\\FoodWasteRepository"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\TextileConsumptionRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\TextileConsumption"
+        ]
+    },
+    {
+        "name": "\\App\\Repository\\FoodWasteRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\FoodWaste"
+        ]
+    },
+    {
         "name": "\\App\\Controller\\CodeQualityController",
         "size": 3000,
         "relations": [
@@ -444,6 +487,54 @@
     },
     {
         "name": "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\FoodWaste",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Command\\InsertCsvDataCommand",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Component\\Console\\Command\\Command",
+            "\\Doctrine\\ORM\\EntityManagerInterface",
+            "\\Doctrine\\DBAL\\Connection",
+            "\\Symfony\\Component\\Console\\Input\\InputInterface",
+            "\\Symfony\\Component\\Console\\Output\\OutputInterface",
+            "\\Symfony\\Component\\Console\\Style\\SymfonyStyle",
+            "\\App\\Entity\\FoodWaste"
+        ]
+    },
+    {
+        "name": "\\Symfony\\Component\\Console\\Command\\Command",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\ORM\\EntityManagerInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Doctrine\\DBAL\\Connection",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\Console\\Input\\InputInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\Console\\Output\\OutputInterface",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\Console\\Style\\SymfonyStyle",
         "size": 3000,
         "relations": []
     },
