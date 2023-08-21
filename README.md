@@ -1,3 +1,5 @@
+A webbsite created for educational purposes in particular for the mvc course. This webbsite contains reports on each course moment (kmom), 1 to 6 including examination project. The examination project idea is to visualize sustainability indicators using Chart.js library for data visualization.
+
 The Scrutinazer badges showing the status of the code:
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/olbr22/mvc_report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/olbr22/mvc_report/?branch=main)
