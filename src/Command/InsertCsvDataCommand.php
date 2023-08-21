@@ -50,7 +50,6 @@ class InsertCsvDataCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-
         // $entityArgument = $input->getArgument('entity');
         // $io->success("Entity to instantiate object from: $entityArgument");
 
