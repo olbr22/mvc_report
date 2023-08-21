@@ -27,6 +27,7 @@ Step 2: Setup Symfony Project
         `npm run build`
 
 Step 3: Open the PHP built-in web server to verify the installation
+
     3.1. Make sure you are in the cloned directory
     3.2. Run the following command to run the PHP built.in web server
         `php -S localhost:8888 -t public`
