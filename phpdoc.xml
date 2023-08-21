@@ -15,6 +15,9 @@
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>src/Command/*</path>
+                <path>src/Deck/*</path>
+                <path>src/Repository/*</path>
+                <path>src/Kernel.php</path>
             </ignore>
         </api>
     </version>
